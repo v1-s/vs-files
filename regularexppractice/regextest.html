@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        *{
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        #form{
+            margin: 50px 30px 20px 30px ;
+            background-color: none;
+            width: 200px;
+
+        }
+        input{
+            border-radius: 120px;
+            padding:10px ;
+            margin-top: 10px ;
+            margin-bottom: 10px;
+        }
+    </style>
+</head>
+<body>
+    <div id="form">
+        <input type="text" name="mname" id="name" placeholder="Enter Username"><span></span>
+        <input type="email" name="uname" id="username" placeholder="Enter useremailid"><p id="para"></p>
+        <input type="tel" name="telephone" id="itel" placeholder="Enter telephone number"><p id="para1"></p>
+        <input type="pswrd" name="pswrd" id="ipwrd" placeholder="Enter password"><p id="para2"></p>
+        <input type="button" id="btn" value ="Submit">
+        </div>
+
+
+   <script>     
+            document.querySelector("#btn").addEventListener("click",function(){
+                let name=document.querySelector("#name").value;
+                const regmname=/^[a-z]{5,12}$/
+                if(!regmname.test(name)){
+                    let n=document.querySelector("#name")
+                   n.style.border="2px solid red";
+                  document.querySelector("span").innerHTML="username not valid"
+                }else{
+                    let n=document.querySelector("#name")
+                     n.style.border="2px solid green"
+                     document.querySelector("span").style.display="none"
+                }
+                
+                let usermail=document.querySelector("#username").value;
+                const regmail=/^([a-z]{2,3})[@]([a-z]{3,8})[.]([a-z]{3})$/
+                if(!regmail.test(usermail)){
+                    let m=document.querySelector("#username")
+                    m.style.border="2px solid red";
+                    document.querySelector("#para").innerHTML="usermail not valid"
+                }else{
+                    let m=document.querySelector("#username")
+                     m.style.border="2px solid green"
+                     document.querySelector("#para").style.display="none"
+                }
+                let telp =document.querySelector("#itel").value;
+                const regtel=/^[\d{10}]/
+                if(!regtel.test(telp)){
+                    let t=document.querySelector("#itel")
+                    t.style.border="2px solid red"
+                    document.querySelector("#para1").innerHTML="Telephone not valid"
+                }else{
+                    let t=document.querySelector("#itel")
+                     t.style.border="2px solid green"
+                     document.querySelector("#para1").style.display="none"
+                }
+                let paswrd =document.querySelector("#ipwrd").value;
+                const regpwrd=/^([\w @\-]+){8,20}$/
+                if(!regpwrd.test(paswrd)){
+                    let p=document.querySelector("#ipwrd")
+                    p.style.border="2px solid red";
+                    document.querySelector("#para2").innerHTML="passwrd not valid"
+                }else{
+                    let p=document.querySelector("#ipwrd")
+                     p.style.border="2px solid green"
+                     document.querySelector("#para2").style.display="none"
+                }
+            });
+            document.querySelector("#btn").addEventListener("click",function(){
+                let name=document.querySelector("#name").value;
+                const regmname=/^[a-z]{5,12}$/;
+                let usermail=document.querySelector("#username").value;
+                const regmail=/^([a-z]{2,3})[@]([a-z]{3,8})[.]([a-z]{3})$/;
+                let telp =document.querySelector("#itel").value;
+                const regtel=/^[\d{10}]/;
+                let paswrd =document.querySelector("#ipwrd").value;
+                const regpwrd=/^([\w @\-]+){8,20}$/;
+
+                if((regmname.test(name))&&(regmail.test(usermail))&&(regtel.test(telp))&&(regpwrd.test(paswrd))){
+                     let p=document.querySelector("#ipwrd")
+                     p.style.border="2px solid green"
+                     let t=document.querySelector("#itel")
+                     t.style.border="2px solid green"
+                     let n=document.querySelector("#name")
+                     n.style.border="2px solid green"
+                     let m=document.querySelector("#username")
+                     m.style.border="2px solid green";
+
+
+
+                    //  alert("All details are correct");
+                     
+                }
+                if((regmname.test(name))&&(regmail.test(usermail))&&(regtel.test(telp))&&(regpwrd.test(paswrd))){
+                    alert("All details are correct");}
+            });
+  </script>
+</body>
+</html>

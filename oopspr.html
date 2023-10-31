@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        function Person(name,place,age){
+            this.name=name;
+             this.place=place;
+                this.age=age;
+            // console.log(name);
+            // console.log(age);
+            return {name:name,age:age,place:place};
+            
+        }
+     var result =  Person("v","bng",20);
+     console.log(result);
+    //    console.log(Person.name);
+    function Animal(name,breed,location){
+        this.name=name;
+        this.breed=breed;
+        this.location=location;
+        return{name:name,breed:breed,location:location}
+    }
+    var animal=new Animal("jimmy","labordor","jungle");
+    console.log(animal);
+        function Person1(a_age,p_place){
+             age=a_age;
+             place=p_place;
+             return {age: a_age,place:p_place}
+
+        }
+     var res=Person1(20,"V");
+     console.log(typeof res);
+        console.log(typeof res.age);
+           
+        function mul(a,b){
+            return a*b;
+        }
+        var m = mul(2,3);
+        console.log(m);
+
+     function p1(name,place){
+               
+                return {name:name,place:place}
+     }     
+      var res = p1("V","bng");
+        console.log( res.name);
+
+
+
+
+    // -------------------class -------------------------------------//
+    class Animal1{
+            constructor(name,breed,loc){
+                    this.name=name;
+                    this.breed=breed;
+                    this.loc=loc;
+            }
+              getdetails() {
+                     console.log("the dog is "+ this.name)
+                    
+            }
+            
+        }
+ const an1=new Animal1("browny","lab","home");
+ console.log(an1);
+ an1.getdetails();
+
+
+
+    </script>
+</body>
+</html>

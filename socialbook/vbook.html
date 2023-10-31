@@ -1,0 +1,159 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="vbcss.css">
+    <title>Social book</title>
+</head>
+
+<body>
+    <!---------------------------------------------------NAVBAR starts here------------------------------------------------------------------------------------------------>
+    <nav id="navbar">
+        <div class="logo">
+            <img src="../fb/Assets/logo.png" style="height: 60px;">
+        </div>
+        <div class="icons">
+            <ul>
+                <li>
+                    <img src="../fb/Assets/notification.png">
+                    <img src="../fb/Assets/inbox.png">
+                    <img src="../fb/Assets/video.png">
+                </li>
+            </ul>
+        </div>
+        <div id="lasticon">
+            <input type="text" name="search"  id="serch"  placeholder="search">
+            <img src="../fb/Assets/search.png">
+        </div>
+        <div id="profile">
+            <img src="../fb/Assets/profile-pic.png">
+
+            <form id="fm">
+                <input type="email" id="email" placeholder="Enter your email">
+                <input type="password" id="pswrd" placeholder="Enter your password">
+                <input type="tel" id="numb" placeholder="Enter your mobile number">
+                <input type="submit" value="Submit">
+            </form>
+        </div>
+    </nav>
+
+    <!---------------------------------------main page--------------------------------->
+    <div class=" container">
+        <div class="cont-1">
+            <div class="mpage1">
+                <img src="../fb/Assets/news.png">
+                <img src="../fb/Assets/friends.png">
+                <img src="../fb/Assets/group.png">
+                <img src="../fb/Assets/marketplace.png">
+                <img src="../fb/Assets/watch.png">
+            </div>
+            <div class="mcontent1">
+                <p>Latest News</p>
+                <p>Friends </p>
+                <p>Group </p>
+                <p>Market place</p>
+                <p>Latest place </p>
+            </div>
+                <h2>See More</h2>
+        </div>
+        <div class="cont-2">
+
+            <div class="images">
+                <div class="i1">
+                    <img src="../fb/Assets/status-1.png">
+                    <div class="pic1">
+                        <img src="../fb/Assets/upload.png">
+                        <p> Post Story</p>
+                    </div>
+                </div>
+                <div class="i2">
+                    <img src="../fb/Assets/status-2.png">
+                    <div class="pic2">
+                        <img src="../fb/Assets/member-1.png">
+                        <p> Allison</p>
+                    </div>
+                </div>
+                <div class="i3">
+                    <img src="../fb/Assets/status-3.png">
+                    <div class="pic3">
+                        <img src="../fb/Assets/member-2.png">
+                        <p> Jackson</p>
+                    </div>
+                </div>
+                <div class="i4">
+                    <img src="../fb/Assets/status-4.png">
+                    <div class="pic4">
+                        <img src="../fb/Assets/member-3.png">
+                        <p> J</p>
+                    </div>
+                </div>
+                <div class="i5">
+                    <img src="..fb/Assets/status-5.png">
+                    <div class="pic5">
+                        <img src="../fb/Assets/member-4.png">
+                        <p> Jackn</p>
+                    </div>
+                </div>
+            </div>
+            <div class="mpage2">
+                <div class="content2">
+                    <p>
+                        <img ></p>
+                </div>
+            </div>
+            <div class="mcont2">
+                <div class="pf2">
+                    <img src="../fb/Assets/profile-pic.png">
+                </div>
+                <div class="cntnt2">
+                    <h4>XYZ</h4>
+                    <p>
+                        Public
+                    </p>
+                    <p>Hii</p>
+                    <hr>
+                    <div class="blog">
+                        <img src="../fb/Assets/live-video.png">
+                        live video
+                        <img src="../fb/Assets/photo.png">
+                        <img src="../fb/Assets/feeling.png">
+                    </div>
+
+            </div>
+</div>
+        <div class=" cont-3">
+            <div class="mpage3">
+ghkjjjl
+            </div>
+        </div>
+    </div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+    <script>
+        document.querySelector("#profile").addEventListener("click", function () {
+
+            let frm = document.querySelector("#fm");
+            frm.style.display = "block"
+        })
+        document.querySelector("#profile").addEventListener("dblclick", function () {
+            let frm = document.getElementById("fm");
+            frm.style.display = "none"
+        })
+    </script>
+
+</body>
+
+</html>

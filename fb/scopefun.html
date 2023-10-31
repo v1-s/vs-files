@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        
+        // function ap(){
+        //     var a= "string representation"
+        //     console.log(a);
+        // }
+        // ap();
+        // console.log(a);
+
+
+    //     function parent(){
+    //             var a=7;
+    //          function child(){
+    //             var y =100;
+    //             console.log(a+y);
+    //             }
+    //            return  child;
+    //         }
+      
+    //    var res =  parent();
+    //    res();
+    //    let str="a2b3c4d5f6g7h8"
+    //    const  regex=/^\d[a-z]{12,20}$/ 
+    //    let result=(regex.test(str));
+    //     console.log(result);
+   
+
+
+
+
+ const p= new Promise((resolve,reject)=>{
+            resolve("promise Resolved Value!")
+        });
+        async function handlePromise(){
+            const val =  await p;
+            console.log(val);
+        }
+        handlePromise();
+        
+
+    </script>
+</body>
+</html>

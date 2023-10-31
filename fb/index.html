@@ -1,0 +1,443 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>AK Book</title>
+    <link rel="stylesheet" href="./style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.3.0/css/all.min.css"/>
+
+</head>
+<body>
+
+    <!-- ----NAVBAR----- -->
+    <nav>
+        <div class="nav-left">
+            <img class="logo" src="./Assets/logo.png" alt="logo"/>
+            <ul>
+                <li><img src="./Assets/notification.png" alt="notification"/></li>
+                <li><img src="./Assets/inbox.png" alt="inbox"/></li>
+                <li><img src="./Assets/video.png" alt="video"/></li>
+            </ul>
+        </div>
+        <div class="nav-right">
+            <div class="search-box   online">
+                <img src="./Assets/search.png" alt="search"/>
+                <input type="text" placeholder="search">
+            </div>
+            <div class="nav-user-icon" onclick="settingsMenuToggle()">
+                <img src="./Assets/profile-pic.png" alt="profile-pic"/>
+            </div>
+        </div>
+
+
+<!-- --------settings-menu------ -->
+
+        <div class="settings-menu">
+
+            <div id="dark-btn" class="dark-btn-on">
+                <span></span>
+            </div>
+
+
+
+
+
+
+            <div class="settings-menu-inner">
+                <div class="user-profile">
+                    <img src="./Assets/profile-pic.png" alt="profile"/>
+                    <div class="user-profile-1">
+                        <p>Arun Kumar</p>
+                        <a href="#">See Your Profile</a>
+                    </div>
+                </div>
+                <hr>
+    
+                <div class="user-profile">
+                    <img src="./Assets/feedback.png" alt="profile"/>
+                    <div class="user-profile-1">
+                        <p>Give Feed-back</p>
+                        <a href="#">See Your Profile</a>
+                    </div>
+                </div>
+                <hr>
+
+                <div class="settings-link">
+                    <img class="settings-icon" src="./Assets/setting.png" alt="settings" />
+                    <a href="#">Settings & Privacy <img src="./Assets/arrow.png" alt="arrow" width="10px"/></a>
+                </div>
+                <div class="settings-link">
+                    <img class="settings-icon" src="./Assets/help.png" alt="settings" />
+                    <a href="#">Help & Support <img src="./Assets/arrow.png" alt="arrow" width="10px"/></a>
+                </div>
+                <div class="settings-link">
+                    <img class="settings-icon" src="./Assets/display.png" alt="settings" />
+                    <a href="#">Display & Accessibility <img src="./Assets/arrow.png" alt="arrow" width="10px"/></a>
+                </div>
+                <div class="settings-link">
+                    <img class="settings-icon" src="./Assets/logout.png" alt="settings" />
+                    <a href="#">Logout <img src="./Assets/arrow.png" alt="arrow" width="10px"/></a>
+                </div>
+
+
+            </div>
+            
+        </div>
+    </nav>
+<!-- -------NAVBAR-ENDS------ -->
+
+<!-- -------MAIN-CONTENT------ -->
+
+        <div class="container">
+            <!-- ---------  LEFT SIDE BAR  ------------- -->
+            <div class="left-sidebar">
+                <div class="img-link">
+                <a href="https://www.facebook.com/friends"><img src="./Assets/news.png" alt="news"/>Latest News</a>
+                <a href="https://www.facebook.com/friends"><img src="./Assets/friends.png" alt="friends"/>Friends</a>
+                <a href="https://www.facebook.com/groups/feed/"><img src="./Assets/group.png" alt="group"/>Group</a>
+                <a href="https://www.facebook.com/marketplace/?ref=bookmark"><img src="./Assets/marketplace.png" alt="marketplace"/>Marketplace</a>
+                <a href="https://www.facebook.com/watch"><img src="./Assets/watch.png" alt="watch"/>Watch</a>
+                <a href="https://www.facebook.com/pages/creation/?should_lwi_redirect=1">See More</a>
+                </div>
+                <div class="shortcut-links">
+                    <p>Your Shortcuts</p>
+                    <a href="#"><img src="./Assets/shortcut-1.png" alt="shortcut"/>Web Developer</a>
+                    <a href="#"><img src="./Assets/shortcut-2.png" alt="shortcut"/>Web Desing Course</a>
+                    <a href="#"><img src="./Assets/shortcut-3.png" alt="shortcut"/>Full Stock Developer</a>
+                    <a href="#"><img src="./Assets/shortcut-4.png" alt="shortcut"/> Website Experts</a>
+                </div>
+            </div>
+            <!-- ---------  MAIN CONTENT  ------------- -->
+
+            <div class="main-content">
+
+                <div class="story-galary">
+                    <div class="story story-1">
+                        <img src="./Assets/upload.png" alt="upload" />
+                        <p>Post Story</p>
+                    </div>
+                    <div class="story story-2">
+                        <img src="./Assets/member-1.png" alt="upload" />
+                        <p>Allison</p>
+                    </div>
+                    <div class="story story-3">
+                        <img src="./Assets/member-2.png" alt="upload" />
+                        <p>Jackson</p>
+                    </div>
+                    <div class="story story-4">
+                        <img src="./Assets/member-3.png" alt="upload" />
+                        <p>Samana</p>
+                    </div>
+                    <div class="story story-5">
+                        <img src="./Assets/member-4.png" alt="upload" />
+                        <p>John Doe</p>
+                    </div>
+                </div>
+
+
+
+
+                <div class="writr-post-container">
+                    <div class="user-profile">
+                        <img src="./Assets/profile-pic.png" alt="profile"/>
+                        <div class="user-profile-1">
+                            <p>Arun Kumar</p>
+                            <small>Public</small>
+                        </div>
+                    </div>
+                    <div class="post-input-container">
+                        <textarea rows="3" placeholder="Hi Arun Kumar"></textarea>
+                        <div class="add-post-links">
+                            <a href="https://www.facebook.com/live/producer/v2/?entry_point=feedx_sprouts&target_id=100025531360201"><img src="./Assets/live-video.png" alt="vedio" />Live Vedeo</a>
+                            <a href="https://www.facebook.com/"><img src="./Assets/photo.png" alt="photo/vedio" />Photo/vedio</a>
+                            <a href="https://www.facebook.com/"><img src="./Assets/feeling.png" alt="feeling" />Feeling Activity</a>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="post-container">
+                    <div class="post-row">
+                        <div class="user-profile">
+                            <img src="./Assets/profile-pic.png" alt="profile"/>
+                            <div class="user-profile-1">
+                                <p>Arun Kumar</p>
+                                <span>Oct 10 2021, 13:40 pm</span>
+                            </div>
+                        </div>
+                    </div>
+                    <p class="post-text">Lorem ipsum dolor sit, amet consectetur adipisicing elit. Maxime, consectetur tenetur consequuntur commodi iste error illum.<a href="#">#Web Developer </a> <a href="#">#Trending </a> <a href="#">#Freshier </a></p>
+                    <img class="post-img" src="./Assets/feed-image-1.png" alt="img"/>
+                    <div class="post-row">
+                        <div class="activity-icons">
+                            <div><img src="./Assets/like-blue.png" alt="like"/>120</div>
+                            <div><img src="./Assets/comments.png" alt="like"/>60</div>
+                            <div><img src="./Assets/share.png" alt="like"/>40</div>
+                        </div>
+                        <div class="post-profile-icons">
+                            <img src="Assets/profile-pic.png" alt="profile"/>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="post-container">
+                    <div class="post-row">
+                        <div class="user-profile">
+                            <img src="./Assets/profile-pic.png" alt="profile"/>
+                            <div class="user-profile-1">
+                                <p>Arun Kumar</p>
+                                <span>Oct 10 2021, 13:40 pm</span>
+                            </div>
+                        </div>
+                    </div>
+                    <p class="post-text">Lorem ipsum dolor sit, amet consectetur adipisicing elit. Maxime, consectetur tenetur consequuntur commodi iste error illum.<a href="#">#Web Developer </a> <a href="#">#Trending </a> <a href="#">#Freshier </a></p>
+                    <img class="post-img" src="./Assets/feed-image-2.png" alt="img"/>
+                    <div class="post-row">
+                        <div class="activity-icons">
+                            <div><img src="./Assets/like.png" alt="like"/>120</div>
+                            <div><img src="./Assets/comments.png" alt="like"/>60</div>
+                            <div><img src="./Assets/share.png" alt="like"/>40</div>
+                        </div>
+                        <div class="post-profile-icons">
+                            <img src="Assets/profile-pic.png" alt="profile"/>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="post-container">
+                    <div class="post-row">
+                        <div class="user-profile">
+                            <img src="./Assets/profile-pic.png" alt="profile"/>
+                            <div class="user-profile-1">
+                                <p>Arun Kumar</p>
+                                <span>Oct 10 2021, 13:40 pm</span>
+                            </div>
+                        </div>
+                    </div>
+                    <p class="post-text">Lorem ipsum dolor sit, amet consectetur adipisicing elit. Maxime, consectetur tenetur consequuntur commodi iste error illum.<a href="#">#Web Developer </a> <a href="#">#Trending </a> <a href="#">#Freshier </a></p>
+                    <img class="post-img" src="./Assets/feed-image-3.png" alt="img"/>
+                    <div class="post-row">
+                        <div class="activity-icons">
+                            <div><img src="./Assets/like-blue.png" alt="like"/>120</div>
+                            <div><img src="./Assets/comments.png" alt="like"/>60</div>
+                            <div><img src="./Assets/share.png" alt="like"/>40</div>
+                        </div>
+                        <div class="post-profile-icons">
+                            <img src="Assets/profile-pic.png" alt="profile"/>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="post-container">
+                    <div class="post-row">
+                        <div class="user-profile">
+                            <img src="./Assets/profile-pic.png" alt="profile"/>
+                            <div class="user-profile-1">
+                                <p>Arun Kumar</p>
+                                <span>Oct 10 2021, 13:40 pm</span>
+                            </div>
+                        </div>
+                    </div>
+                    <p class="post-text">Lorem ipsum dolor sit, amet consectetur adipisicing elit. Maxime, consectetur tenetur consequuntur commodi iste error illum.<a href="#">#Web Developer </a> <a href="#">#Trending </a> <a href="#">#Freshier </a></p>
+                    <img class="post-img" src="./Assets/feed-image-4.png" alt="img"/>
+                    <div class="post-row">
+                        <div class="activity-icons">
+                            <div><img src="./Assets/like-blue.png" alt="like"/>120</div>
+                            <div><img src="./Assets/comments.png" alt="like"/>60</div>
+                            <div><img src="./Assets/share.png" alt="like"/>40</div>
+                        </div>
+                        <div class="post-profile-icons">
+                            <img src="Assets/profile-pic.png" alt="profile"/>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="post-container">
+                    <div class="post-row">
+                        <div class="user-profile">
+                            <img src="./Assets/profile-pic.png" alt="profile"/>
+                            <div class="user-profile-1">
+                                <p>Arun Kumar</p>
+                                <span>Oct 10 2021, 13:40 pm</span>
+                            </div>
+                        </div>
+                    </div>
+                    <p class="post-text">Lorem ipsum dolor sit, amet consectetur adipisicing elit. Maxime, consectetur tenetur consequuntur commodi iste error illum.<a href="#">#Web Developer </a> <a href="#">#Trending </a> <a href="#">#Freshier </a></p>
+                    <img class="post-img" src="./Assets/feed-image-5.png" alt="img"/>
+                    <div class="post-row">
+                        <div class="activity-icons">
+                            <div><img src="./Assets/like-blue.png" alt="like"/>120</div>
+                            <div><img src="./Assets/comments.png" alt="like"/>60</div>
+                            <div><img src="./Assets/share.png" alt="like"/>40</div>
+                        </div>
+                        <div class="post-profile-icons">
+                            <img src="Assets/profile-pic.png" alt="profile"/>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="post-container">
+                    <div class="post-row">
+                        <div class="user-profile">
+                            <img src="./Assets/profile-pic.png" alt="profile"/>
+                            <div class="user-profile-1">
+                                <p>Arun Kumar</p>
+                                <span>Oct 10 2021, 13:40 pm</span>
+                            </div>
+                        </div>
+                    </div>
+                    <p class="post-text">Lorem ipsum dolor sit, amet consectetur adipisicing elit. Maxime, consectetur tenetur consequuntur commodi iste error illum.<a href="#">#Web Developer </a> <a href="#">#Trending </a> <a href="#">#Freshier </a></p>
+                    <img class="post-img" src="./Assets/feed-image-2.png" alt="img"/>
+                    <div class="post-row">
+                        <div class="activity-icons">
+                            <div><img src="./Assets/like-blue.png" alt="like"/>120</div>
+                            <div><img src="./Assets/comments.png" alt="like"/>60</div>
+                            <div><img src="./Assets/share.png" alt="like"/>40</div>
+                        </div>
+                        <div class="post-profile-icons">
+                            <img src="Assets/profile-pic.png" alt="profile"/>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="post-container">
+                    <div class="post-row">
+                        <div class="user-profile">
+                            <img src="./Assets/profile-pic.png" alt="profile"/>
+                            <div class="user-profile-1">
+                                <p>Arun Kumar</p>
+                                <span>Oct 10 2021, 13:40 pm</span>
+                            </div>
+                        </div>
+                    </div>
+                    <p class="post-text">Lorem ipsum dolor sit, amet consectetur adipisicing elit. Maxime, consectetur tenetur consequuntur commodi iste error illum.<a href="#">#Web Developer </a> <a href="#">#Trending </a> <a href="#">#Freshier </a></p>
+                    <img class="post-img" src="./Assets/feed-image-4.png" alt="img"/>
+                    <div class="post-row">
+                        <div class="activity-icons">
+                            <div><img src="./Assets/like-blue.png" alt="like"/>120</div>
+                            <div><img src="./Assets/comments.png" alt="like"/>60</div>
+                            <div><img src="./Assets/share.png" alt="like"/>40</div>
+                        </div>
+                        <div class="post-profile-icons">
+                            <img src="Assets/profile-pic.png" alt="profile"/>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="post-container">
+                    <div class="post-row">
+                        <div class="user-profile">
+                            <img src="./Assets/profile-pic.png" alt="profile"/>
+                            <div class="user-profile-1">
+                                <p>Arun Kumar</p>
+                                <span>Oct 10 2021, 13:40 pm</span>
+                            </div>
+                        </div>
+                    </div>
+                    <p class="post-text">Lorem ipsum dolor sit, amet consectetur adipisicing elit. Maxime, consectetur tenetur consequuntur commodi iste error illum.<a href="#">#Web Developer </a> <a href="#">#Trending </a> <a href="#">#Freshier </a></p>
+                    <img class="post-img" src="./Assets/feed-image-5.png" alt="img"/>
+                    <div class="post-row">
+                        <div class="activity-icons">
+                            <div><img src="./Assets/like-blue.png" alt="like"/>120</div>
+                            <div><img src="./Assets/comments.png" alt="like"/>60</div>
+                            <div><img src="./Assets/share.png" alt="like"/>40</div>
+                        </div>
+                        <div class="post-profile-icons">
+                            <img src="Assets/profile-pic.png" alt="profile"/>
+                        </div>
+                    </div>
+                </div>
+
+                <button class="load-more-btn" type="button">Load More</button>
+
+
+            </div>
+
+
+
+
+
+
+
+
+             <!-- ---------  LEFT SIDE BAR  ------------- -->
+
+            <div class="right-sidebar">
+                <div class="side-bar-tittle">
+                    <h4>Events</h4>
+                    <a href="#">See More</a>
+                </div>
+
+                <div class="events">
+                    <div class="left-event">
+                        <h3>18</h3>
+                        <span>March</span>
+                    </div>
+                    <div class="right-event">
+                        <h4>Social Media</h4>
+                        <p>Willson Tect Park</p>
+                        <a href="#" >More Info</a>
+                    </div>
+                </div>
+                <div class="events">
+                    <div class="left-event">
+                        <h3>22</h3>
+                        <span>June</span>
+                    </div>
+                    <div class="right-event">
+                        <h4>Mobile Marketing</h4>
+                        <p>Willson Tect Park</p>
+                        <a href="#" >More Info</a>
+                    </div>
+                </div>
+
+                <div class="side-bar-tittle">
+                    <h4>Advertisement</h4>
+                    <a href="#">Close</a>
+                </div>
+                <img class="side-bar-ads" src="./Assets/advertisement.png" alt="ads" />
+
+                <div class="side-bar-tittle">
+                    <h4>Conversation</h4>
+                    <a href="#">Hide chat</a>
+                </div>
+                <div class="online-list">
+                    <div class="online">
+                        <img src="./Assets/member-1.png" alt="meber"/>
+                    </div>
+                    <p>Alison Mina</p>
+                </div>
+                <div class="online-list">
+                    <div class="online">
+                        <img src="./Assets/member-2.png" alt="meber"/>
+                    </div>
+                    <p>jackson Aston</p>
+                </div>
+                <div class="online-list">
+                    <div class="online">
+                        <img src="./Assets/member-3.png" alt="meber"/>
+                    </div>
+                    <p> Samana Rose</p>
+                </div>
+
+
+
+
+
+
+            </div>
+
+        </div>
+
+
+
+
+
+        <div class="copywrite">
+            <p>Copyright 2023 - Mr Arun Kumar</p>
+        </div>
+
+    <script src="app.js"></script>
+</body>
+</html>

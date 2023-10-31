@@ -1,0 +1,121 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+//         const cart=["mobile","suits","electronics"];
+//         //  const p= createOrder(cart);
+//         // console.log(p);
+//         //show order summary update wallet balance//
+//         let walletBalance=100000;
+//         createOrder(cart)
+//         .then(function(orderId){
+//                 console.log(orderId);
+//                 return orderId;
+//         })
+//         .then(function(orderId){
+//              return proceedtopay(orderId)
+
+//          })
+//          .then(function(paymentinfo){
+//             return(proceedtopay(paymentinfo));
+//          })
+//          .then(function(orderStatus){
+//             return (showordersummary(orderStatus))
+//          })
+//          .then(orderhistory=>updateWallet(orderhistory))
+//          .then(res=>console.log(res))
+//          .catch(function (err){
+//             console.log(err.message);
+//          });
+    
+//         function createOrder(cart){
+//             const prom=new Promise(function(resolve,reject){
+//                     if(!validateCart(cart)){
+//                         const err= new Error("Cart is not valid");
+//                         reject(err);
+//                     }
+//                     const orderId="1234";
+//                     if(orderId){
+//                         resolve(orderId);
+//                         // setTimeout(function(){
+//                         //       resolve(orderId)},5000);
+                        
+//                     }
+//             });
+//             return prom;
+//         };
+       
+//         function validateCart(cart){
+//             return true;
+//         }
+//         function proceedtopay(orderId){
+//             return new Promise(function(resolve,reject){
+//                 if(orderId){
+//             resolve({paymentStatus : 1, message : "Payment successfully completed"});
+//         }else{
+//             reject(new Error("Payment Failed"));
+//         }
+//     })
+//         }
+//         function showordersummary(orderstatus){
+//             return new Promise(function(resolve,reject){
+//                 if(orderStatus.paymentStatus === 1){
+//             resolve({status:'success', orders : cart});
+//         }else{
+//             reject(new Error("Something went wrong"));
+//         }
+//     })
+//         }
+//         function updateWallet(orderhistory){
+//             return new Promise(function(resolve,reject){
+//                 if(orderhistory.status==="success"){
+//                     let orderamt=60000;
+//                     walletBalance=walletBalance-orderamt;
+//                     resolve({balance:walletBalance,"message":"wallet updated"});
+                
+//                 }else{
+//                     reject(new Error("wallet outdated"));
+//                 }
+//             })
+//         }
+// function orderStatus(){
+//     return 1;
+// }
+ 
+function outest(i){
+    let c=30;
+function outer(b){
+    var a=20;
+    function inner(){
+        console.log(i,b,a);
+       
+    } 
+    return inner;
+
+}
+return outer;
+}
+var z = outest("hi")("helo");
+z();
+function counter(){
+var count=0;
+function increcounter(){
+    count++;
+    console.log(count);
+
+}
+return  increcounter;
+}
+var counter1=counter()
+counter1();
+counter1();
+ 
+
+    </script>
+</body>
+</html>

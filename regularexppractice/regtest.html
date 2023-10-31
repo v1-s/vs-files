@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <label for="adhrnum">adhar Number</label>
+    <input type="text" name="adhar" id="adhr"  placeholder="enter ur aadhar number">
+    <button onclick="validateadhar()">
+        Submit
+ </button>
+ <p id="output"></p>
+ <script>
+//  function validateadhar(){
+//     const  number= document.getElementById("adhr").value;
+//     const adharregex=/^[0-9]{4}[-][0-9]{4}[-][0-9]{4}$/
+//     // /^([0-9]{4}+)
+//    if(!mobileregex.test(number)){
+//         const a =  document.getElementById("adhr");
+//         a.style.border="1px solid red";
+//     }else{
+//         const a =   document.getElementById("adhr");
+//         a.style.border="1px solid green";
+//     }
+// }
+// <input type="text" name="adhar" id="adhr"  placeholder="enter ur aadhar number">
+// var str="exploring #regex #javascript";
+//     var regex=/#\w+/g;
+//      var result=str.match(regex);
+//      console.log(result);
+//      function validate(text){
+//      const regex=/#\w+/g;
+//      if(text.match(regex)){
+//        return text.match(regex);
+//     }
+//       else{  
+//         return []; 
+//      }
+//     }
+ const text="Exploring regex in javascript today";
+ console.log(validate(text));
+ function validateadhar(){
+    const  number= document.getElementById("adhr").value;
+    const regex=/^([a-zA-Z0-9_@\_\.]+){5,12}$/;
+   if(!regex.test(number)){
+        const a =  document.getElementById("adhr");
+        a.style.border="2px solid red";
+    }else{
+        const a =   document.getElementById("adhr");
+        a.style.border="2px solid green";
+    }
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+ </script>
+</body>
+</html>

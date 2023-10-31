@@ -1,0 +1,292 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  background-color: lightgray;
+}
+
+#navbar {
+  background-color: royalblue;
+  display: grid;
+  grid-template-rows: repeat(3, 1fr);
+  height: 70px;
+  position: fixed;
+  width: 100%;
+}
+
+.logo {
+  margin-left: 50px;
+  margin-top: 2px;
+}
+.icons li {
+  list-style: none;
+}
+.icons {
+  margin-top: -60px;
+  margin-left: 350px;
+}
+.icons img {
+  margin-left: 10px;
+  margin-right: 10px;
+}
+.icons li {
+  margin-top: 10px;
+  margin-right: -180px;
+  width: 30px;
+  height: 30px;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+}
+#serch::placeholder {
+  position: absolute;
+  left: 70px;
+  font-size: large;
+
+}
+#lasticon {
+  height: 200px;
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  margin-left: 80%;
+  outline-style: none;
+
+  
+}
+
+#lasticon input {
+  margin-left: -290px;
+  margin-top: -50px;
+  border-radius: 60px;
+  width: 340px;
+  height: 40px;
+  background-color: white;
+ outline-style: none;
+
+}
+
+#lasticon > img {
+  width: 20px;
+  height: 37px;
+  background-color: whitesmoke;
+  color: black;
+  margin-top: -49px;
+  margin-left: -270px;
+  border-radius: 45%;
+  position: absolute;
+  outline-style: none;
+
+}
+#profile {
+  margin-top: -250px;
+  margin-left:90%;
+}
+#profile > img {
+  margin-left: 0%;
+  border-radius: 120%;
+  width: 50px;
+  height: 50px;
+}
+#fm{
+  width: 220px;
+  height: 200px;
+  background-color: royalblue;
+  margin-left: -90px;
+  display: none;
+}
+#fm input{ 
+  height: 30px;
+  outline-style: none;
+  border: none;
+  border-radius: 300px;
+ padding: 3px; 
+   margin-left: 10px;
+ margin-top: 10px;
+ margin-bottom: 10px; 
+  width: 200px;
+}
+.container {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 10px;
+  padding: 80px;
+   height: 800px; 
+}
+.cont-1 {
+  margin-left: -40px;
+  width: 270px;
+  display: grid;
+  grid-template-rows: repeat(2,1fr);
+}
+.mpage1{
+  display: grid;
+  grid-template-rows: repeat(5,1fr);
+}
+.mpage1 img{
+   margin-top: 10px;
+  margin-bottom: 10px;
+  margin-left: 10px
+}
+.mcontent1{
+  
+  display: grid;
+  grid-template-rows: repeat(5, 1fr);
+  margin-left: 100px;
+}
+.mcontent1 p{
+  margin-top: -290px;
+}
+.cont-2 {
+  border-radius: 5%;
+  /* background-color: rebeccapurple; */
+  /* display: flex;
+  flex-direction: row; */
+  width: 600px;
+}
+.pic1 {
+  margin-top: -50px;
+}
+
+
+.images{
+  display: grid;
+  grid-template-columns: repeat(5,1fr);
+  gap: 8px;
+  margin-left: 310px; 
+  margin-right: 300px;
+  grid-area: 10px;
+  justify-content: space-around;
+}
+
+
+
+
+.cont-2 img {
+  margin-top: 5px;
+  margin-left:px;
+  margin-right: px;
+  width: 120px;
+  /* height: 180px; */
+}
+.cont-3 {
+  width: 250px;
+  margin-left: 30px;
+
+  border-radius: 2%;
+  background-color: red;
+}
+
+/* #sch::placeholder {
+  position: relative;
+  left: 70px;
+  font-size: large;
+} */
+
+.pic1 > img {
+  position: absolute;
+  top: 222px;
+  width: 25px;
+  height: 30px;
+  left: 360px;
+}
+.pic1 > p {
+  position: absolute;
+  color: white;
+  top: 260px;
+  width: 250px;
+  height: 30px;
+  left: 340px;
+}
+.pic2 > img {
+  position: absolute;
+  border-radius: 50%;
+  border: 3px solid blue;
+  top: 90px;
+  width: 35px;
+  height: 40px;
+  left: 450px;
+}
+.pic2 > p {
+  position: absolute;
+  color: white;
+  top: 260px;
+  width: 250px;
+  height: 30px;
+  left: 480px;
+}
+.pic3 > img {
+  position: absolute;
+  border-radius: 50%;
+  border: 3px solid blue;
+  top: 90px;
+  width: 35px;
+  height: 40px;
+  left: 575px;
+}
+.pic3 > p {
+  position:absolute;
+  color: white;
+  top: 260px;
+  width: 250px;
+  height: 30px;
+  left: 600px;
+}
+.pic4 > img {
+  position:absolute;
+  border-radius: 50%;
+  border: 3px solid blue;
+  top: 90px;
+  width: 35px;
+  height: 40px;
+  left: 700px;
+}
+.pic4 > p {
+  position: absolute;
+  color: white;
+  top: 260px;
+  width: 250px;
+  height: 30px;
+  left: 740px;
+}
+.pic5 > img {
+  position:absolute;
+  border-radius: 50%;
+  border: 3px solid blue;
+  top: 90px;
+  width: 35px;
+  height: 40px;
+  left: 830px;
+}
+.pic5 > p {
+  position: absolute;
+  color: white;
+  top: 260px;
+  width: 250px;
+  height: 30px;
+  left: 870px;
+}
+.cont-1 h2{
+  color:royalblue;
+  font-size: larger;
+  margin-top: -300px;
+  margin-left: 10px;
+}
+.mcont2{
+  background-color: white;
+  width: 600px;
+  display: flex;
+  flex-direction:row ;
+}
+.blog img{
+ width: 25px ;
+ height: 20px;
+}
+.pf2 img{
+  border-radius: 50%;
+  width: 50px ;
+  height: 50px;
+}

@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        *{
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+           
+        }
+        #container{
+            display:inline-grid;
+            grid-template-columns: repeat(3,auto);
+            margin: 100px;
+        }   
+        #cell{
+            padding: 45px;
+           font-size: 300%;
+            color:white;
+            border: 1px solid white;
+            background-color: black;
+            width:120px;
+            height: 120px;
+        }
+        #cell:hover{
+            background-color: rgb(174, 198, 242);
+            transform: scale(1.1);
+        }
+        #reset{
+            padding: 5px;
+        }
+        #start{
+            padding: 5px;
+        }
+    </style>
+</head>
+<body>
+    <div id="container">   
+    <div id="cell"></div>
+    <div id="cell"></div>
+    <div id="cell"></div>
+    <div id="cell"></div>
+    <div id="cell"></div>
+    <div id="cell"></div>
+    <div id="cell"></div>
+    <div id="cell"></div>
+    <div id="cell"></div>
+</div> 
+<button id="reset">RESET</button>
+<!-- <button id="start">PLAY</button> -->
+<script>
+ let gamecells=document.querySelectorAll("#cell");
+ console.log(gamecells);
+ let gamereset =document.querySelector("#reset");
+ let start='X';
+ let nxt='0';
+ let crntplayer=start;
+ const wincombos=[
+ [0, 1, 2],
+ [3, 4, 5],
+[6, 7, 8],
+[0, 3, 6], 
+[1, 4, 7],
+[2, 5, 8],
+[0, 4, 8],
+[2, 4, 6]
+];
+ function winner() {
+                 for(let condition of wincombos) {
+        if(gamecells[condition[0]] !== '' && gamecells[condition[0]] === gamecells[condition[1]] && gamecells[condition[1]] === board[condition[2]]) {
+            return true;
+        }
+    }
+
+    return false;
+}
+                        
+//         }
+       
+//     }
+//  }
+ gamecells.forEach(function(cell,index){
+    cell.addEventListener('click',()=>{
+        if(cell[index] === '') {
+        cell[index] = player;
+        crntplayer = crntplayer === 'X' ? 'O' : 'X';
+    } else {
+        console.log('Invalid move');
+    }
+    
+ }) 
+ });
+
+</script>
+</body>
+</html>

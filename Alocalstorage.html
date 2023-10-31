@@ -1,0 +1,162 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        *{
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        #form{
+           border-radius: 6%;
+            margin-left: 400px;
+            background-color:slateblue;
+            color: white;
+            width: 350px;
+            height: 350px;
+            text-align: center;
+            margin-top: 150px; 
+            padding: 50px 80px 30px 15px;
+            display:flex;
+            flex-direction: column;
+
+        }
+        input{
+            width: 200px;
+            margin-top: 10px ;
+            margin-bottom: 10px;
+            border-radius: 100px;
+            height: 30px;
+        }
+      input::placeholder{
+            padding-left: 70px;
+            color: rosybrown;
+            
+        }
+        input:hover{
+            transform: scale(1.1);
+        }
+        #signin{
+            margin-top: -40px;
+            margin-bottom: 20px;
+            background-color: white;
+            color: black;
+            border-radius: 100px;
+            height: 30px;
+            width: 90px;
+            margin-left: 90%;
+        }
+        #btn{
+            margin-left: 30px;
+            width: 80px;
+            color: darkmagenta;
+        }
+        #signin:hover{
+            transform:scale(1.1)
+        }
+ /* input:invalid {
+  border: 2px solid red;
+}
+
+input:invalid + span::before {
+  content: "✖";
+  color: red;
+}
+
+input:valid + span::after {
+  content: "✓";
+  color: green;
+}
+span{
+    display: none;
+} */
+    </style>
+</head>
+<body>
+   
+<div id="form">
+    <button id="signin">SignIn</button>
+    <div id="fm">
+    <input type="name" name="inpname"  id="iname" patternname="([a-zA-z]{3,12})" placeholder="UserName">
+    <input type="email" name="iemail"  id="iemail" patternmail="(^[a-zA-z0-9_]{6}$)" placeholder="EmailId">
+    <input type="tel" name="intel"  id="itel"  pattern="/^[6-9]{1}[0-9]{9}$/"placeholder="PhoneNumber">
+    <input type="password" name="ipswrd"  id="ipswrd"  patternp="(^[a-zA-z0-9_@\.\$]{5,8}$)" placeholder="Password"><span></span>
+    <input type="button" id="btn" value="LogIn">
+</div>
+</div>
+    <script>
+     document.querySelector("#signin").addEventListener("click",function(){
+        document.querySelector("#fm").style.marginTop ="-50px";
+        let sign=document.querySelector("#signin");
+        sign.style.display="none";
+    
+        let log=document.querySelector("#btn");
+        log.value="SUBMIT";
+    })
+        document.querySelector("#btn").addEventListener("click",function(){
+        let log=document.querySelector("#btn");
+        log.value="LogIn";
+        var username=document.querySelector("#iname").value;
+        let ptrn1=/^[a-zA-Z]{2,12}$/;
+        if(!ptrn1.test(username)){
+            alert("wrong UserName");
+        }else{
+            localStorage.setItem("Name",username);
+        }
+        var email=document.querySelector("#iemail").value;
+        let ptrn2=/^([\w+]{5,24}[@][a-z]{3,8}[.][a-z]{2,3})$/;
+        if(!ptrn2.test(email)){
+            alert("wrong EmailD");
+        }else{
+            localStorage.setItem("Email",email);
+        }
+        var phnum=document.querySelector("#itel").value;
+        let ptrn3=/^[6-9]{1}[0-9]{9}$/;
+        console.log(ptrn3)
+        console.log(ptrn3.test(phnum))
+        if(!ptrn3.test(phnum)){
+            alert("wrong Number");
+        }else{
+            localStorage.setItem("PhoneNumber",phnum);
+        }
+        var pwrd=document.querySelector("#ipswrd").value;
+        let ptrn4=/^([a-zA-Z0-9\@\-\.]+){5,24}$/;
+        if(!ptrn4.test(pwrd)){
+            alert("wrong Password");
+        }else{
+            localStorage.setItem("Password",pwrd);
+        }
+        if((ptrn1.test(username))&&(ptrn2.test(email))&&(ptrn3.test(phnum))&&(ptrn4.test(pwrd))){
+        alert("All Details Submitted Successfully");
+        } 
+        
+        document.querySelector("#fm").style.marginTop ="0px";
+        let sign=document.querySelector("#signin");
+        sign.style.display="inline-block";
+
+        
+        let sp=document.querySelector("span");
+            sp.style.display="inline-block";
+            
+        // let ptrn=document.querySelector("input").patternname;
+        //      if(!username.match(ptrn)){
+        //         alert("wrong username entry");
+        //     }
+        //     let ptrn2=document.querySelector("input").patternmail;
+        //     if(!email.match(ptrn2)){
+        //         alert("wrong EmailId entry");
+        //     }
+            
+    })
+    // document.querySelector("#signin").addEventListener("click",function(){
+    //     // var username=document.querySelector("#iname");
+    //     // username.value="   ";
+    //     document.querySelector("input").value=" ";
+    // });   
+
+    </script>
+</body>
+</html>
