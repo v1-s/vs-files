@@ -31,7 +31,7 @@
             <input type="email" id="umail" pattern="([a-zA-Z0-9\.\_\+\-]+)(@[a-zA-Z0-9.\-]+)\\.(\\.[a-zA-Z]{2,})+"placeholder="Enter your EmailId"><br>
             <label for="cmail" id="cfmmail">Confirm your Usermail<span style="color: red;">*</span></label>
             <input type="text" id="cmail"pattern="([a-zA-Z0-9\.\_\+\-]+)(@[a-zA-Z0-9.-]+)\\.(\\.[a-zA-Z]{2,})+" placeholder="Enter your EmailId"><br>
-            <p id="para"></p>
+            <p id="paragy"></p>
             
             <label for="phnum">PhoneNumber<span style="color: red;">*</span></label>
             <input type="tel" id="Pnum" name="num" pattern="[\d]{10}" placeholder="Enter your PhoneNumber"><br>
@@ -45,7 +45,7 @@
            <option value="Christianity">Christianity</option>
            <option value="Sikkim">Sikkim</option>
         </select>
-        <span id="reg">helloooooo</span>
+        <span id="reg"></span>
         <label for="lan" id="lg">Mother  Tongue<span style="color: red;">*</span></label>
             <select name="lang" id="lang">
            <option value="defaultOption">----Select----</option>
@@ -67,13 +67,13 @@
         <select id="states" name="states">states</select>
         <select id="districts" name="dists"></select><br>
         <label for="pc">PinCode<span style="color: red;">*</span> </label>
-        <input type="text" id="Pc" placeholder="Enter your Pincode" required><br>
+        <input type="text" id="Pc" placeholder="Enter your Pincode" required><br><span id="pic"></span><br>
         <label for="captcha">Captcha<span style="color: red;">*</span></label>
         <div id="capt"> </div>
         <button type="button" id="btn" <i class="fa-solid fa-repeat" style="color: #0a0a0a;"></i></button>
         <input type="text" id ="cpenter"><p id="para"></p><br>
     </div>
-        <input type="checkbox" id="confirm"><span style="color: red;">*
+        <input type="checkbox" name="check" id="confirm"><span style="color: red;">*
 
         </span>I hereby confirm all the above details are true and if by chance any found fault ot fraud I solemnly
         choose accept the consequences.<br>
@@ -110,7 +110,7 @@
             let data = document.querySelector("#cpenter").value;
             let output = (data);
             console.log(output);
-            if (output == " ") {
+            if (output=="") {
                 document.querySelector("#para").innerHTML ="***Please enter the correct CAPTCHA!***";
                 document.querySelector("#para").style.color = "orange";
             } else if (output == strres) {
@@ -123,6 +123,7 @@
             }
         });
         let header=document.querySelector("#header");
+        
         header.addEventListener("click",function(){
             let address=document.querySelector("#ad");
             if(address.style.display=="block"){
@@ -136,6 +137,7 @@
          let dispper=document.querySelector("form");
           if(dispper.style.display=="block"){
                 dispper.style.display="none";
+               
                 // dispper.style.marginBottom="100px";
             }else{
                 dispper.style.display="block";
@@ -214,7 +216,7 @@
 
     let usermail=document.querySelector("#umail").value;
     let cfmail=document.querySelector("#cmail").value;
-    let pa=document.querySelector("#para");
+    let pa=document.querySelector("#paragy");
     if(cfmail=" "){
         pa.textContent="***please Enter the Mail***";
         pa.style.color="red";
@@ -225,37 +227,43 @@
     if(pnum=" "){
         number.textContent="***Please Enter the number***";
         number.style.color="red";
-}
-    let rg=document.querySelector("#reg");
-    let reg = document.querySelector("#relegion").value;
+ }
 
- // Add an event listener for the change event on the select element
- reg.addEventListener("change", function() {
-  // Check if the value of the select element is "defaultOption"
+
+
+ let pic=document.querySelector("#pic");
+    let pc=document.querySelector("#Pc");
+    if(pc=" "){
+        pic.textContent="***Please Enter the PIN Code***";
+        pic.style.color="red";
+ }
+    let rg=document.querySelector("#reg");
+    let reg = document.querySelector("#relegion");
   if (reg.value == "defaultOption") {
-    // If yes, display a message in red color
    rg.innerHTML = "Please choose a religion";
    rg.style.color = "red";
   } else {
-    // If no, clear the message
    rg.textContent = "";
   }
- });
+
  let lag=document.querySelector("#lag");
- let lang=document.querySelector("lang");
-lang.addEventListener("change",function(){
+ let lang=document.querySelector("#lang");
     if(lang.value=="defaultOption"){
-        lag.innerHTML="please choose";
-    }
-});
+        lag.innerHTML="please choose language";
+        lag.style.color = "red";
+    };
+    let data = document.querySelector("#cpenter").value;
+            let output =(data);
+            console.log(output);
+            if(output ==""){
+                document.querySelector("#para").innerHTML ="***Please enter the correct CAPTCHA!***";
+                document.querySelector("#para").style.color = "orange";
+            }
 
 
-
-
-
-
-
-
+            if(!document.querySelector("input[name='check']:checked")){
+                    alert("please check");
+            }
 
 
 

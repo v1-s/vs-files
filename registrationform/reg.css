@@ -44,7 +44,7 @@ input{
 #relegion,#lang{
     padding: 9px;
     margin-top: 10px;
-    margin-bottom: 20px;
+    /* margin-bottom: 20px; */
 }
 #lg{
     margin-left: 100px;
