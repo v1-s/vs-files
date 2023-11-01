@@ -1,0 +1,143 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css"
+    integrity="sha512-z3gLpd7yknf1YoNbCzqRKc4qyor8gaKU1qmn+CShxbuBusANI9QpRohGBreCFkKxLhei6S9CQXFEbbKuqLg0DA=="
+    crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <title>Document</title>
+</head>
+<body>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+
+        }
+
+        #box {
+            margin-left: 400px;
+            margin-right: 600px;
+            padding-right: 10px;
+            border: 2px solid black;
+            padding: 20px;
+        }
+
+        #num {
+            color: black;
+            border: 1px solid black;
+            padding: 10px;
+            margin-left: 10px;
+            margin-right: 10px;
+        }
+
+        #number {
+            border: 1px solid black;
+            padding: 10px;
+            margin-left: 10px;
+            margin-right: 10px;
+        }
+
+        #cont {
+            margin-top: 100px;
+            margin-left: 390px;
+            margin-bottom: 20px;
+            flex-direction: row;
+            display: inline-flex;
+        }
+
+        input {
+            padding: 10px;
+            margin-top: 10px;
+        }
+
+        button {
+            margin-top: 10px;
+            padding: 10px;
+        }
+
+        #para {
+            margin-left: 2px;
+            padding: 10px;
+        }
+    </style>
+</head>
+
+<body>
+    <div id="cont">
+        <div id="number"> CAPTCHA </div>
+        <div id="num"> </div>
+
+        <button type="button" id="btn"<i class="fa-solid fa-repeat" style="color: #0a0a0a;"></i></button>
+    </div>
+    <div id="box">
+        <label for="otp1">CAPTCHA submit:</label>
+        <input type="text" id="numbrr" name="otp1"> <br>
+        <button type="button"id="sbmt">Submit</button>
+        <button type="button" id="rfrsh">Refresh</button>
+        <p id="para"></p>
+    </div>
+<script>
+         let str1 = '0123456789ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz#$%&*@';
+         let strres = "";
+        let len = str1.length;
+        for (let i = 0; i < 7; i++) {
+             strres += str1[Math.floor(Math.random() * len)];
+           };
+        let op = document.querySelector("#num");
+        op.innerHTML = strres;
+        document.querySelector("#sbmt").addEventListener("click", function () {
+            let ores = document.querySelector("#para");
+            let data = document.querySelector("#numbrr").value;
+            let output = (data);
+            console.log(output);
+            if (output == " ") {
+                document.querySelector("#para").innerHTML = "***Please enter the correct CAPTCHA!***";
+                document.querySelector("#para").style.color = "orange";
+            } else if (output == (strres)) {
+                document.querySelector("#para").innerHTML = "Correct";
+                document.querySelector("#para").style.color = "green";
+                ores.style.border = "1px solid green";
+            } else {
+                document.querySelector("#para").innerHTML = "Wrong";
+                document.querySelector("#para").style.color = "red";
+                ores.style.border = "1px solid orange";
+            }
+        });
+        document.querySelector("#rfrsh").addEventListener("click",function(){
+            document.getElementById("numbrr").value="   ";
+            document.querySelector("#para").innerHTML="   ";
+            document.querySelector("#para").style.border="none";
+
+
+        }); 
+        //---------------------add refresh ---------------------//
+        document.querySelector("#btn").addEventListener("click", function () {
+            window.location.reload();
+            document.getElementById("numbrr").value = "   ";
+            document.querySelector("#para").innerHTML = "   ";
+            document.querySelector("#para").style.border = "none";
+
+
+
+
+
+        });
+</script>
+
+
+</body>
+</html>
+<!-- // function otpgenerator() {
+//             let str1 = '0123456789ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz#$%&*@'
+//             let strres = "";
+//             let len = str1.length;
+//             for (let i = 0; i < 7; i++) {
+//                 strres += str1[Math.floor(Math.random() * len)];
+//             };
+//             return strres;
+
+//         }
+//         var result = (otpgenerator()); -->

@@ -58,25 +58,16 @@
  let start='X';
  let nxt='0';
  let crntplayer=start;
- const wincombos=[
- [0, 1, 2],
- [3, 4, 5],
-[6, 7, 8],
-[0, 3, 6], 
-[1, 4, 7],
-[2, 5, 8],
-[0, 4, 8],
-[2, 4, 6]
-];
- function winner() {
-                 for(let condition of wincombos) {
-        if(gamecells[condition[0]] !== '' && gamecells[condition[0]] === gamecells[condition[1]] && gamecells[condition[1]] === board[condition[2]]) {
-            return true;
-        }
-    }
 
-    return false;
-}
+//  function winner() {
+//                  for(let condition of wincombos) {
+//         if(gamecells[condition[0]] !== '' && gamecells[condition[0]] === gamecells[condition[1]] && gamecells[condition[1]] === board[condition[2]]) {
+//             return true;
+//         }
+//     }
+
+//     return false;
+
                         
 //         }
        

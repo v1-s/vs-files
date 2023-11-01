@@ -1,0 +1,120 @@
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    background-color: ;
+}
+h2{
+    margin-top: 50px;
+    text-align: center;
+    color: brown;
+}
+#form{
+    box-shadow: 1px 2px 3px 4px rgba(120, 2, 133, 0.297);
+    margin-left: 100px;
+    margin-right: 100px;
+}
+section{
+    text-align: left;
+    padding: 10px;
+    background-color: rebeccapurple;
+    color: white;
+}
+form,#ad{
+    margin-top: 20px;
+    padding-top: 5px;
+    padding-bottom: 10px;
+    margin-left: 20px;
+    margin-right: 20px;
+    padding-left: 80px;
+}
+#street{
+  margin-left: 100px;
+}
+input{
+    margin-top: 20px;
+    padding-top: 10px;
+    padding-bottom: 10px;
+    margin-bottom: 20px;
+    padding-left: 10px;
+}
+#umail,#cmail{
+    width: 200px;
+}
+#relegion,#lang{
+    padding: 9px;
+    margin-top: 10px;
+    margin-bottom: 20px;
+}
+#lg{
+    margin-left: 100px;
+}
+h3{
+    text-align: left;
+    padding: 10px;
+    background-color: rebeccapurple;
+    color: white;
+}
+#capt{
+    display: inline-block;
+    border: 1px solid black;
+    width: 85px;
+    padding: 7px;
+    font-style: oblique;
+    background-color:seashell;
+    color: black;
+    font-weight: 600;
+}
+#cpenter{
+    display: inline-block;
+    border: 1px solid black;
+    margin-left: 50px;
+    width: 85px;
+    padding: 7px;
+    font-style: oblique;
+    background-color:seashell;
+    color: black;
+    font-weight: 600;
+}
+#sbmt{
+    width: 120px;
+    background-color: rgb(117, 75, 159);
+    color: white;
+    font-weight: bolder;
+    padding: 10px;
+    margin-left: 45%;
+    text-align: center;
+    display: inline-block;
+    cursor: pointer;
+}
+#sbmt:hover{
+    transform: scale(1.1);
+    box-shadow: 5px 5px 7px 4px forestgreen;
+}
+#districts{
+    display: none;
+}
+#fname{
+    position: relative;
+    display: inline;
+    top: 40px;
+    right:250px;
+    
+}
+#lname{
+    position: absolute;
+    display: inline;
+    top: 230px;
+    right: 500px;
+}
+#last{
+    position:relative;
+    top: 3px;
+    margin-left: 120px;
+}
+#lst{
+    position: relative;
+    top: 3px;
+    margin-left: 10px;
+
+}

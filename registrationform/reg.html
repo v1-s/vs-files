@@ -1,0 +1,271 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css"
+        integrity="sha512-z3gLpd7yknf1YoNbCzqRKc4qyor8gaKU1qmn+CShxbuBusANI9QpRohGBreCFkKxLhei6S9CQXFEbbKuqLg0DA=="
+        crossorigin="anonymous" referrerpolicy="no-referrer" />
+        <link rel="stylesheet" href="reg.css">
+    <title>Document</title>
+</head>
+
+<body>
+    <h2>REGISTRATION FORM</h2>
+    <div id="form">
+        <section><h3>Personal Details</h3></section>
+        <form>
+            <label for="frst" id="first">FirstName<span style="color: red;">*</span></label>
+            <input type="text" id="frst" name="name" pattern="[A-Za-z]{5,9}" placeholder="Enter your First Name"><span id="fname"></span>
+            <label for="lst" id="last">LastName<span style="color: red;">* </span></label>
+            <input type="text" id="lst" name="name" pattern="[A-Za-z]{4,8}"  placeholder="Enter your Last Name"><span id="lname"></span><br>
+            <label for="phnum" id="gen">Gender<span style="color: red;">*</span></label>
+            <input type="radio" name="gd" value="male">Male
+            <input type="radio" name="gd"value="female">Female
+            <input type="radio" name="gd" value="other">Choose not to specify<br>
+            <span id ="gender"></span><br>
+            <label for="dob">Date Of Birth<span style="color: red;">*</span></label>
+            <input type="date" id="dob" name="dob"><br><span id="db"></span><br>
+            <label for="umail">Usermail<span style="color: red;">*</span></label>
+            <input type="email" id="umail" pattern="([a-zA-Z0-9\.\_\+\-]+)(@[a-zA-Z0-9.\-]+)\\.(\\.[a-zA-Z]{2,})+"placeholder="Enter your EmailId"><br>
+            <label for="cmail" id="cfmmail">Confirm your Usermail<span style="color: red;">*</span></label>
+            <input type="text" id="cmail"pattern="([a-zA-Z0-9\.\_\+\-]+)(@[a-zA-Z0-9.-]+)\\.(\\.[a-zA-Z]{2,})+" placeholder="Enter your EmailId"><br>
+            <p id="para"></p>
+            
+            <label for="phnum">PhoneNumber<span style="color: red;">*</span></label>
+            <input type="tel" id="Pnum" name="num" pattern="[\d]{10}" placeholder="Enter your PhoneNumber"><br>
+            <span id="number"></span>
+           <br>
+            <label for="relegion">Religion<span style="color: red;">*</span></label>
+            <select name="religion" id="relegion">
+           <option value="defaultOption">Choose Your Religion</option>
+           <option value="Hindu">Hindu</option>
+           <option value="Muslim">Muslim</option>
+           <option value="Christianity">Christianity</option>
+           <option value="Sikkim">Sikkim</option>
+        </select>
+        <span id="reg">helloooooo</span>
+        <label for="lan" id="lg">Mother  Tongue<span style="color: red;">*</span></label>
+            <select name="lang" id="lang">
+           <option value="defaultOption">----Select----</option>
+           <option value="Telugu">Telugu</option>
+           <option value="Hindi">Hindi</option>
+           <option value="Urdu">Urdu</option>
+           <option value="Tamil">Tamil</option>
+        </select>
+        <span id="lag"></span>
+        </form>
+        
+        <h3 id="header">Address Details</h3>
+        <div id="ad">
+        <label for="name">HouseNo</label>
+        <input type="text" name="housename" placeholder="Enter your Flat/House No">
+        <label for="name"id="street">Colony/society,Street name/Landmark</label>
+        <input type="text" name="housename" placeholder="Enter your Flat/House No"><br>
+        <label for="name">State</label>
+        <select id="states" name="states">states</select>
+        <select id="districts" name="dists"></select><br>
+        <label for="pc">PinCode<span style="color: red;">*</span> </label>
+        <input type="text" id="Pc" placeholder="Enter your Pincode" required><br>
+        <label for="captcha">Captcha<span style="color: red;">*</span></label>
+        <div id="capt"> </div>
+        <button type="button" id="btn" <i class="fa-solid fa-repeat" style="color: #0a0a0a;"></i></button>
+        <input type="text" id ="cpenter"><p id="para"></p><br>
+    </div>
+        <input type="checkbox" id="confirm"><span style="color: red;">*
+
+        </span>I hereby confirm all the above details are true and if by chance any found fault ot fraud I solemnly
+        choose accept the consequences.<br>
+    
+        <button type="button" id="sbmt">Submit</button>
+    </div>
+    <script>
+       
+        let str1 = '0123456789ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz#$%&*@';
+        let strres = "";
+        let len = str1.length;
+        for (let i = 0; i < 7; i++) {
+            strres += str1[Math.floor(Math.random() * len)];
+        };
+          let op = document.querySelector("#capt");
+           op.innerHTML = strres;
+        document.querySelector("#btn").addEventListener("click",function(){
+            // window.location.reload();
+        let str1 = '0123456789ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz#$%&*@';
+        let strres = " ";
+        let len = str1.length;
+        for (let i = 0; i < 7; i++) {
+            strres += str1[Math.floor(Math.random() * len)];
+        };
+        let op = document.querySelector("#capt");
+        op.textContent = strres;
+            document.getElementById("cpenter").value = "   ";
+            document.querySelector("#para").innerHTML = "   ";
+            document.querySelector("#para").style.border = "none";
+
+        });
+        document.querySelector("#cpenter").addEventListener("input",function(){
+        let ores = document.querySelector("#para");
+            let data = document.querySelector("#cpenter").value;
+            let output = (data);
+            console.log(output);
+            if (output == " ") {
+                document.querySelector("#para").innerHTML ="***Please enter the correct CAPTCHA!***";
+                document.querySelector("#para").style.color = "orange";
+            } else if (output == strres) {
+                document.querySelector("#para").innerHTML = "Correct";
+                document.querySelector("#para").style.color = "green";
+        
+            } else {
+                document.querySelector("#para").innerHTML = "Wrong";
+                document.querySelector("#para").style.color = "red";
+            }
+        });
+        let header=document.querySelector("#header");
+        header.addEventListener("click",function(){
+            let address=document.querySelector("#ad");
+            if(address.style.display=="block"){
+                address.style.display="none";
+                // dispper.style.marginBottom="100px";
+            }else{
+                address.style.display="block";
+            }
+        });
+       document.querySelector("h3").addEventListener("click",function(){
+         let dispper=document.querySelector("form");
+          if(dispper.style.display=="block"){
+                dispper.style.display="none";
+                // dispper.style.marginBottom="100px";
+            }else{
+                dispper.style.display="block";
+            }
+        });
+     const chsdstate=document.querySelector("#states")
+        const chsddst=document.querySelector("#districts")
+        let select = document.createElement("select");
+        let defaultOption = document.createElement("option");
+        let defaultOpt = document.createElement("option");
+        defaultOption.text = "Please select an option";
+        defaultOpt.text = "Please select an option";
+                     defaultOption.selected = true;
+                   chsdstate.add(defaultOption);
+                   chsddst.add(defaultOpt);
+          fetch("https://gist.githubusercontent.com/devzakir/ade5836fae0ac40531e6afb111d61870/raw/4fe8c90e127060d55ad3c7d6d603d13528450e5b/india-states-and-districts.json")
+          .then(res=>res.json())
+          .then(data=>{
+                   let output="";
+                   data.states.forEach(function(state) {
+                  let opt = document.createElement("option");
+                    opt.text=state.state;
+                    chsdstate.add(opt);
+                     });
+                     chsdstate.addEventListener("change",function(){
+                chsddst.style.display="inline-block";
+     let choosedstate  =data.states.find(state=>state.state===chsdstate.value);
+              console.log(choosedstate);   
+              let output=" ";
+        choosedstate.districts.forEach(function(district) {
+        console.log(district);
+         output+=`<option>${district.name}</option>`;    
+              });  
+                 chsddst.innerHTML=output;
+            });
+        })   
+    document.querySelectorAll("#umail,#cmail").forEach(function(input){
+       input.addEventListener("input",function(){
+        let usermail=document.querySelector("#umail").value;
+        let cfmail=document.querySelector("#cmail").value;
+        let pa=document.querySelector("#para");
+        if(usermail===cfmail){
+            pa.textContent="  ";
+        }else{
+            pa.textContent=" Please Reconfirm Your Mail";
+            pa.style.color="red";
+        }
+    })
+    });
+ document.querySelector("#sbmt").addEventListener("click",()=>{
+                 let prev=document.querySelector("#sbmt");
+                prev.textContent="Preview";
+    let inname=document.querySelector("#frst").value;
+    let srname=document.querySelector("#lst").value;
+    let pname=document.querySelector("#fname");
+    let ltname=document.querySelector("#lname");
+    if(innmae=" "){
+            pname.textContent="***Please enter the first name!***";
+            pname.style.color="red";
+    }
+    if(srnmae=" "){
+            ltname.textContent="***Please enter the last name!***";
+            ltname.style.color="red";
+    }
+    let gend=document.querySelector("#gender");
+        if(!document.querySelector("input[name='gd']:checked")){
+            gend.textContent="***please select gender***";
+            gend.style.color="red";
+        }
+
+    let datb=document.querySelector("#db");
+    if(!document.querySelector("input[name='dob']:checked")){
+        datb.textContent="***please select DOB***";
+        datb.style.color="red";
+    }
+
+    let usermail=document.querySelector("#umail").value;
+    let cfmail=document.querySelector("#cmail").value;
+    let pa=document.querySelector("#para");
+    if(cfmail=" "){
+        pa.textContent="***please Enter the Mail***";
+        pa.style.color="red";
+    }
+
+    let number=document.querySelector("#number");
+    let pnum=document.querySelector("#Pnum");
+    if(pnum=" "){
+        number.textContent="***Please Enter the number***";
+        number.style.color="red";
+}
+    let rg=document.querySelector("#reg");
+    let reg = document.querySelector("#relegion").value;
+
+ // Add an event listener for the change event on the select element
+ reg.addEventListener("change", function() {
+  // Check if the value of the select element is "defaultOption"
+  if (reg.value == "defaultOption") {
+    // If yes, display a message in red color
+   rg.innerHTML = "Please choose a religion";
+   rg.style.color = "red";
+  } else {
+    // If no, clear the message
+   rg.textContent = "";
+  }
+ });
+ let lag=document.querySelector("#lag");
+ let lang=document.querySelector("lang");
+lang.addEventListener("change",function(){
+    if(lang.value=="defaultOption"){
+        lag.innerHTML="please choose";
+    }
+});
+
+
+
+
+
+
+
+
+
+
+
+
+    });
+
+
+
+
+    </script>
+</body>
+
+</html>
