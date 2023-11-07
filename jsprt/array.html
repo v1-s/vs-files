@@ -1,0 +1,233 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <button onclick="alert1(56)">Delete</button>
+    <h1>header</h1>
+    <label for="usrname"></label>
+
+    <input
+      type="text"
+      name="usrname"
+      id="uname"
+      placeholder="Enter your username"
+    />
+    <label for="umail"></label>
+    <input type="text" name="umail" id="mail" placeholder="Enter your mail" />
+    <input type="button" id="btn" value="submit" />
+    <div id="para">
+      <table>
+        <thead>
+          <th>uusername</th>
+          <th>usermail</th>
+        </thead>
+
+        <tbody id="tab">
+          <!-- <h1>rtt</h1> -->
+        </tbody>
+      </table>
+    </div>
+    <script>
+      // const arr = [];
+      // let tableHTML = document.createElement("table");
+      // let tbody = document.createElement("tbody");
+      // let th = document.createElement("th");
+      // let th1 = document.createElement("th");
+      // let th2 = document.createElement("th");
+      // let tr = document.createElement("tr");
+      // let tr2 = document.createElement("tr");
+      // let td = document.createElement("td");
+      // let th1txt = document.createTextNode("username");
+      // th1.appendChild(th1txt);
+      // th.appendChild(th1);
+      // let th2txt = document.createTextNode("usermail");
+      // th2.appendChild(th2txt);
+      // th.appendChild(th2);
+      // tr.appendChild(th1);
+      // tr.appendChild(th2);
+      // tableHTML.appendChild(tr);
+
+      // const submit = document.querySelector("#btn");
+      // submit.addEventListener("click", () => {
+      //   let tr1 = document.createElement("tr");
+      //   let td1 = document.createElement("td");
+      //   let td2 = document.createElement("td");
+      //   let td3 = document.createElement("td");
+      //   let td4 = document.createElement("td");
+      //   let usrname = document.querySelector("#uname").value;
+      //   console.log(usrname);
+      //   let umail = document.querySelector("#mail").value;
+      //   const obj = {
+      //     user: usrname,
+      //     usrmail: umail,
+      //   };
+      //   console.log(obj);
+      //   arr.push(obj);
+      //   console.log(arr);
+      //   td1txt = document.createTextNode(`${usrname}`);
+      //   td2txt = document.createTextNode(`${umail}`);
+      //   td3txt = document.createElement("button");
+      //   td3txt.innerHTML = "ADD";
+      //   console.log(td3txt);
+      //   let td4txt = document.createElement("button");
+      //   td4txt.innerHTML = "REMOVE";
+      //   td1.appendChild(td1txt);
+      //   td2.appendChild(td2txt);
+      //   td3.appendChild(td3txt);
+      //   td4.appendChild(td4txt);
+      //   tr1.appendChild(td1);
+      //   tr1.appendChild(td2);
+      //   tr1.appendChild(td3);
+      //   tr1.appendChild(td4);
+      //   tbody.appendChild(tr1);
+      //   console.log(tbody);
+      //   tableHTML.appendChild(tbody);
+      //   console.log(tableHTML);
+      //   document.querySelector("#para").appendChild(tableHTML);
+      //   td3.addEventListener("click", () => {
+      //     if (td1txt && td2txt) {
+      //       td1txt.nodeValue = `${usrname}`;
+      //       td2txt.nodeValue = `${umail}`;
+      //     }
+      //   });
+      // });
+
+      // let usrname = document.querySelector("#uname").value;
+      // console.log(usrname);
+      // let umail = document.querySelector("#mail").value;
+      // td1txt = document.createTextNode(`${usrname}`);
+      // td2txt = document.createTextNode(`${umail}`);
+      // let td4 = document.createElement("td");
+      // let td4txt = document.createElement("button");
+      // td4txt.innerHTML = "REMOVE";
+      // td4.addEventListener("click", () => {
+      //   if (td1txt && td2txt) {
+      //     td1txt.nodeValue = "";
+      //     td2txt.nodeValue = "";
+      //   }
+      // });
+
+      function alert1(num) {
+        alert("wrong" + num);
+      }
+
+      let usrname = document.querySelector("#uname");
+      let mail = document.querySelector("#mail");
+      let submit = document.querySelector("#btn");
+      let table = document.querySelector("#para");
+      // let innertable=document.createElement("table");
+      // let innerrow=document.createElement("tr");
+      let table1 = document.querySelector("#tab");
+      const arr = [];
+      function dele(e) {
+        console.log(e);
+        arr.splice(e, 1);
+
+        displaytable();
+      }
+
+      const add = () => {
+        let obj = {
+          name: usrname.value,
+          usrmail: mail.value,
+        };
+        if (obj.name && obj.usrmail) {
+          arr.push(obj);
+        }
+
+        displaytable();
+      };
+      function displaytable() {
+        // while (table1.firstChild) {
+        //   table1.firstChild.remove();
+        // }
+        table1.innerHTML = "";
+
+        arr.forEach((e, id, full) => {
+          console.log(e, id, full);
+          let inrow = document.createElement("tr");
+          inrow.innerHTML = `
+          <td>${e.name}</td>
+          <td>${e.usrmail}</td>
+          <button onclick="dele(id)">Delete</button>`;
+
+          table1.append(inrow);
+        });
+      }
+      submit.addEventListener("click", add);
+
+      // innertable.append(innerrow);
+      // table.append(innertable);
+      let data;
+      let array;
+
+      async function datafetch() {
+        const url = "https://jsonplaceholder.typicode.com/todos";
+        fetch(url)
+          .then((res) => res.json())
+          .then((data) => {
+            array = data;
+            aynchronour(data, "rttt", 45);
+
+            array.forEach((e) => {
+              let title = document.createElement("h1");
+              title.textContent = `<bold>${e.title}</bold>`;
+              document.body.appendChild(title);
+            });
+          });
+      }
+      let data3;
+      async function exampleFetch() {
+        const response = await fetch(
+          "https://jsonplaceholder.typicode.com/albums"
+        );
+        console.log(response);
+        const json = await response.json();
+        data3 = await json;
+        console.log(json);
+      }
+      exampleFetch();
+      // async function fetch(){
+      //      console.log(data3);
+      // }
+      // fetch();
+
+      datafetch();
+      function aynchronour(data, string, number) {
+        console.log(data);
+        console.log(string, number);
+      }
+
+      console.log(document.querySelector("h1").textContent);
+
+        function parent(){
+          var a=10;
+          function child(){
+            console.log(a);
+            function innerchild(){
+              console.log("hi",a);
+            }
+            innerchild()
+          }
+          child();
+          innerchild();
+        }
+
+        
+
+
+
+
+
+
+
+
+
+
+    </script>
+  </body>
+</html>

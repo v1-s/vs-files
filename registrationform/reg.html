@@ -15,26 +15,26 @@
     <h2>REGISTRATION FORM</h2>
     <div id="form">
         <section><h3>Personal Details</h3></section>
-        <form>
+        <form method="get" novalidate>
             <label for="frst" id="first">FirstName<span style="color: red;">*</span></label>
-            <input type="text" id="frst" name="name" pattern="[A-Za-z]{5,9}" placeholder="Enter your First Name"><span id="fname"></span>
+            <input type="text" id="frst" name="frst" pattern="[A-Za-z]{5,9}" placeholder="Enter your First Name"><span id="fname"></span>
             <label for="lst" id="last">LastName<span style="color: red;">* </span></label>
-            <input type="text" id="lst" name="name" pattern="[A-Za-z]{4,8}"  placeholder="Enter your Last Name"><span id="lname"></span><br>
+            <input type="text" id="lst" name="lst" pattern="[A-Za-z]{4,8}"  placeholder="Enter your Last Name"><span id="lname"></span><br>
             <label for="phnum" id="gen">Gender<span style="color: red;">*</span></label>
             <input type="radio" name="gd" value="male">Male
             <input type="radio" name="gd"value="female">Female
             <input type="radio" name="gd" value="other">Choose not to specify<br>
             <span id ="gender"></span><br>
             <label for="dob">Date Of Birth<span style="color: red;">*</span></label>
-            <input type="date" id="dob" name="dob"><br><span id="db"></span><br>
+            <input type="date" id="dob" name="dobb"><br><span id="db"></span><br>
             <label for="umail">Usermail<span style="color: red;">*</span></label>
-            <input type="email" id="umail" pattern="([a-zA-Z0-9\.\_\+\-]+)(@[a-zA-Z0-9.\-]+)\\.(\\.[a-zA-Z]{2,})+"placeholder="Enter your EmailId"><br>
+            <input type="email" name="umail" id="umail" pattern="([a-zA-Z0-9\.\_\+\-]+)(@[a-zA-Z0-9.\-]+)\\.(\\.[a-zA-Z]{2,})+"placeholder="Enter your EmailId"><br>
             <label for="cmail" id="cfmmail">Confirm your Usermail<span style="color: red;">*</span></label>
             <input type="text" id="cmail"pattern="([a-zA-Z0-9\.\_\+\-]+)(@[a-zA-Z0-9.-]+)\\.(\\.[a-zA-Z]{2,})+" placeholder="Enter your EmailId"><br>
             <p id="paragy"></p>
             
             <label for="phnum">PhoneNumber<span style="color: red;">*</span></label>
-            <input type="tel" id="Pnum" name="num" pattern="[\d]{10}" placeholder="Enter your PhoneNumber"><br>
+            <input type="tel" id="Pnum" name="Pnum" pattern="(?:[6-9]{1}[0-9]{9}([^a-zA-Z_\.\$]))" placeholder="Enter your PhoneNumber"><br>
             <span id="number"></span>
            <br>
             <label for="relegion">Religion<span style="color: red;">*</span></label>
@@ -78,12 +78,33 @@
         </span>I hereby confirm all the above details are true and if by chance any found fault ot fraud I solemnly
         choose accept the consequences.<br>
     
-        <button type="button" id="sbmt">Submit</button>
+        <button type="button" id="sbmt">Preview</button>
+        <!-- <button type="button" id="submit" value="Submit" style="display: none;">Submit</button> -->
+        
     </div>
-    <script>
-       
+ <script>
+   let header=document.querySelector("#header");
+        header.addEventListener("click",function(){
+            let address=document.querySelector("#ad");
+            if(address.style.display=="block"){
+                address.style.display="none";
+                // dispper.style.marginBottom="100px";
+            }else{
+                address.style.display="block";
+            }
+        });
+       document.querySelector("h3").addEventListener("click",function(){
+         let dispper=document.querySelector("form");
+          if(dispper.style.display=="block"){
+                dispper.style.display="none";
+               
+                // dispper.style.marginBottom="100px";
+            }else{
+                dispper.style.display="block";
+            }
+        });
         let str1 = '0123456789ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz#$%&*@';
-        let strres = "";
+        let strres ="";
         let len = str1.length;
         for (let i = 0; i < 7; i++) {
             strres += str1[Math.floor(Math.random() * len)];
@@ -105,6 +126,7 @@
             document.querySelector("#para").style.border = "none";
 
         });
+    
         document.querySelector("#cpenter").addEventListener("input",function(){
         let ores = document.querySelector("#para");
             let data = document.querySelector("#cpenter").value;
@@ -122,27 +144,7 @@
                 document.querySelector("#para").style.color = "red";
             }
         });
-        let header=document.querySelector("#header");
-        
-        header.addEventListener("click",function(){
-            let address=document.querySelector("#ad");
-            if(address.style.display=="block"){
-                address.style.display="none";
-                // dispper.style.marginBottom="100px";
-            }else{
-                address.style.display="block";
-            }
-        });
-       document.querySelector("h3").addEventListener("click",function(){
-         let dispper=document.querySelector("form");
-          if(dispper.style.display=="block"){
-                dispper.style.display="none";
-               
-                // dispper.style.marginBottom="100px";
-            }else{
-                dispper.style.display="block";
-            }
-        });
+       
      const chsdstate=document.querySelector("#states")
         const chsddst=document.querySelector("#districts")
         let select = document.createElement("select");
@@ -174,84 +176,144 @@
                  chsddst.innerHTML=output;
             });
         })   
-    document.querySelectorAll("#umail,#cmail").forEach(function(input){
+      document.querySelectorAll("#umail,#cmail").forEach(function(input){
        input.addEventListener("input",function(){
         let usermail=document.querySelector("#umail").value;
         let cfmail=document.querySelector("#cmail").value;
-        let pa=document.querySelector("#para");
+        let p=document.querySelector("#paragy");
         if(usermail===cfmail){
-            pa.textContent="  ";
+            p.textContent="  ";
         }else{
-            pa.textContent=" Please Reconfirm Your Mail";
-            pa.style.color="red";
+            p.textContent=" Please Reconfirm Your Mail";
+            p.style.color="red";
         }
     })
     });
- document.querySelector("#sbmt").addEventListener("click",()=>{
-                 let prev=document.querySelector("#sbmt");
-                prev.textContent="Preview";
+ document.querySelector("#sbmt").addEventListener("click",function(){
+                    // let sumit=document.querySelector("#submit");
+                    // sumit.style.display="block";
+                    document.querySelector("#sbmt").innerHTML="Submit";
     let inname=document.querySelector("#frst").value;
+    console.log(inname);
     let srname=document.querySelector("#lst").value;
     let pname=document.querySelector("#fname");
     let ltname=document.querySelector("#lname");
-    if(innmae=" "){
+    if(inname==""){
             pname.textContent="***Please enter the first name!***";
             pname.style.color="red";
     }
-    if(srnmae=" "){
+       document.querySelector("#frst").addEventListener("input",function(){
+          let inname=document.querySelector("#frst").value;
+           console.log(inname);
+                pname.textContent="";
+                document.querySelector("#frst").style.border="2px solid green";
+            });
+    
+    if(srname==""){
             ltname.textContent="***Please enter the last name!***";
             ltname.style.color="red";
-    }
+    } 
+    document.querySelector("#lst").addEventListener("input",function(){
+          let srname=document.querySelector("#lst").value;
+           console.log(inname);
+                ltname.textContent="";
+                document.querySelector("#lst").style.border="2px solid green";
+            });
     let gend=document.querySelector("#gender");
-        if(!document.querySelector("input[name='gd']:checked")){
+        if(!document.querySelector("gd:checked")){
             gend.textContent="***please select gender***";
             gend.style.color="red";
         }
+       let radios=document.querySelectorAll("input[name='gd']");
+       radios.forEach((radio)=>{
+        radio.addEventListener("change",()=>{
+            if(document.querySelector("input[name='gd']:checked")){
+            gend.textContent="";
+        }
+        })
+    })
 
     let datb=document.querySelector("#db");
-    if(!document.querySelector("input[name='dob']:checked")){
+    let dobs=document.querySelector("#dob").value;
+    if(dobs ==""){
         datb.textContent="***please select DOB***";
         datb.style.color="red";
     }
-
+    let dbs=document.querySelector("#dob");
+    dbs.addEventListener("change",()=>{
+        datb.textContent="";
+    })
+   
     let usermail=document.querySelector("#umail").value;
     let cfmail=document.querySelector("#cmail").value;
     let pa=document.querySelector("#paragy");
-    if(cfmail=" "){
+    if(cfmail==""){
         pa.textContent="***please Enter the Mail***";
         pa.style.color="red";
     }
 
     let number=document.querySelector("#number");
-    let pnum=document.querySelector("#Pnum");
-    if(pnum=" "){
+    let pnum=document.querySelector("#Pnum").value;
+   
+    if(Number(pnum)==""){
         number.textContent="***Please Enter the number***";
         number.style.color="red";
  }
+   let p=document.querySelector("#Pnum");
+    p.addEventListener("input",()=>{
+        let pnum=document.querySelector("#Pnum").value;
+        // console.log(pnum);
+        // let pattern=document.querySelector("#Pnum").pattern;
+        let regtel=/^(?:[6-9]{1}[0-9]{9})$/;
+       if(pnum!=""){
+        number.textContent="";
+       }
+       if(!regtel.test(pnum)){
+        number.textContent="Plz match format";
+       }else{
+        number.textContent="";
+        p.style.border="2px solid green";
+       }
+    })
+ 
 
-
-
- let pic=document.querySelector("#pic");
-    let pc=document.querySelector("#Pc");
-    if(pc=" "){
+  let pic=document.querySelector("#pic");
+    let pc=document.querySelector("#Pc").value;
+    if(pc==""){
         pic.textContent="***Please Enter the PIN Code***";
         pic.style.color="red";
  }
+ let pi=document.querySelector("#Pc");
+    pi.addEventListener("input",()=>{
+        let pc=document.querySelector("#Pc").value;
+        let regpin=/^(?:[0-9]{6})$/;
+       if(!regpin.test(pc)){
+        pic.textContent="Plz match format";
+       }else{
+        pic.textContent="";
+        pi.style.border="2px solid green";
+       }
+        // console.log(regpin.test(pc));
+    })
     let rg=document.querySelector("#reg");
     let reg = document.querySelector("#relegion");
-  if (reg.value == "defaultOption") {
-   rg.innerHTML = "Please choose a religion";
-   rg.style.color = "red";
-  } else {
-   rg.textContent = "";
-  }
+  if (reg.value =="defaultOption") {
+   rg.innerHTML ="Please choose a religion";
+   rg.style.color ="red";
+  } 
+   reg.addEventListener("change",()=>{
+     rg.textContent="";
+   })
 
  let lag=document.querySelector("#lag");
  let lang=document.querySelector("#lang");
     if(lang.value=="defaultOption"){
         lag.innerHTML="please choose language";
         lag.style.color = "red";
-    };
+    }
+    lang.addEventListener("change",()=>{
+     lag.textContent="";
+   })
     let data = document.querySelector("#cpenter").value;
             let output =(data);
             console.log(output);
@@ -265,10 +327,20 @@
                     alert("please check");
             }
 
+ 
+  if(inname!=""&&srname!=""&&dobs!=""&&pc!=""&&pnum!=""&&usermail!=""&&cfmail!=""){
+    alert("details subitted successfully");
+
+  }
 
 
 
-    });
+
+  });
+
+
+
+
 
 
 

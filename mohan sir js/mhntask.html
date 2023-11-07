@@ -5,66 +5,59 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Document</title>
     <style>
-        *{
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-        }
-        #districts{
-            display: none;
-        }
+      * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+      }
+      #districts {
+        display: none;
+      }
     </style>
   </head>
   <body>
-   <div id="box">
-    <h3>Select State </h3>
-    <select id="states" name="states">states</select>
-    <select id="districts" name="dists"></select>
-
-   </div>
+    <div id="box">
+      <h3>Select State</h3>
+      <select id="states" name="states">
+        states
+      </select>
+      <select id="districts" name="dists"></select>
+    </div>
     <script>
-        const chsdstate=document.querySelector("#states")
-        const chsddst=document.querySelector("#districts")
-        let select = document.createElement("select");
-        let defaultOption = document.createElement("option");
-        defaultOption.text = "Please select an option";
-                     defaultOption.selected = true;
-                   chsdstate.add(defaultOption);
-          fetch("https://gist.githubusercontent.com/devzakir/ade5836fae0ac40531e6afb111d61870/raw/4fe8c90e127060d55ad3c7d6d603d13528450e5b/india-states-and-districts.json")
-          .then(res=>res.json())
-          .then(data=>{
-                   let output="";
-                   data.states.forEach(function(state) {
-                  let opt = document.createElement("option");
-                    opt.text=state.state;
-                    chsdstate.add(opt);
-                     });
-                     chsdstate.addEventListener("change",function(){
-                chsddst.style.display="inline-block";
-    let choosedstate  =data.states.find(state=>state.state===chsdstate.value);
-              console.log(choosedstate);   
-              let output=" ";
-        choosedstate.districts.forEach(function(district) {
-        console.log(district);
-         output+=`<option>${district.name}</option>`;    
-              });  
-                 chsddst.innerHTML=output;
+      const chsdstate = document.querySelector("#states");
+      const chsddst = document.querySelector("#districts");
+      let select = document.createElement("select");
+      let defaultOption = document.createElement("option");
+      defaultOption.text = "Please select an option";
+      defaultOption.selected = true;
+      chsdstate.add(defaultOption);
+      fetch(
+        "https://gist.githubusercontent.com/devzakir/ade5836fae0ac40531e6afb111d61870/raw/4fe8c90e127060d55ad3c7d6d603d13528450e5b/india-states-and-districts.json"
+      )
+        .then((res) => res.json())
+        .then((data) => {
+          let output = "";
+          data.states.forEach(function (state) {
+            let opt = document.createElement("option");
+            opt.text = state.state;
+            chsdstate.add(opt);
+          });
+          chsdstate.addEventListener("change", function () {
+            chsddst.style.display = "inline-block";
+            let choosedstate = data.states.find(
+              (e) => e.state == chsdstate.value
+            );
+            console.log(choosedstate);
+            let output = " ";
+            choosedstate.districts.forEach(function (district) {
+              console.log(district);
+              output += `<option>${district.name}</option>`;
             });
-           
+            chsddst.innerHTML = output;
+          });
+        });
 
-
-     })   
-
- 
-
-
-
-
-
-
-
-
-            // .catch(error => console.error('Error:', error));
+      // .catch(error => console.error('Error:', error));
     </script>
   </body>
 </html>

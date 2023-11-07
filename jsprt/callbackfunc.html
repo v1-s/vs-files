@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        //     function tax(a,b){
+        //       let taxamount=a*(b/100);
+        //       return taxamount ;               ;
+        //     }
+        //    var result= tax(1000,20);
+        //    console.log(result);
+            function num(a,b,r){
+                console.log( r(a+b));//r as a function//
+
+            }function result(s){
+                return(s);
+            }
+            num(2,3,result);
+ function stud(name,fun){
+    console.log("name"+name)
+    fun();
+ }
+ function hi(){
+    console.log("hi");
+ }
+  stud("V",hi);     
+   function cal(a,b,operation){
+   return( operation(a,b));
+   }
+   function add(a,b){
+    return(a+b);
+   }
+   cal(2,3,add);
+   function str(fr){
+    console.log("hi"+fr);//fr()//
+   }
+   function string(){
+    return("JJJ")
+   }
+   str(string());//string//
+function add(name,f){
+    console.log(name +f);
+ }
+ function re(){
+    return("helloo")
+ }
+ add("V",re());  
+
+
+
+    </script>
+</body>
+</html>

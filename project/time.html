@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <link rel="stylesheet" href="time.css">
+  </head>
+  <body>
+    <div class="box">
+      <div id="box1">
+        <img src="./logo.jpg" alt="home" />
+      </div>
+      <div id="box2">
+        <h3>OLD IPHONE GIVEWAY</h3>
+        <h4>Giveway ends on Monday 13 Nov 2023 12:30pm</h4>
+        <br>
+        <p>
+          Lorem ipsum, dolor sit amet consectetur adipisicing elit. Neque animi
+          atque odit soluta vel, voluptate doloremque repellendus tempore magni
+          corporis, quia nostrum omnis nemo tempora sapiente aliquam nesciunt
+          voluptatibus reiciendis?
+        </p>
+        <div id="box3">
+            <div id="boxa">DAYS</div>
+            <div id="boxb">HOURS</div>
+            <div id="boxc">MINUTES</div>
+            <div id="boxd">SECONDS</div>
+        </div>
+      </div>
+
+    </div>
+
+    <script>
+        let day=document.querySelector("#boxa");
+        let hrs=document.querySelector("#boxb");
+        let min=document.querySelector("#boxc");
+        let sec=document.querySelector("#boxd");
+//-------------to update time and sec we use setInerval ----------------//
+function updatetime(){
+        const date=new Date();
+        const date1=date.getDate();
+        const usrdate=new Date(2023,10,13);
+        const usrdate1=usrdate.getDate();
+        // console.log(usrdate1);
+        const result=usrdate1-date1;
+        console.log(result);    
+         day.innerHTML=result;
+        const hr=date.getHours();
+        const hr1=usrdate.getHours();
+        const re2=hr-hr1;
+        hrs.innerHTML=re2;
+        const m=date.getMinutes();
+        const m1=usrdate.getMinutes();
+        const min2=m-m1;
+        min.innerHTML=min2;
+        const s=date.getSeconds();
+        const s1=usrdate.getSeconds();
+        const s2=s-s1;
+        sec.innerHTML=s2;
+        console.log(s2);
+}
+ updatetime();
+ setInterval(updatetime,1000);    
+
+
+
+  </script>
+  </body>
+</html>

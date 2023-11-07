@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <form id="myForm">
+  <!-- Your form fields go here -->
+  <input type="text" id="name" name="name">
+  <input type="email" id="email" name="email">
+  
+  <!-- Preview Button -->
+  <input type="button" value="Preview" onclick="preview()">
+  
+  <!-- Submit Button, initially hidden -->
+  <input type="submit" id="submit" value="Submit" style="display: none;">
+</form>
+
+<!-- Preview Area -->
+<div id="previewArea" style="display: none;">
+  <!-- Preview fields go here -->
+  <p id="previewName"></p>
+  <p id="previewEmail"></p>
+  
+  <!-- Edit Button -->
+  <input type="button" value="Edit" onclick="edit()">
+  
+  <!-- Confirm Button -->
+  <input type="button" value="Confirm" onclick="confirm()">
+</div>
+<script>
+    function preview() {
+  // Get form data
+  var name = document.getElementById('name').value;
+  var email = document.getElementById('email').value;
+
+  // Set preview data
+  document.getElementById('previewName').innerText = name;
+  document.getElementById('previewEmail').innerText = email;
+
+  // Show preview area, hide form
+  document.getElementById('previewArea').style.display = 'block';
+  document.getElementById('myForm').style.display = 'none';
+}
+
+function edit() {
+  // Hide preview area, show form
+  document.getElementById('previewArea').style.display = 'none';
+  document.getElementById('myForm').style.display = 'block';
+}
+
+function confirm() {
+  // Show submit button
+  document.getElementById('submit').style.display = 'block';
+}
+
+    </script>
+</body>
+</html>
