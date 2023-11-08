@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        let items=[
+
+        {id:1,name:"item1"},
+        {id:2,name:"item2"},
+        {id:3,name:"item3"}
+    ]
+    // function item(){
+    //     return items;
+    // }
+    // console.log(item());
+//    function readitem(id){
+//     return items.find(e=>e.id===id);
+//    }
+//    console.log(readitem(2));
+//    function item(id){
+//      let item;
+//     items.find(item==id);
+
+//    }
+//    console.log(item(2));
+   function createitem(id){
+    items.push(id);
+   }
+   createitem({id:4,name:"item4"});
+   let item2=({...items});
+   function updateitem(id,updateitem3){
+    const index=items.findIndex(id);
+    };
+    updateitem();
+
+
+
+
+
+
+
+
+
+    </script>
+</body>
+</html>

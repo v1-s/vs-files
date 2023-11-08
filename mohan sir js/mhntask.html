@@ -35,7 +35,7 @@
         "https://gist.githubusercontent.com/devzakir/ade5836fae0ac40531e6afb111d61870/raw/4fe8c90e127060d55ad3c7d6d603d13528450e5b/india-states-and-districts.json"
       )
         .then((res) => res.json())
-        .then((data) => {
+        .then((data) => { 
           let output = "";
           data.states.forEach(function (state) {
             let opt = document.createElement("option");

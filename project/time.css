@@ -19,8 +19,12 @@ img{
     padding: 20px;
 }
 h3{
-    color: cornflowerblue;
-    margin-bottom: 10px;
+    color: rebeccapurple;
+    margin-bottom: 5px;
+}
+img:hover{
+    transform: scale(1.1);
+    /* box-shadow:10px 0 15px 0px blueviolet; */
 }
 p{
     color: black;
@@ -29,6 +33,7 @@ p{
 #box2{
     margin-top: 50px;
     padding: 5px;
+    width: 450px;
     
 }
 #box3{
@@ -42,9 +47,16 @@ p{
 #boxa,#boxb,#boxc,#boxd{
     margin-left: 5px;
     margin-right: 5px;
-    background-color: black;
+    background-color:rgb(8, 8, 79);
     color: white;
-    padding: 30px;
- padding-left: 25px;
- padding-right: 25px;
+    padding: 14px;
+ padding-left: 10px;
+ padding-right: 10px;
+ text-align: center;
+ font-size: smaller;
+}
+#text,#text1,#text2,#text3{
+    text-align: center;
+    color: white;
+    font-size: large;
 }

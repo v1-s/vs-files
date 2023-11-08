@@ -1,24 +1,14 @@
-import Home from "./Components/Home";
+import logo from './logo.svg';
 
-class components extends React.Component{
-constructor(props){
-  super(props);
-  this.state={
-    counter:0
-  };
-render(){
+import './App.css';
+import Home from './Components/Home';
+
+function App() {
   return (
-    <div>
-      <p>
-        <button onClick={this.increement}>click</button>
-      </p>
+    <div className="App">
+      <Home></Home>
     </div>
   );
 }
-};
-};
-
-
-
 
 export default App;

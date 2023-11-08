@@ -13,34 +13,80 @@
       </div>
       <div id="box2">
         <h3>OLD IPHONE GIVEWAY</h3>
-        <h4>Giveway ends on Monday 13 Nov 2023 12:30pm</h4>
+        <h4></h4>
         <br>
         <p>
           Lorem ipsum, dolor sit amet consectetur adipisicing elit. Neque animi
           atque odit soluta vel, voluptate doloremque repellendus tempore magni
           corporis, quia nostrum omnis nemo tempora sapiente aliquam nesciunt
-          voluptatibus reiciendis?
+          voluptatibus reiciendis
         </p>
         <div id="box3">
-            <div id="boxa">DAYS</div>
-            <div id="boxb">HOURS</div>
-            <div id="boxc">MINUTES</div>
-            <div id="boxd">SECONDS</div>
+            <div id="boxa"><span id="text"></span><br>DAYS</div>
+            <div id="boxb"><span id="text1"></span><br>HOURS</div>
+            <div id="boxc"><span id="text2"></span><br>MINS</div>
+            <div id="boxd"><span id="text3"></span><br>SECS</div>
         </div>
       </div>
 
     </div>
 
     <script>
-        let day=document.querySelector("#boxa");
-        let hrs=document.querySelector("#boxb");
-        let min=document.querySelector("#boxc");
-        let sec=document.querySelector("#boxd");
+    
+
+        let day=document.querySelector("#text");
+        let hrs=document.querySelector("#text1");
+        let min=document.querySelector("#text2");
+        let sec=document.querySelector("#text3");
 //-------------to update time and sec we use setInerval ----------------//
+// function updatetime(){
+// const d1=new Date().getDate();
+// console.log("date",d1);
+// const d2=new Date(2023,10,13,12,30)
+// let dt1=(d2.getTime());
+// console.log("dt1",dt1);
+// let fdt2=d2.getDate();
+// console.log(fdt2);
+// const t1=new Date().getHours();
+// console.log("hrs",t1);
+// const ft2=d2.getHours();
+// console.log(ft2);
+// const t3=new Date().getTime();
+// console.log(t3); 
+// const today=dt1-t3;
+// console.log(today)
+
+
+// const t=24*60*60*1000;
+// console.log(t);
+// const hr=60*60*1000;
+// const min1=60*1000;
+// const a= Math.floor((today%t)/hr) ;
+// console.log(a);
+// console.log(Math.floor((today%hr)/min1));
+// console.log(Math.floor((today%min1)/1000));
+// let usrdatatext=document.querySelector("h4");
+//       usrdatatext.innerHTML=`Giveway ends on Monday, ${usrdate1} Nov ${yr} ${hr1}:${m1}pm`
+// }
+//  updatetime();
+//  setInterval(updatetime,1000);    
+
+
+
+
+
+
+
+
+
+
+
+
+
 function updatetime(){
         const date=new Date();
         const date1=date.getDate();
-        const usrdate=new Date(2023,10,13);
+        const usrdate=new Date(2023,10,13,12,30);
         const usrdate1=usrdate.getDate();
         // console.log(usrdate1);
         const result=usrdate1-date1;
@@ -48,17 +94,21 @@ function updatetime(){
          day.innerHTML=result;
         const hr=date.getHours();
         const hr1=usrdate.getHours();
-        const re2=hr-hr1;
+        console.log(hr1);
+        const re2=( hr-hr1);
         hrs.innerHTML=re2;
         const m=date.getMinutes();
         const m1=usrdate.getMinutes();
-        const min2=m-m1;
+        const min2=m1-m;
         min.innerHTML=min2;
         const s=date.getSeconds();
         const s1=usrdate.getSeconds();
         const s2=s-s1;
         sec.innerHTML=s2;
-        console.log(s2);
+        let yr=usrdate.getFullYear();
+        let mr=usrdate.getHours;
+        let usrdatatext=document.querySelector("h4");
+        usrdatatext.innerHTML=`Giveway ends on Monday, ${usrdate1} Nov ${yr} ${hr1}:${m1}pm`
 }
  updatetime();
  setInterval(updatetime,1000);    
