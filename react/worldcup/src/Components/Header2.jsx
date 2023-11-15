@@ -18,7 +18,7 @@ export default function Head() {
             setSubmit(input);
     }
     function Open(){
-            setOpen
+            setOpen();
     }
 
  return (
