@@ -12,7 +12,7 @@
         {id:1,name:"item1"},
         {id:2,name:"item2"},
         {id:3,name:"item3"}
-    ]
+    ];
     // function item(){
     //     return items;
     // }
@@ -27,15 +27,48 @@
 
 //    }
 //    console.log(item(2));
-   function createitem(id){
-    items.push(id);
-   }
-   createitem({id:4,name:"item4"});
-   let item2=({...items});
-   function updateitem(id,updateitem3){
-    const index=items.findIndex(id);
-    };
-    updateitem();
+//    function createitem(id){
+//     items.push(id);
+//    }
+//    createitem({id:4,name:"item4"});
+//    let item2=({...items});
+//    function updateitem(id,updateitem3){
+//     const index=items.findIndex(id);
+//     };
+//     updateitem();
+
+
+//   let image = [[1,1,0],[1,0,1],[0,0,0]];
+//   let re=image.map(row=>row.reverse());
+// //   console.log(re);
+//   for(let i=0;i<re.length;i++){
+//     for(let j=0;j<re[i].length;j++){
+//     if(re[i][j]==1){
+//         re[i][j]=0;
+//     }else{
+//         re[i][j]=1;
+//     }
+//   }
+//   }
+//   console.log(re);
+//   return re;
+
+
+
+ var  nums1 = [4,9,5]
+
+ var nums2 = [9,4,9,8,4]
+
+  for(let i=0;i<nums1.length;i++){
+            for(let j=0;j<nums2.length;j++){
+    if(nums1[i]===nums2[j]){
+        if(!result.includes(nums1[i])){
+            result.push(nums1[i]);
+        }
+    }
+    }  
+ };
+
 
 
 
