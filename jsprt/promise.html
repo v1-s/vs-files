@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        // let pro=new Promise((resolve,reject)=>{
+        //     const x="My Friend";
+        //     const y="MyFriend";
+        //     if(x===y){
+        //         resolve();
+        //     }else{
+        //         reject();
+        //     }
+        // });
+        //     pro.then(function(){
+        //         console.log("success");
+        //     }).catch(function(){
+        //         console.log("error");
+        //     })
+
+
+         let bday=(isFrndsick)=>{
+            return  new Promise((resolve,reject)=>{
+                if(!isFrndsick){
+                    resolve();
+                }else{
+                    reject();
+                }
+              
+      })
+    }
+    bday(false)
+    .then(function(){
+        console.log("sucess");
+    }).catch(function(){
+        console.log("err")
+    })
+    </script>
+</body>
+</html>

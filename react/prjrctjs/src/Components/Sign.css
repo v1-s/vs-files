@@ -1,0 +1,39 @@
+#Signin{
+       margin-top: 30px; 
+       background-color: skyblue;
+       padding: 10px;
+       width: 200px;
+       border-radius: 50px;
+       outline-style: none;
+       color: white;
+       border-style: none;
+}
+.container{
+    margin-top: 50px;
+    width:100%;
+    background-color: azure;
+}
+.Ft{
+    background-color: rgb(41, 93, 190);
+    
+}
+.Fr{
+    width: 300px;
+
+}
+.Ft {
+    position:relative;
+    overflow: hidden;
+}
+
+.Ft::after {
+    content: '';
+    position: absolute;
+    top: 100px;
+    bottom: 50px;
+    width: 100%;
+    background: inherit;
+    transform: skewY(-50deg);
+    transform-origin: top left;
+}
+

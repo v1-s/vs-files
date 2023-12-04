@@ -19,24 +19,26 @@
         let th=document.createElement("th");
         let tr=document.createElement("tr");
         table1=`<table id="table">
-                <tr>
+            <thead>
                 <th>username</th>
-                <th>umail</th>
-                </tr>
-               </table>`
+                <th>umail</th> 
+               </thead>`
        document.querySelector("#para").innerHTML=table1;         
        document.querySelector("#btn").addEventListener("click",function(){  
         let usrname=document.querySelector("#uname").value;
         console.log(usrname);
         let umail=document.querySelector("#mail").value;
         let tbody=document.createElement("tbody");
-        let trow=document.createElement("tr");
+        let tr=document.createElement("tr");
         let td=document.createElement("td");
-        tbody=`<tr>
+      let row=`<tr>
             <td>${usrname}</td>
             <td>${umail}</td>
-            </tr>`   
-        table1+=(tbody);  
+            </tr>
+           `   
+        table1+=row; 
+        table1+=`</table>` 
+        console.log(table1);
         document.querySelector("#para").innerHTML=table1;  
         });
     </script>

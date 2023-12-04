@@ -6,22 +6,116 @@
     <title>Document</title>
 </head>
 <body>
-    <p id ="outpt"></p>
-    <script>
+  <input id="cont" style="width: 200px;height: 80px; border:2px solid aqua; margin: 50px;"/> 
+    <input id="cont2" style="width: 100px;height: 50px; border:2px solid aqua; margin-left: 30px;"/> 
 
-    
+    <div id="cont3" style="width: 100px;height: 50px; border:2px solid aqua; margin-left: 30px;"> 
+ 
+    </div>
+
+    <script>    
 //     const a={name:"vi",loc:"bnglr",
 //     id:2345678}
 //    for(let i in a){
 //       console.log(a[i]);
 //    }
+//    var a=7;
+//     // console.log(a+4)
+//     document.querySelector("#outpt").innerHTML='thereult is' +(a+4);
+//   const dummy_Url= 'https://dummyjson.com/products/1';
+// const dummy_Url2='https://dummyjson.com/posts';
+// Promise.all([
+//   fetch(dummy_Url).then(res => res.json()),
+//   fetch(dummy_Url2).then(res => res.json())
+// ]).then(([json1, json2]) => {
+//   console.log(json1);
+//   console.log(json2);
+// }).catch(err => {
+//   console.error(err);
+// });
+
+// fetch(dummy_Url)
+// .then(res1 => res1.json())
+// .then(json1 => console.log(json1))
+// fetch(dummy_Url2)
+// .then(res2 => res2.json())
+// .then(json2 =>console.log(json2))
+
+ let et=document.querySelector("#cont");
+  et.addEventListener("click",()=>{
+     let value=prompt("Enter the input value 1");
+        et.value=value;
+        mul();
+  });
+  let et1=document.querySelector("#cont2");
+  et1.addEventListener("click",()=>{
+   let value=prompt("Enter the 2 input value ");
+    et1.value =value;
+    mul();
+  });
+   let et2=document.querySelector("#cont3");
+  // et2.addEventListener("click",()=>{
+  //   function mul(a,b){;
+  //   let result=(a*b);
+  //   return result;
+  // }
+  // et2.innerHTML=mul(parseInt(et.value),parseInt(et1.value));
+  // })
+  function mul(){
+    if ((et.value)&&(et1.value)){
+      let result=(parseInt(et.value)*parseInt(et1.value));
+      et2.innerHTML=`the result is ${result}`;
+    }
+  }
+         
+const arr=[1,2,3,4,5,6];
+let result=arr.map(e=>e*2);
+console.log(result);
+  function re(x){
+    return x*2;
+  }
+console.log(arr.map(re));
+const string1=["bob","alice","scooby"];
+let r= string1.map((e)=>`<p>${e}</p>`).join("");
+console.log(r);
+
+function greeting(name){
+  const date=new Date();
+  const hrs = date.getHours();
+  let time="";
+  if(hrs>=12&&hrs<12){
+        time='Good afternoon';
+    
+  }else if(hrs>=12 && hrs <17){
+     time ='Good afternoon';
+
+  }else if(hrs>17 && hrs< 20){
+    time='evening';
+
+  }else{
+    time='night';
+  }
+  return `good ${time}`;
+}console.log(greeting("jane"));
+
+//array methods//
+//array.some
+const array3=[9,19,5];
+let resu= array3.some(function(e){
+  return e>7;
+})
+if(resu){
+  console.log("even")
+}else{
+  console.log("odd");
+}
+
+
+ let emailregex=/^.[\w]{8,15}(?:@)([.\w]+){5,8}(?:.+)[\w]{2,3}$/;
+ console.log(emailregex.test("vishnupriya123@gmail.com"))
 
 
 
-
-   var a=7;
-    // console.log(a+4)
-    document.querySelector("#outpt").innerHTML='thereult is' +(a+4);
 
 </script>
 </body>

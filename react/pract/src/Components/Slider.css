@@ -1,0 +1,14 @@
+#Container{
+    margin: 300px;
+    display:flex;
+    flex-direction: row;
+    width: 500px;
+    height: 50px;
+    justify-content: space-between;
+}
+#Img{
+    position: relative;
+    width: 550px;
+    height: 550px;
+    overflow: hidden;
+}

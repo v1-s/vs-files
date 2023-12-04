@@ -32,7 +32,7 @@ class MyForm extends React.Component{
                 onChange={this.handleChange} />
               <button type='submit'>Submit!</button>
             </form>
-            <h1>{this.state.submit}</h1>
+            {/* <h1>{this.state.submit}</h1> */}
           </div>
         );
       }

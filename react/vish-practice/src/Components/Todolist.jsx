@@ -23,9 +23,10 @@ export default function Todo(){
                 <button onClick={Add}>+</button>
                 <input type="Checkbox"></input>
                 <button onClick={Del}>Delete</button>
-          
+                        
             </div>
-        })};
+        }
+        )};
                
             
         </div>

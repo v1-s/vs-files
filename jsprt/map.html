@@ -1,0 +1,206 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<style>
+    table {
+        text-align: center;
+    }
+
+    th {
+        background-color: pink;
+    }
+
+    td {
+        border: 1px solid black;
+        padding: 0px 2px;
+    }
+</style>
+<body>
+    <input type="number" id="id" placeholder="Id">
+    <input type="number" id="jersey" placeholder="JerseyNo">
+    <input type="text" id="name" placeholder="Name">
+    <input type="number" id="age" placeholder="Age">
+    <input type="text" id="address" placeholder="Address">
+
+    <button onclick="addTable()">Submit</button>
+
+    <div id="container">
+
+    </div>
+    <script>
+       //  const array=[10,20,30];
+//         function double(x){
+//            return( x*2);
+//         }
+       
+//         const result=array.map(double);
+//         console.log(result);
+//  const array2=[30,10,40,60];
+//    function element(x){
+//     return x>50;
+//    }
+
+
+
+//  const res=array2.filter(element);
+//  console.log(res);
+//  const array3=[50,60,40,20];
+//    function sum(x){
+//     let total=0;
+//     for(let i=0;i<array3.length;i++){
+//         total=total+array3[i];
+//     }
+//     return total;
+//    }
+  
+//    console.log(sum(array3));
+
+
+//  const r=array3.reduce(function(acc,curr){
+//     acc=acc+curr;
+//     return acc;
+//  },0);
+// console.log(r);
+
+///-------------    Local Storage-------------- //
+// let object = {
+//     name: 'kaira',
+//     place: 'bnglr',
+//     id: '1244',
+// };
+
+// if (typeof window !== 'undefined') { 
+//     localStorage.setItem("object", JSON.stringify(object));
+//     var object1 = JSON.parse(localStorage.getItem("object"));
+//     for(let j=0;j<4;j++){
+//         let player=[];
+//     console.log(`player${j} :${Object.values(object1)}`);
+// }
+// }
+
+
+        function addTable() {
+            // let player1 = {
+            //     id: 1,
+            //     jerseyNo: 7,
+            //     name: "MS Dhoni",
+            //     age: 42,
+            //     address: "Ranchi",
+            // }
+
+            let ID = document.getElementById("id").value;
+            let JERSY = document.getElementById("jersey").value;
+            let NAME = document.getElementById("name").value;
+            let AGE = document.getElementById("age").value;
+            let ADDRESS = document.getElementById("address").value;
+
+            let player = {
+                id: ID,
+                jerseyNo: JERSY,
+                name: NAME,
+                age: AGE,
+                address: ADDRESS
+            }
+
+            console.log(player);
+
+
+            let data = [];
+
+            for (let j = 0; j < localStorage.length; j++) {
+                // Retrieve data from localStorage
+                let storedData = JSON.parse(localStorage.getItem("player"+j));
+                data.push(storedData);
+            }
+
+            data.push(player);
+
+            // Store each player individually in localStorage
+            for (let z = 0; z < data.length; z++) {
+                localStorage.setItem('player'+ z, JSON.stringify(data[z]));
+            }
+
+
+
+            let table = `<table border>
+                        <tr>                            
+                            <th>Id</th>
+                            <th>JerseyNo</th>
+                            <th>Name</th>
+                            <th>Age</th>
+                            <th>Address</th>
+                        </tr>`;
+
+            for (let i = 0; i < data.length; i++) {
+
+                let person = JSON.parse(localStorage.getItem(`player${i}`))
+
+                table += `<tr>
+                                <td>${person.id}</td>
+                                <td>${person.jerseyNo}</td>
+                                <td>${person.name}</td>
+                                <td>${person.age}</td>
+                                <td>${person.address}</td>
+                             <tr>`
+            }
+
+            table += '</table>';
+
+            document.getElementById("container").innerHTML = table;
+
+            console.log(table);
+
+        }
+
+        localStorage.clear();
+
+    </script>
+</body>
+
+</html>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+ 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+    </script>
+</body>
+</html>

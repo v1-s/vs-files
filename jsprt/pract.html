@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        #first{
+            margin:150px 300px 100px 300px;
+            background-color: brown;
+        }
+        #first input{
+            padding: 50px;
+            width: 500px;
+            margin-top: 30px;
+            margin-left: 30px;
+        }
+        #inpu placeholder{
+           margin-left:-20px;
+            margin-top:-300px;
+        }
+        
+        #box{
+            color: white;
+            display: flex;
+            flex-direction: row;
+            justify-content: space-between;
+            width: 500px;
+            margin-left: 80px;
+        }
+    </style>
+</head>
+<body>
+     <div id="first">
+        <input type="text" id="inpu" placeholder="Enter the message here"/>
+        <div id ="box">
+            <p>Remaining Characters:<span id=count>50</span></p>
+            <p>Total Characters:50</p>
+        </div>
+     </div>
+
+
+
+    
+    <script>
+  let content=document.querySelector("#inpu");
+  let countDisplay=document.querySelector("#count");
+  console.log(content);
+  content.addEventListener("keydown",(e)=>{
+    if(content.value.length>=50){
+    e.preventDefault();
+    }else{
+setTimeout(()=>{
+          let count=50;
+        //    count=count--;
+        //    console.log(count);
+       let cont=content.value;
+       console.log(cont);
+    //    let strArray=cont.split('');
+    //    console.log(strArray);
+     count=50-cont.length;
+           countDisplay.textContent=count;
+           if(cont.length>50){
+            content.value=cont.slice(0,50);
+        }
+    },0);
+}
+      });
+ 
+
+
+
+
+
+    </script>
+</body>
+</html>

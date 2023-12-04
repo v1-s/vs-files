@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <h1>
+        TODO List 
+    </h1>
+    <input type="text" id="txt" placeholder="Enter the items">
+    <button value="add" id="btn">Add</button>
+    <p id ="para"></p>
+    <script>
+    let add=document.querySelector("#btn");
+    add.addEventListener("click", () => {
+    let listItem = document.createElement("table");
+    let checkbox=document.createElement("input");
+    checkbox.setAttribute('type','checkbox');
+    listItem.appendChild(checkbox);
+    let text=document.createTextNode(txt.value);
+    listItem.appendChild (text);
+    let edit=document.createElement("button");
+    edit.textContent="Edit";
+    listItem.appendChild(edit);
+    let del = document.createElement("button");
+    del.textContent = "Delete";
+    listItem.appendChild(del);
+    para.appendChild(listItem);
+
+    del.addEventListener("click",()=>{
+        let listItems=Array.from(listItem);
+        console.log(listItems);
+        listItems=listItems.filter(item=>item!==listItem);
+            // listItem.remove();
+    })
+    checkbox.addEventListener("change",()=>{
+        listItem.style.textDecoration=checkbox.checked?'line-through':'none';
+        listItem.style.textDecorationColor='red';
+    })
+    edit.addEventListener("click",()=>{
+        let txt=text.nodeValue;
+        let newValue=prompt('enter corrected version',txt);
+        listItem.textContent='';
+        text=document.createTextNode(newValue);
+        listItem.appendChild(checkbox);
+        listItem.appendChild(text);
+        listItem.appendChild(edit);
+        listItem.appendChild(del);
+        
+    })
+
+
+
+});
+   
+
+
+
+
+    </script>
+</body>
+</html>

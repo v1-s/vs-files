@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        let todos = [];
+
+function addTask(task) {
+    todos.push(task);
+}
+
+function markTaskAsDone(task) {
+    let index = todos.findIndex(t => t === task);
+    if (index !== -1) {
+        todos[index] = task + " (done)";
+    }
+}
+
+function removeTask(task) {
+    todos = todos.filter(t => t !== task);
+}
+
+function displayTasks() {
+    console.log(todos.join('\n'));
+}
+
+ Usage:
+ addTask('Buy milk');
+ addTask('Walk the dog');
+displayTasks(); // Displays all tasks
+markTaskAsDone('Buy milk'); // Marks the 'Buy milk' task as done
+displayTasks(); // Displays all tasks, 'Buy milk' is marked as done
+removeTask('Buy milk (done)'); // Removes 'Buy milk (done)' task
+displayTasks(); // Displays all tasks, 'Buy milk' is not displayed because it was removed
+
+</script>
+</body>
+</html>

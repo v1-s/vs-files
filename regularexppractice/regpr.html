@@ -7,11 +7,13 @@
 </head>
 <body>
     <script>
-        const str="hello"
-        console.log(str.match(/Hello/))
-        console.log((str).test(/Hello/))
+        // const str="hello"
+        // console.log(str.match(/Hello/))
+        // console.log((str).test(/Hello/))
+        const reg = /^(?=.*[A-Z])(?=.*[.])([.\w]){5,18}$/;
+let string = "A.Huhgjjgi22";
+console.log(reg.test(string)); // 
 
-        
     </script>
 </body>
 </html>
