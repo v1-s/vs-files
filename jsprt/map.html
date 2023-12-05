@@ -83,7 +83,7 @@
 // }
 
 
-        function addTable() {
+        // function addTable() {
             // let player1 = {
             //     id: 1,
             //     jerseyNo: 7,
@@ -92,71 +92,82 @@
             //     address: "Ranchi",
             // }
 
-            let ID = document.getElementById("id").value;
-            let JERSY = document.getElementById("jersey").value;
-            let NAME = document.getElementById("name").value;
-            let AGE = document.getElementById("age").value;
-            let ADDRESS = document.getElementById("address").value;
+            // let ID = document.getElementById("id").value;
+            // let JERSY = document.getElementById("jersey").value;
+            // let NAME = document.getElementById("name").value;
+            // let AGE = document.getElementById("age").value;
+            // let ADDRESS = document.getElementById("address").value;
 
-            let player = {
-                id: ID,
-                jerseyNo: JERSY,
-                name: NAME,
-                age: AGE,
-                address: ADDRESS
-            }
+            // let player = {
+            //     id: ID,
+            //     jerseyNo: JERSY,
+            //     name: NAME,
+            //     age: AGE,
+            //     address: ADDRESS
+            // }
 
-            console.log(player);
+            // console.log(player);
 
 
-            let data = [];
+            // let data = [];
 
-            for (let j = 0; j < localStorage.length; j++) {
+            // for (let j = 0; j < localStorage.length; j++) {
                 // Retrieve data from localStorage
-                let storedData = JSON.parse(localStorage.getItem("player"+j));
-                data.push(storedData);
-            }
+        //         let storedData = JSON.parse(localStorage.getItem("player"+j));
+        //         data.push(storedData);
+        //     }
 
-            data.push(player);
+        //     data.push(player);
 
-            // Store each player individually in localStorage
-            for (let z = 0; z < data.length; z++) {
-                localStorage.setItem('player'+ z, JSON.stringify(data[z]));
-            }
+        //     // Store each player individually in localStorage
+        //     for (let z = 0; z < data.length; z++) {
+        //         localStorage.setItem('player'+ z, JSON.stringify(data[z]));
+        //     }
 
 
 
-            let table = `<table border>
-                        <tr>                            
-                            <th>Id</th>
-                            <th>JerseyNo</th>
-                            <th>Name</th>
-                            <th>Age</th>
-                            <th>Address</th>
-                        </tr>`;
+        //     let table = `<table border>
+        //                 <tr>                            
+        //                     <th>Id</th>
+        //                     <th>JerseyNo</th>
+        //                     <th>Name</th>
+        //                     <th>Age</th>
+        //                     <th>Address</th>
+        //                 </tr>`;
 
-            for (let i = 0; i < data.length; i++) {
+        //     for (let i = 0; i < data.length; i++) {
 
-                let person = JSON.parse(localStorage.getItem(`player${i}`))
+        //         let person = JSON.parse(localStorage.getItem(`player${i}`))
 
-                table += `<tr>
-                                <td>${person.id}</td>
-                                <td>${person.jerseyNo}</td>
-                                <td>${person.name}</td>
-                                <td>${person.age}</td>
-                                <td>${person.address}</td>
-                             <tr>`
-            }
+        //         table += `<tr>
+        //                         <td>${person.id}</td>
+        //                         <td>${person.jerseyNo}</td>
+        //                         <td>${person.name}</td>
+        //                         <td>${person.age}</td>
+        //                         <td>${person.address}</td>
+        //                      <tr>`
+        //     }
 
-            table += '</table>';
+        //     table += '</table>';
 
-            document.getElementById("container").innerHTML = table;
+        //     document.getElementById("container").innerHTML = table;
 
-            console.log(table);
+        //     console.log(table);
 
-        }
+        // }
 
-        localStorage.clear();
+        // localStorage.clear();
+
+ const arr=[1,4,-6,8];
+ let re= arr.slice(-2);
+ console.log(re);
+
+
+
+
+
+
+
 
     </script>
 </body>
