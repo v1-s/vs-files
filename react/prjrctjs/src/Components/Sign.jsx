@@ -1,4 +1,6 @@
 import React from "react";
+
+
 export default function Sign() {
   return (
     <>
@@ -7,6 +9,7 @@ export default function Sign() {
         <div className="row">
           <div className="Ft col-md-6" style={{ position: "relative" }}>
             <h1>Board</h1>
+
           </div>
             <div className="Fr col-md-6">
             <h2>Sign In</h2>
