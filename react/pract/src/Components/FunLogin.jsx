@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from "react";
 import { useNavigate } from "react-router-dom";
 export default function FunLoginform() {
-    const navigate=   useNavigate(); 
+    const navigate= useNavigate(); 
     const [isLoggedIn, setIsLoggedIn] = useState(false);
                 // const [email,setEmail] = useState('');
                 // const [password,setPassword] =useState('');// instead of creating 2 states we can define them in one obj//
@@ -9,7 +9,7 @@ export default function FunLoginform() {
                         email:'',
                         password:''
                 });
-                const[err,setErr]=useState({
+                const[error,setErr]=useState({
                        emErr:'',
                        pwErr:''
 
@@ -55,7 +55,7 @@ export default function FunLoginform() {
               console.log("localValues",setEmail,setPassword);
                 if(setEmail === formData.email && setPassword === formData.password){
                     setErr({
-                        ...err,
+                        ...error,
                                emErr:"",
                                pwErr:""
                     })
@@ -81,7 +81,7 @@ export default function FunLoginform() {
                 }
                 else{
                     setErr({
-                        ...err,
+                        ...error,
                         emErr:"Wrong Email Empty",
                         pwErr:"Wrong Password Empty"
                     })
