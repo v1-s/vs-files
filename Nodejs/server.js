@@ -7,8 +7,9 @@ const bodyParser = require("body-parser");
 var conn = mysql.createConnection({
   host: "localhost",
   user: "root",
-  password: "",
-  database: "solution",
+  password:"",
+  port:"3325",
+  database:"my_database",
 });
 
 conn.connect(function (err) {
@@ -49,7 +50,7 @@ app.post("/Contact", function (req, res) {
 
   console.log("contact api called");
 
-  // var inst= `INSERT INTO ipl_users (username,email,Password,ConfirmPassword) VALUES ?`;
+  // var inst= INSERT INTO ipl_users (username,email,Password,ConfirmPassword) VALUES ?;
   // conn.query('insert into test(firstname,lastname,password,confirmpassword) VALUES(?,?,?,?)',[fname,lname,pswd,confpswd ],function (error, results, fields)
 
   conn.query(
@@ -90,4 +91,3 @@ app.get("/UserList", function (req, res) {
 //     })
 // })
 app.listen(1227);
-

@@ -10,12 +10,16 @@
 //  import About from './Components/About';
 // import Head from'./Components/Header2';
 import {BrowserRouter,Routes,Route,Link} from 'react-router-dom';
- import FForm from "./Components/Funform";
-
+//  import FForm from "./Components/Funform";
+   import UseEff from './Components/UseEff';
+  // import Table from './Components/Table';
+  import Table1 from './Components/Table';
 function App() {
   return (
     <div className="App">
-       <FForm></FForm> 
+       <UseEff></UseEff> 
+      {/* {/* <Table></Table>  */}
+       {/* <FForm></FForm>  */}
       {/* <Home></Home>
       <MyForm></MyForm> */}
  {/* <Home>

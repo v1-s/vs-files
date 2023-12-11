@@ -1,4 +1,5 @@
 import React,{useState,useEffect} from "react";
+
 import { useNavigate} from "react-router-dom";
 export default function RfunLogin(){
                 const navigate= useNavigate();
@@ -23,7 +24,9 @@ export default function RfunLogin(){
 
         }
         function SubmitHandler(e){
-                e.preventDefault();
+          e.preventDefault();
+        
+              
         //     localStorage.setItem("email");
         //     localStorage.setItem("password") ; 
         //    let setEmail=localStorage.getItem("email");

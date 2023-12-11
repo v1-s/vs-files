@@ -1,4 +1,5 @@
 import { React, useEffect, useState } from "react";
+import axios from 'axios';
 import { useNavigate } from "react-router-dom";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faFacebookF } from "@fortawesome/free-brands-svg-icons";
@@ -28,19 +29,20 @@ export default function Sign() {
   }
   function SubmitHandler(e) {
     e.preventDefault();
-    localStorage.setItem("email", "vishnupriya@gmail.com");
-    localStorage.setItem("password", "1234");
+    localStorage.setItem("email","v");
+    localStorage.setItem("password","12345");
     let setEmail = localStorage.getItem("email");
     let setPassword = localStorage.getItem("password");
     console.log("localValues", setEmail, setPassword);
-    if (setEmail === formData.email && setPassword === formData.password) {
+    if (setEmail ===formData.email && setPassword ===formData.password) {
+      console.log(formData.email,formData.password);
       setErr({
         ...error,
         emErr: "",
         pwErr: "",
       });
-      console.log("i'm inside");
-       navigate('/Dashboard');
+     console.log("i'm inside");
+     navigate('/Dashboard');
     }
     if (setEmail !== formData.email) {
       //     alert('enter email')
@@ -54,16 +56,18 @@ export default function Sign() {
       });
       //    formData.err="Wrong Inputs";
        navigate('/');
-    } else {
-      setErr({
-        ...error,
-        emErr: "Wrong Email Empty",
-        pwErr: "Wrong Password Empty",
-      });
-      //    formData.err="Wrong Inputs";
-            navigate('/');
     }
-  }
+  
+  let data=formData;
+  axios
+      .post("http://127.0.0.1:1227/Contact",{data})
+      .then((response) => {
+        console.log("response", response);
+      })
+      .catch(function (error) {
+        console.log(error);
+      });
+  };
 
   return (
     <>
@@ -112,15 +116,25 @@ export default function Sign() {
               <button id="Signin">Sign In</button>
             </form>
 
-            <h5>
+            <h5 style={{marginLeft:'-190px'}}>
               Don't have an account?
-              <a id="freg" href="#">
+              <button onClick={()=> navigate("/Addprof")}  id="freg">
                 Register here
-              </a>{" "}
+              </button>{" "}
             </h5>
           </div>
         </div>
       </div>
     </>
   );
-}
+  }
+
+  // } else {
+    //   setErr({
+    //     ...error,
+    //     emErr: "Wrong Email Empty",
+    //     pwErr: "Wrong Password Empty",
+    //   });
+    //      formData.err="Wrong Inputs";
+    //         navigate('/');
+    // }

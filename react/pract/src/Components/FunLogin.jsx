@@ -128,7 +128,7 @@ export default function FunLoginform() {
             value={formData.email}
             onChange={handleChange}
           />
-        <span  style={{color:'Red'}}>{err.emErr}</span>
+        {/* <span  style={{color:'Red'}}>{err.emErr}</span> */}
         </div>
         <div className="mb-3">
           <label>Password</label>
@@ -139,7 +139,7 @@ export default function FunLoginform() {
             value={formData.password}
             onChange={handleChange}
           />
-             <span style={{color:'Red'}}>{err.pwErr}</span>
+             {/* <span style={{color:'Red'}}>{err.pwErr}</span> */}
         </div>
         {/* <div className="mb-3 form-check">
     <input type="checkbox" className="form-check-input" id="exampleCheck1"/>

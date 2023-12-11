@@ -1,4 +1,5 @@
 import React from "react";
+import axios from 'axios';
 class Log extends React.Component{
         constructor(Props){
             super(Props);
@@ -37,24 +38,41 @@ class Log extends React.Component{
         }; 
 
      
-        handleSubmit(e){
-            e.preventDefault()
-            console.log(this.state.email,this.state.password);
-            let Emerr="";
-            let Pwerr="";
-            if ((this.state.email=="")){
-                    Emerr = 'Email is Empty';
-
-                };
-                if ((this.state.password=="")) {
-                    Pwerr="Password is empty";
-                };
-                 
-                this.setState({
-                    Emerr: Emerr,
-                    Pwerr:Pwerr
-                });
+        handleSubmit=(e)=>{
+            alert("hello",e);
+            e.preventDefault();
+            let data={
+                email:this.state.email,
+                password:this.state.password,
             };
+            console.log(this.state.email,this.state.password);
+           // let url="https://localhost:1227/Contact";
+            axios
+            .post("http://127.0.0.1:1227/Contact", { data })
+            .then((response) => {
+              console.log("response", response);
+            })
+            .catch(function (error) {
+              console.log(error);
+            });
+        };
+      
+            // console.log(this.state.email,this.state.password);
+            // let Emerr="";
+            // let Pwerr="";
+            // if ((this.state.email=="")){
+            //         Emerr = 'Email is Empty';
+
+            //     };
+            //     if ((this.state.password=="")) {
+            //         Pwerr="Password is empty";
+            //     };
+                 
+            //     this.setState({
+            //         Emerr: Emerr,
+            //         Pwerr:Pwerr
+            //     });
+            // };
     
 
 

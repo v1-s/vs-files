@@ -1,7 +1,7 @@
 
 #Signin{
        margin-top: 20px; 
-       background-color: skyblue;
+       background-color: rebeccapurple;
        padding: 10px;
        width: 200px;
        border-radius: 50px;
@@ -9,11 +9,12 @@
        color: white;
        border-style: none;
        margin-bottom: 20px;
+       margin-left: 20px;
 }
 .container{
     margin-top: 50px;
     width:100%;
-    background: linear-gradient(to right,#f2fcfe,#1c92d2);
+    background: linear-gradient(to right,#f2fcfe,#530285);
 }
 
 
@@ -21,7 +22,7 @@
     padding: 3rem 12% 2rem 12%;
         height: 80vh;
         /* background:#1c92d2; */
-        background: linear-gradient(to right,#1c92d2,#f2fcfe);
+        background: linear-gradient(to right,#530285,#f2fcfe);
         clip-path: polygon(0 0, 100% 0, 90% 100%, 0% 100%);
         color: white;
       }
@@ -34,14 +35,14 @@
     background: linear-gradient(to right,#1c92d2,#f2fcfe,);
 }
 .Fr h2{
-    padding-left: 110px;
+    padding-left: 180px;
     text-align: left;
     margin-top: -10px;
     color: white;
 
 }
 .Fr h5{
-    padding-left: 250px;
+    padding-left: 300px;
     text-align: left;
     color: white;
     font-size: medium;
@@ -73,10 +74,17 @@
     font-size: medium;
     margin-left: -150px;
     color: white;
+  
 }
 #freg{
-    color: brown;
+    color:greenyellow;
     text-decoration: none;
+    border-style: none;
+    outline-style: none;
+    background-color: transparent;
+}
+#freg:hover{
+ color: paleturquoise;
 }
 #Ftawsm {
     margin-top: 250px;
@@ -84,10 +92,210 @@
     margin-left: 15px;
     margin-right: 15px;
     padding-right: 10px;
+   
 }
 .navbar{
-    width: 500px;
+    border-radius: 20px;
+    width: 180px;
+    height: 550px;
+    margin-top: 30px;
     background-color: slateblue;
-    height: 300px;
-    float: left !important;
+}
+.navbar-brand{
+    text-align: left;
+    color: white !important;
+    padding-top: 10px !important;
+    margin-left: 3px;
+    font-size: 30px !important;
+}
+.nav-link{
+    margin-top: 10px !important;
+    text-align: left;
+    color: white !important;
+}
+.collapse {
+    margin-top: -10px;
+}
+.nav-item{
+    margin-top: -0px;
+}
+.nav-item1{
+    margin-top: 100px;
+}
+.col-8{
+    width: 700px !important;
+    height: 200px !important;
+}
+.Nav {
+    position: absolute; /* Positions the form at the absolute top of its nearest positioned ancestor */
+    top: 0; /* Positions the form at the top of the page */
+    display: flex;
+    justify-content: center;
+    padding: 20px;
+    margin-left: 600px;
+    width: 0%; /* Ensures the form takes the full width of the page */
+}
+
+.Nav input[type="search"] {
+    width: 200px;
+    /* padding: 10px; */
+    border: 1px solid #ccc;
+    border-radius: 4px;
+}
+
+.Nav button[type="submit"] {
+     
+    /* padding: 10px 20px; */
+    border: none;
+    border-radius: 4px;
+    background-color: white;
+    color: black;
+    cursor: pointer;
+    position: relative;
+}
+
+.Nav button[type="submit"]:hover {
+    background-color: brown;
+}
+.navbar-brand1{
+    position: absolute; /* Positions the form at the absolute top of its nearest positioned ancestor */
+    top: 10px; /* Positions the form at the top of the page */
+    display: flex;
+    justify-content: center;
+    padding: 20px;
+    margin-left: -150px;
+    width: 0%; /* Ensures the form takes the full width of the page */
+    font-size: 30px;
+    text-decoration: none;
+    color:black;
+    font-weight: 600;
+
+}
+.box_container{
+    margin:10px 30px 30px 40px;
+    padding:20px;
+    color: #1c92d2;
+     width: 100%; 
+}
+.card{
+     box-shadow: 0 4px 8px 0 rgba(0,0,0,0.2);
+     height: 40vh !important;
+     padding: 20px;
+     width: 30%;
+     margin-left: 10%; 
+
+}
+.card-body{
+     width: 500px; 
+        margin-top: 40px;
+        padding: 30px;
+}
+.card-title{
+    padding-left: 40px;
+}
+.btn2{
+    background-color: #ccc;
+    border-radius: 50%;
+    padding: 15px;
+    color: white;
+    outline-style: none;
+    border-style: none;
+}
+.popup {
+    outline-style: none;
+    border-style: none;
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    background:white;
+    padding: 20px;
+    z-index: 1000;
+    color:black;
+    width: 28%;
+    text-align: center;
+    box-shadow: 0 4px 8px 0 rgba(0,0,0,0.2);
+
+  }
+  /* .popup h3{
+    text-align: center;
+    margin-left: 50px;
+  } */
+  .popup .close{
+    margin-left:90% !important;
+    color:rgb(93, 130, 161);
+    background-color: white;
+    border-radius: 50%;
+    border-style: none;
+    outline-style: none;
+
+  }
+  .close:hover{
+    color: purple;
+    border-style: solid;
+    border-radius: 50%;
+  }
+  .addprof,.Frm1{
+    width: 80%;
+    margin-left: 35px;
+  }
+#nxt{
+    background-color: skyblue;
+    color: white;
+    border-style: none;
+    outline-style: none;
+    
+}
+.Frm2{
+    margin-left: -150px;
+}
+
+/* .popup{
+    padding: 20px;
+    width: 250px;
+    box-shadow: 0 4px 8px 0 rgba(0,0,0,0.2);
+    border-style: none;
+    outline-style: none;
+
+} */
+.Tab1{
+    border-style: none;
+    outline-style: none;
+    width:70px;
+}
+.Tab2{
+    border-style: none;
+    outline-style: none;
+    width: 70px;
+}
+
+.c1{
+    border-radius: 10px;
+    padding: 20px;
+    margin-left: 0px;
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
+   
+}
+.c2{
+    margin-top: 120px;
+    border-radius: 10px;
+    padding: 20px;
+    margin-left: 0px;
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
+}
+
+.b1{
+    background: none;
+}
+.frm1{
+    width: 200px;
+}
+.frm2{
+    width: 200px;
+    margin-left: 30px;
+}
+.grt{
+    width: 50%;
+    background-color: wheat;
+    color: black;
 }

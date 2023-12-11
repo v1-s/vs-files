@@ -10,14 +10,14 @@
         const dummy_Url2='https://dummyjson.com/posts';
         fetch(dummy_Url2)
         .then(response=>response.json())
-        .then(posts=>console.log(posts))
-        .then(posts=>{
+        .then(posts=>
+                console.log(posts))
+        posts=>{
             posts.forEach(post=>{
-                console.log(`ID:${post.id}`);
-
+                console.log(`ID:${post.id}`)
             })
         }
-            );
+        
         //     let li=`<tr><th>Id</th><th>Name</th><th>body</th></tr>`
         //     let td=document.createElement("td");
         //     let tr=document.createElement("tr");

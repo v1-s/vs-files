@@ -3,26 +3,28 @@ import './Components/Slider.css';
 // import ReactDOM  from 'react-dom';
 // import logo from './logo.svg';
 // import './App.css';
- import Header from './Components/Header';
- import Contacts from './Components/Contacts';
- import Features from './Components/Features';
- import About from './Components/About';
- import Home from './Components/Home'; 
- import {Routes, BrowserRouter, Route} from 'react-router-dom';
+ //import Header from './Components/Header';
+ //import Contacts from './Components/Contacts';
+ //import Features from './Components/Features';
+ //import About from './Components/About';
+ //import Home from './Components/Home'; 
+// import {Routes, BrowserRouter, Route} from 'react-router-dom';
  // import LoginForm from './Components/Login';
- import FunLoginform from './Components/FunLogin';
- import RfunLogin from './Components/RfunLogin';
- import Log from './Components/Clogin';
- import LLog from './Components/isLogged';
- import Slider from './Components/Slider';
- import Lfhome from './Components/Lfhome';
+ //import FunLoginform from './Components/FunLogin';
+ //import RfunLogin from './Components/RfunLogin';
+//  import Log from './Components/Clogin';
+ import RegLog from './Components/Regisdb';
+ //import LLog from './Components/isLogged';
+// import Slider from './Components/Slider';
+ //import Lfhome from './Components/Lfhome';
 function App() {
   return (
     <div className="App">
-      <Lfhome/>
+      {/* <Lfhome/> */}
       {/* <Home/> */}
       {/* <Slider/> */}
-      {/* <Log/> */}
+       {/* <Log/>  */}
+       <RegLog/> 
          {/* <BrowserRouter>
          <Header />
      <Routes>
