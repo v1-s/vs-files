@@ -14,6 +14,7 @@ import profile from './Assests/member-1.png';
 import Popup from './Popup';
 import Modal from './Modal';
 import { useState } from "react";
+import Mbox from "./Mbox";
 export default function Dashboard(){
   const navigate= useNavigate();
   const [showPopup, setShowPopup] = useState(false);
@@ -78,18 +79,14 @@ export default function Dashboard(){
     <FontAwesomeIcon icon={faMagnifyingGlass} rotation={0} size="xl" style={{position: 'absolute', top: '33px', left: '30px'}} />
       <input className="form-control me-2" type="search" placeholder="Search" aria-label="Search"/>
       <button className="btn btn-outline-success" type="submit"><FontAwesomeIcon icon={faBell} size="xl" /></button>
-    <button onClick={handleClick} style={{backgroundColor:"transparent",borderStyle:"none",outlineStyle:'none'}}>  <img className="prof" src={profile} alt="profileimage" style={{width:"50px",height:"50px",borderRadius:"50%"}}/></button>
-    {setIsModalOpen && (
-        <div className="grt">
-          <button className="close" onClick={() => setIsModalOpen(false)}><li>Profile</li>
-            <li>Settings</li>
-            <li>Logout</li>
-            </button>
-          <Modal />
+    {/* <button onClick={handleClick} style={{backgroundColor:"transparent",borderStyle:"none",outlineStyle:'none'}}>  </button> */}
+    <button onClick={()=>{setIsModalOpen(true)}}><img className="prof" src={profile} alt="profileimage" style={{backgroundColor:"transparent",borderStyle:"none",outlineStyle:'none',width:"50px",height:"50px",borderRadius:"50%"}}/></button>
+                {isModalOpen && (
+        <div className="box">
+        {/* <button className="close" onClick={() => setPopup(false)}><FontAwesomeIcon icon={faXmark} size="xl" /></button> */}
+          <Mbox/>
           </div> 
-    )}
-    
-    
+)}
 {/*     
     {isModalOpen && (
         <Modal isModalOpen={isModalOpen} onClose={handleClose}>

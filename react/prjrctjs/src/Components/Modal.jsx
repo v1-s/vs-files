@@ -1,20 +1,14 @@
 import React, { useState } from 'react';
+import Dashboard from './Dashboard'; // import your AddProf component
 import Mbox from './Mbox';
-import Dashboard from './Dashboard'; // Import your Modal component
-export default function Modal({isModalOpen, onClose,Modal}) {
-  const showHideClassName = isModalOpen ? "modal display-block" : "modal display-none";
+export default function Modal() {
+//   const [showAddProf, setShowAddProf] = useState(false);
 
-  return(
-    <>
-    <div className={showHideClassName}>
-      <section className="modal-main">
-        {Modal}
-        <button type="button" onClick={onClose}>Close</button>
-      </section>
+  return (
+    <div style={{borderStyle:"none",outlineStyle:'none'}}>
+      {/* <button onClick={() => setShowAddProf(true)}>Add profile</button> */}
+        <Mbox/>
+       
     </div>
-    </>
-  )
-
-    
-
+  );
 }

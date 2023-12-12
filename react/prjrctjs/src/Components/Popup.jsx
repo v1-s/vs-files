@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import AddProf from './Addprof'; // import your AddProf component
+import AddProf from './Addprof'; 
 
 export default function Popup() {
 //   const [showAddProf, setShowAddProf] = useState(false);

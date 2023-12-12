@@ -294,9 +294,7 @@
     width: 200px;
     margin-left: 30px;
 }
-.grt{
-    margin-right: 30px;
-    width: 50%;
-    background-color: wheat;
-    color: black;
-}
+ .box{
+   border-style: none;
+   outline-style: none;
+} 
