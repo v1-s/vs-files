@@ -81,7 +81,7 @@ export default function Dashboard(){
     <button onClick={handleClick} style={{backgroundColor:"transparent",borderStyle:"none",outlineStyle:'none'}}>  <img className="prof" src={profile} alt="profileimage" style={{width:"50px",height:"50px",borderRadius:"50%"}}/></button>
     {isModalOpen && (
             <Modal onClose={handleClose}>
-                
+               
             </Modal>
           )}
     
