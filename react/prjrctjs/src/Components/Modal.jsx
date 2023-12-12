@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import Mbox from './Mbox';
-import Modal from './Modal'; // Import your Modal component
-export default function Modal({isModalOpen, onClose,Modala}) {
+import Dashboard from './Dashboard'; // Import your Modal component
+export default function Modal({isModalOpen, onClose,Modal}) {
   const showHideClassName = isModalOpen ? "modal display-block" : "modal display-none";
 
   return(
