@@ -44,7 +44,7 @@ export default function Form1(){
           pwErr: "",
         });
        console.log("i'm inside");
-       navigate('/');
+       navigate('/Dashboard');
       }
       if (setEmail !== formData.email) {
         //     alert('enter email')

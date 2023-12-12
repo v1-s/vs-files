@@ -26,8 +26,8 @@ export default function Form1(){
     }
     function SubmitHandler(e) {
       e.preventDefault();
-      localStorage.setItem("name", "vishnupriya");
-      localStorage.setItem("phonenumber", "123456779");
+      localStorage.setItem("name","vishnupriya");
+      localStorage.setItem("phonenumber", "123456789");
       let setName = localStorage.getItem("name");
       let setPhonenumber = localStorage.getItem("phonenumber");
       console.log("localValues", setName, setPhonenumber);
