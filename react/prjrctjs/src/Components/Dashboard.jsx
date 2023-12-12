@@ -80,11 +80,14 @@ export default function Dashboard(){
       <button className="btn btn-outline-success" type="submit"><FontAwesomeIcon icon={faBell} size="xl" /></button>
     <button onClick={handleClick} style={{backgroundColor:"transparent",borderStyle:"none",outlineStyle:'none'}}>  <img className="prof" src={profile} alt="profileimage" style={{width:"50px",height:"50px",borderRadius:"50%"}}/></button>
     {isModalOpen && (
-            <Modal onClose={handleClose}>
-               
-            </Modal>
-          )}
-    
+        <Modal isModalOpen={isModalOpen} onClose={handleClose}>
+          <div className='grt'>
+            <li>Profile</li>
+            <li>Settings</li>
+            <li>Logout</li>
+          </div>
+        </Modal>
+      )}
     
     
     </form>

@@ -12,6 +12,7 @@ import Contact from './Components/Contact';
 import Dash1 from './Components/Dash1';
 import Logout from './Components/users';
 import Modal from './Components/Modal';
+import Mbox from './Components/Mbox';
 function App() {
   return (
     <div className="App">
@@ -23,7 +24,7 @@ function App() {
     <Route exact path='/Home' element={<><Home/></>}/>
     <Route exact path='/Dashboard' element={<><Dashboard/><Dash1/></>}/>
     <Route exact path='/Addprof' element={<><Addprof/></>}/>
-    <Route exact path='/Modal' element={<><Logout/><Modal/></>}/>
+    <Route exact path='/Mbox' element={<><Logout/><Modal/><Mbox/></>}/>
     <Route exact path='/Popup' element={<><Popup/></>}/> 
     <Route exact path='/Form1' element={<><Form1/></>}/> 
     <Route exact path='/Contact' element={<><Contact/></>}/>

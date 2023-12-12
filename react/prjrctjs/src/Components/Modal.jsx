@@ -1,39 +1,21 @@
 import React, { useState } from 'react';
+import Mbox from './Mbox';
 import Dashboard from './Dashboard'; // Import your Modal component
 import profile from './Assests/member-1.png';
-export default function Modal() {
-  const [isOpen, setIsOpen] = useState(false);
+export default function Modal({isModalOpen, onClose,}) {
+  const showHideClassName = isModalOpen ? "modal display-block" : "modal display-none";
 
-  const handleClick = () => {
-    setIsOpen(true);
-  };
+  return(
+    <>
+    <div className={showHideClassName}>
+      <section className="modal-main">
+        {}
+        <button type="button" onClick={onClose}>Close</button>
+      </section>
+    </div>
+    </>
+  )
 
-  const handleClose = () => {
-    setIsOpen(false);
-  };
+    
 
-  return (
-    <div>
-    <div className='grt' onClick={(e) => e.stopPropagation()}>
-        <li>Profile</li>
-        <li>Settings</li>
-        <li>
-            Logout
-        </li>
-    </div>
-      
-      {isOpen && (
-        <Modal onClose={handleClose}>
-                <div className='grt'>
-        <li>Profile</li>
-        <li>Settings</li>
-        <li>
-            Logout
-        </li>
-    </div>
-        </Modal>
-      )}
-    </div>
-  );
 }
-
