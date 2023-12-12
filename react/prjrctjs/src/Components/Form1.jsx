@@ -104,7 +104,7 @@ export default function Form1(){
                  <span style={{ color: "Red" }}>{error.pwErr}</span>
                  <br></br>
    
-                 <label htmlFor="Password">Re-Type Password</label>
+                 <label htmlFor="Re-Password">Re-Type Password</label>
                  <input
                    type="text"
                    id="pswrd"
