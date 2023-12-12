@@ -79,6 +79,18 @@ export default function Dashboard(){
       <input className="form-control me-2" type="search" placeholder="Search" aria-label="Search"/>
       <button className="btn btn-outline-success" type="submit"><FontAwesomeIcon icon={faBell} size="xl" /></button>
     <button onClick={handleClick} style={{backgroundColor:"transparent",borderStyle:"none",outlineStyle:'none'}}>  <img className="prof" src={profile} alt="profileimage" style={{width:"50px",height:"50px",borderRadius:"50%"}}/></button>
+    {setIsModalOpen && (
+        <div className="grt">
+          <button className="close" onClick={() => setIsModalOpen(false)}><li>Profile</li>
+            <li>Settings</li>
+            <li>Logout</li>
+            </button>
+          <Modal />
+          </div> 
+    )}
+    
+    
+{/*     
     {isModalOpen && (
         <Modal isModalOpen={isModalOpen} onClose={handleClose}>
           <div className='grt'>
@@ -86,8 +98,8 @@ export default function Dashboard(){
             <li>Settings</li>
             <li>Logout</li>
           </div>
-        </Modal>
-      )}
+        </Modal> */}
+    
     
     
     </form>
