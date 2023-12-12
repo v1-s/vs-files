@@ -23,8 +23,9 @@ function App() {
     <Route exact path='/' element={<><Sign/></>}/>
     <Route exact path='/Home' element={<><Home/></>}/>
     <Route exact path='/Dashboard' element={<><Dashboard/><Dash1/></>}/>
-    <Route exact path='/Addprof' element={<><Addprof/></>}/>
-    <Route exact path='/Mbox' element={<><Logout/><Modal/><Mbox/></>}/>
+    <Route exact path='/Addprof' element={<><Addprof/><Mbox/></>}/>
+    <Route exact path='/Modal' element={<><Modal/></>}/>
+    <Route exact path='/Mbox' element={<><Mbox/></>}/>
     <Route exact path='/Popup' element={<><Popup/></>}/> 
     <Route exact path='/Form1' element={<><Form1/></>}/> 
     <Route exact path='/Contact' element={<><Contact/></>}/>

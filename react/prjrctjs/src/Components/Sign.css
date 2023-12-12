@@ -295,6 +295,10 @@
     margin-left: 30px;
 }
  .box{
+    background-color: transparent;
    border-style: none;
    outline-style: none;
 } 
+.modal{
+    background-color:#530285;
+}
