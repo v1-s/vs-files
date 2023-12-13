@@ -15,7 +15,7 @@ export default function App() {
       .then(res => {
         console.log(res.data)
          setQuotes(res.data);
-         setQuote(data[0]);
+         setQuote(res.data[0]);
       })
         .catch(error =>{
             console.error(error);
@@ -27,17 +27,17 @@ export default function App() {
   }
 
   return (
-    <main>
+    <>
       <h1> Quote Generator</h1>
-      <section>
+      <div>
         <button onClick={getNewQuote}>New Quote</button>
         <h3>
           <span>“</span>
-          {quote?.text}
+          {quote.text}
         </h3>
-        <i>- {quote?.author}</i>
-      </section>
-    </main>
+        <i>- {quote.author}</i>
+      </div>
+    </>
   );
 }
 
