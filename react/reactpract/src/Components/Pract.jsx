@@ -13,7 +13,7 @@ export default function App() {
   useEffect(() => {
     axios("https://type.fit/api/quotes")
       .then(res => {
-        console.log(res.data)
+         console.log(res.data)
          setQuotes(res.data);
          setQuote(res.data[0]);
       })
