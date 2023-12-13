@@ -12,11 +12,15 @@ export default function App() {
 
   useEffect(() => {
     axios("https://type.fit/api/quotes")
-    .then(res=>res.json())
-    .then(data=>{
-        console.log(data)
-    })
-  }, []);
+      .then(res => {
+        console.log(res.data)
+         setQuotes(res.data);
+        //  setQuote(data[0]);
+      })
+        .catch(error =>{
+            console.error(error);
+        });
+       },[]);
 
   function getNewQuote() {
     setQuote(getRandomQuote(quotes));
