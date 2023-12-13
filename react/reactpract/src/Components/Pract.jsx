@@ -15,7 +15,7 @@ export default function App() {
       .then(res => {
         console.log(res.data)
          setQuotes(res.data);
-        //  setQuote(data[0]);
+         setQuote(data[0]);
       })
         .catch(error =>{
             console.error(error);
