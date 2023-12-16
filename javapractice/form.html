@@ -30,7 +30,7 @@
   <!-- Confirm Button -->
   <input type="button" value="Confirm" onclick="confirm()">
 </div>
-<script>
+<!-- <script>
     function preview() {
   // Get form data
   var name = document.getElementById('name').value;
@@ -56,6 +56,19 @@ function confirm() {
   document.getElementById('submit').style.display = 'block';
 }
 
+    </script> -->
+    <script>
+      class Person {
+    constructor(name,place) {
+        this.name = name;
+        this.place=place
+    }
+getname(){
+  return this.name;
+}
+}
+let person = new Person('John',"lk");
+console.log(person.getname())
     </script>
 </body>
 </html>

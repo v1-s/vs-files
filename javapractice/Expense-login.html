@@ -1,22 +1,175 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel=”stylesheet”
+    href=”https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css”rel=”nofollow”
+    integrity=”sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm”
+    crossorigin=”anonymous”>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" integrity="sha512-DTOQO9RWCH3ppGqcWaEA1BIZOC6xxalwEsw9c2QQeAIftl+Vegovlnee1c9QX4TctnWMn13TZye+giMm8e2LwA==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <link rel="stylesheet" href="Ex.css">
     <title>EXPENSE -TRACKER</title>
-</head>
-<body>
-    <div id="main">
-        <form>
-            <label for="email">Email:</label>
-            <input type="email" id="email" name="email" />
-            <label for ="password">Password:</label>
-            <input type="password" id="password" name="password"/>
-            <button type="submit">Sign In</button>
-            
-            
+  </head>
+  <body>
+    <div class="container">
+        <div class="row">
+            <div class="box1 column">
+              <div class="icon">
+                <i id="logo2" class="fa-regular fa-user fa-2xl" style="display: none;"></i>
+                <i  id="logo1" class="fa-solid fa-key fa-2xl"></i>
+            </div>
+              <h1>Get Started</h1>
+                <button class="btn1">Sign In with Google</button>              
+                <button class="btn2">Sign In with LinkedIn</button>
+           </div>
+       
+                 <div class="column">
+                    <div class="btn" ">
+                    <button class="btoggle1" onclick="showAdminView()">ADMIN </button>
+                    <button class="btoggle2" onclick="showUserView()">USER</button>
+                  </div>
+<!-- //--------------------------ADMIN PAGE---------------------------------------------------- -->
+                <div class="form-group">
+                    <h1>Log In</h1>
+                    <div class="frm-details">
+                      <form id="adminForm" onsubmit="return validateForm()">
+                    <label for="email">Username</label><br>
+                  <input type="email" name="email" class="form-control" /><br><br>
+                  <label for="password">Password</label><br>
+                  <input
+                    type="password"
+                    name="password"
+                    id="p_word"
+                    class="form-control"
+                  />
+                
+              </form>
+          <!-- --------------------------------Login Page-------------------------- -->
+             
+              <form id="userForm" onsubmit="return validateUserForm()" style="display:none;">
+                <label for="email">User Username</label><br>
+                <input type="email" name="User_email" class="form-control" /><br><br>
+                <label for="password">User Password</label><br>
+                <input type="password" name="User_password" class="form-control" />
+                <!-- <button class="submit" type="submit">User Sign In</button> -->
+              </form>
+            </div>
+            </div>
+            <button class="submit" type="submit">Sign In</button>
+           <div class="subsec">
+             <a class="a1" href="#"> Forgot Password?</a> 
+        </div>
+            </div>
+          </div>
+      
+       
+      </div>
+      </div>
+  
+  
+  <script>
+    let isAdmin = true; // Start with the admin view
 
-        </form>
-    </div>
-</body>
+function validateForm() {
+  let user_form=document.querySelector("#userForm");
+user_form.style.display="none";
+let admin_form=document.querySelector("#adminForm");
+admin_form.style.display="block";
+  let email = document.querySelector('input[name="email"]').value;
+
+  let password = document.querySelector('input[name="password"]').value;
+  let store_username = localStorage.getItem('user_name');
+  let store_password = localStorage.getItem('pass_word');
+  if (email !== store_username || password !== store_password) {
+    alert('Please fill in all fields.');
+    return false;
+  }
+  // Add more validation as needed
+  return true;
+}
+
+function showAdminView() {
+  isAdmin = true;
+  let logo2 = document.querySelector("#logo2");
+  logo2.style.display = "none";
+  let logo1 = document.querySelector("#logo1");
+  logo1.style.display = "block";
+  console.log('Admin view');
+  validateForm();
+}
+
+function showUserView() {
+  isAdmin = false;
+  console.log('User view');
+  let logo1 = document.querySelector("#logo1");
+  logo1.style.display = "none";
+  let logo2 = document.querySelector("#logo2");
+  logo2.style.display = "block";
+  validateUserForm();
+}
+
+function validateUserForm(){
+  let user_form=document.querySelector("#userForm");
+user_form.style.display="block";
+let admin_form=document.querySelector("#adminForm");
+admin_form.style.display="none";
+  //  alert("hiiii");
+
+}
+document.querySelector(".btoggle1").addEventListener("click", showAdminView);
+document.querySelector(".btoggle2").addEventListener("click", showUserView);
+
+let user_name = document.querySelector(".form-control");
+user_name.addEventListener("input", () => {
+  console.log(user_name.value);
+  console.log("result", user_name);
+  let local_username = localStorage.setItem('user_name', user_name.value);
+  let session_username = sessionStorage.setItem('user_name', user_name.value);
+  let userNames = JSON.parse(localStorage.getItem('user_names')) || [];
+  userNames.push(user_name.value);
+  localStorage.setItem('user_names', JSON.stringify(userNames));
+});
+
+let pass_word = document.querySelector("#p_word");
+pass_word.addEventListener("input", () => {
+  console.log(pass_word.value);
+  console.log("result", pass_word);
+  let local_pswrd = localStorage.setItem('pass_word', pass_word.value);
+  let session_pswrd = sessionStorage.setItem('pass_word', pass_word.value);
+  let passWords = JSON.parse(localStorage.getItem('pass_words')) || [];
+  passWords.push(pass_word.value);
+  localStorage.setItem('pass_words', JSON.stringify(passWords));
+});
+
+ 
+
+</script>
+  </body>
 </html>
+<!-- // let sub_mit = document.querySelector(".submit").addEventListener("click", () => {
+  //   alert("hello");
+  // });
+//     let user_name = document.querySelector(".form-control");
+//     user_name.addEventListener("input", () => {
+//       console.log(user_name.value);
+//       console.log("result", user_name);
+//       let local_username = localStorage.setItem('user_name', user_name.value);
+//       let session_username = sessionStorage.setItem('user_name', user_name.value);
+//       let userNames = JSON.parse(localStorage.getItem('user_names')) || [];
+//       userNames.push(user_name.value);
+//       localStorage.setItem('user_names', JSON.stringify(userNames));
+//     });
+//     let pass_word = document.querySelector("#p_word");
+//     pass_word.addEventListener("input", () => {
+//       console.log(pass_word.value);
+//       console.log("result", pass_word);
+//       let local_pswrd = localStorage.setItem('pass_word', pass_word.value);
+//       let session_pswrd = sessionStorage.setItem('pass_word', pass_word.value);
+//       let passWords = JSON.parse(localStorage.getItem('pass_words')) || [];
+//       passWords.push(pass_word.value);
+//       localStorage.setItem('pass_words', JSON.stringify(passWords));
+//     });
+//     let sub_mit = document.querySelector(".submit").addEventListener("click", () => {
+//       // alert("hello");
+//     }); -->

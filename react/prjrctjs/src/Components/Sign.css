@@ -19,7 +19,7 @@
 
 
 .Ft {
-    padding: 3rem 12% 2rem 12%;
+        padding: 3rem 12% 2rem 12%;
         height: 80vh;
         /* background:#1c92d2; */
         background: linear-gradient(to right,#530285,#f2fcfe);
