@@ -70,22 +70,27 @@
   
   <script>
     let isAdmin = true; // Start with the admin view
-
+    let usernamePattern = /^[a-zA-Z0-9]+$/; // Regex for username: alphanumeric characters only
+let emailPattern = /^[\w-]+(\.[\w-]+)*@([\w-]+\.)+[a-zA-Z]{2,7}$/; // Regex for email
 function validateForm() {
   let user_form=document.querySelector("#userForm");
-user_form.style.display="none";
-let admin_form=document.querySelector("#adminForm");
-admin_form.style.display="block";
+  user_form.style.display="none";
+  let admin_form=document.querySelector("#adminForm");
+  admin_form.style.display="block";
   let email = document.querySelector('input[name="email"]').value;
 
   let password = document.querySelector('input[name="password"]').value;
   let store_username = localStorage.getItem('user_name');
   let store_password = localStorage.getItem('pass_word');
-  if (email !== store_username || password !== store_password) {
-    alert('Please fill in all fields.');
+  // if (email !== store_username || password !== store_password) {
+  //   alert('Please fill in all fields.');
+  //   return false;
+  // }
+   if(!emailPattern.test(email)) {
+    alert('Please enter correct pattern of email.');
     return false;
   }
-  // Add more validation as needed
+
   return true;
 }
 
@@ -141,15 +146,22 @@ pass_word.addEventListener("input", () => {
   passWords.push(pass_word.value);
   localStorage.setItem('pass_words', JSON.stringify(passWords));
 });
-
+ let sub_mit = document.querySelector(".submit").addEventListener("click", () => {
+  if (validateForm()) {
+    // If the form is valid, store the values
+    localStorage.setItem('user_name', user_name.value);
+    localStorage.setItem('pass_word', pass_word.value);
+  } else {
+    // If the form is not valid, don't store the values
+    alert('Please correct the errors in the form.');
+  }
+});
  
 
 </script>
   </body>
 </html>
-<!-- // let sub_mit = document.querySelector(".submit").addEventListener("click", () => {
-  //   alert("hello");
-  // });
+<!-- 
 //     let user_name = document.querySelector(".form-control");
 //     user_name.addEventListener("input", () => {
 //       console.log(user_name.value);
@@ -172,4 +184,4 @@ pass_word.addEventListener("input", () => {
 //     });
 //     let sub_mit = document.querySelector(".submit").addEventListener("click", () => {
 //       // alert("hello");
-//     }); -->
+//     }); --> -->
