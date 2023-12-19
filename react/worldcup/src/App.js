@@ -12,12 +12,54 @@
 import {BrowserRouter,Routes,Route,Link} from 'react-router-dom';
 //  import FForm from "./Components/Funform";
    import UseEff from './Components/UseEff';
+   import prop from './Components/prop';
+   import Child1 from './Components/Child1';
   // import Table from './Components/Table';
   import Table1 from './Components/Table';
 function App() {
   return (
-    <div className="App">
-       <UseEff></UseEff> 
+    // <div className="App">
+    //         {/* <prop value={data}/> */}
+    //         <Child1/>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+       {/* <UseEff></UseEff>  */}
       {/* {/* <Table></Table>  */}
        {/* <FForm></FForm>  */}
       {/* <Home></Home>
