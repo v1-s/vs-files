@@ -1,7 +1,9 @@
-import React from "react";
-import Child1 from './Components/Child1';
+import React, { createContext } from "react";
+import Child1 from './Child1';
+export const fname=createContext();
 export default function About(){
-  const data ="Vishnu";
+  const data ="Vishnu123";
+  
       return(
         <>
      <nav className="navbar navbar-expand-lg bg-body-tertiary">
@@ -30,7 +32,11 @@ export default function About(){
     </div>
   </div>
 </nav>
-<Child1 value={data}/>
+<fname.Provider value={data}>
+<Child1/>
+</fname.Provider>
 </>
+
     )
+  
 }

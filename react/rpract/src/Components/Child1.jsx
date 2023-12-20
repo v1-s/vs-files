@@ -1,13 +1,12 @@
-import React from "react";
 import Child2 from "./Child2";
-export default function Child1(props){
-    console.log("Props1",props);
+import React from "react";
+export default function Child1({fname}){
+    console.log("Props1",fname);
     return(
         <>
-        
         <div>
-             <h1>child1 Component</h1>
-             <Child2 value={props.value}/>
+             <h1>{fname}child1 Component</h1>
+             <Child2 value={fname}/>
         </div>
         </>
     )
