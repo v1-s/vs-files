@@ -1,0 +1,168 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Expense Tracker</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css">
+</head>
+<body>
+    <div class="container">
+        <h2 class="text-center my-4">Expense Tracker</h2>
+
+        <div class="row">
+            <div class="col-sm">
+                <input type="text" id="expenseName" class="form-control" placeholder="Name of Expense">
+            </div>
+            <div class="col-sm">
+                <input type="number" id="expenseAmount" class="form-control" placeholder="Amount">
+            </div>
+            <div class="col-sm">
+                <button id="addExpense" class="btn btn-primary">Add Expense</button>
+            </div>
+        </div>
+
+        <div class="row">
+            <div class="col-sm">
+                <h4>Total Savings: <span id="totalSavings"></span></h4>
+            </div>
+            <div class="col-sm">
+                <h4>Total Expenses: <span id="totalExpenses"></span></h4>
+            </div>
+        </div>
+
+        <h3 class="my-4">Expenses</h3>
+        <ul id="expenseList" class="list-group"></ul>
+    </div>
+
+    <script>
+
+//     if (expenseName && expenseAmount) {
+//         var li = document.createElement('li');
+//         li.classList.add('list-group-item');
+//         li.innerHTML = `${expenseName}: <strong>$${expenseAmount}</strong>`;
+//         document.getElementById('expenseList').appendChild(li);
+//     } else {
+//         alert('Please enter valid expense name and amount');
+//     }
+
+//     document.getElementById('expenseName').value = '';
+//     document.getElementById('expenseAmount').value = '';
+// });
+// let totalSavings = 10000; // initial savings
+// let totalExpenses = 0;
+
+// document.getElementById('totalSavings').innerText = `Rs${totalSavings}`;
+// document.getElementById('totalExpenses').innerText = `Rs${totalExpenses}`;
+
+// document.getElementById('addExpense').addEventListener('click', function() {
+//     var expenseName = document.getElementById('expenseName').value;
+//     var expenseAmount = parseInt(document.getElementById('expenseAmount').value);
+
+//     if (expenseName && expenseAmount) {
+//         var li = document.createElement('li');
+//         li.classList.add('list-group-item');
+//         li.innerHTML = `${expenseName}: <strong>Rs${expenseAmount}</strong>`;
+//         document.getElementById('expenseList').appendChild(li);
+
+//         totalExpenses += expenseAmount;
+//         totalSavings -= expenseAmount;
+
+//         document.getElementById('totalSavings').innerText = `Rs${totalSavings}`;
+//         document.getElementById('totalExpenses').innerText = `Rs${totalExpenses}`;
+//     } else {
+//         alert('Please enter valid expense name and amount');
+//     }
+
+//     document.getElementById('expenseName').value = '';
+//     document.getElementById('expenseAmount').value = '';
+// });
+
+
+
+
+
+
+
+document.getElementById('addExpense').addEventListener('click', function() {
+    var expenseName = document.getElementById('expenseName').value;
+    var expenseAmount = parseInt(document.getElementById('expenseAmount').value);
+
+    if (expenseName && expenseAmount) {
+        var li = document.createElement('li');
+        li.classList.add('list-group-item');
+
+        var checkbox = document.createElement('input');
+        checkbox.type = 'checkbox';
+        checkbox.addEventListener('change', function() {
+            li.style.textDecoration = this.checked ? 'line-through' : 'none';
+        });
+
+        var deleteButton = document.createElement('button');
+        deleteButton.innerText = 'Delete';
+        deleteButton.classList.add('btn', 'btn-danger', 'ml-2');
+        deleteButton.addEventListener('click', function() {
+            li.remove();
+            totalExpenses -= expenseAmount;
+            totalSavings += expenseAmount;
+            document.getElementById('totalSavings').innerText = `$${totalSavings}`;
+            document.getElementById('totalExpenses').innerText = `$${totalExpenses}`;
+        });
+
+        var editButton = document.createElement('button');
+        editButton.innerText = 'Edit';
+        editButton.classList.add('btn', 'btn-primary', 'ml-2');
+        editButton.addEventListener('click', function() {
+            var newExpenseName = prompt('Enter new expense name', expenseName);
+            var newExpenseAmount = prompt('Enter new expense amount', expenseAmount);
+            if (newExpenseName && newExpenseAmount) {
+                totalExpenses = totalExpenses - expenseAmount + parseInt(newExpenseAmount);
+                totalSavings = totalSavings + expenseAmount - parseInt(newExpenseAmount);
+                document.getElementById('totalSavings').innerText = `$${totalSavings}`;
+                document.getElementById('totalExpenses').innerText = `$${totalExpenses}`;
+                expenseName = newExpenseName;
+                expenseAmount = parseInt(newExpenseAmount);
+                li.childNodes[1].nodeValue = `${expenseName}: $${expenseAmount}`;
+            }
+        });
+
+        li.appendChild(checkbox);
+        li.appendChild(document.createTextNode(` ${expenseName}: $${expenseAmount}`));
+        li.appendChild(editButton);
+        li.appendChild(deleteButton);
+
+        document.getElementById('expenseList').appendChild(li);
+
+        totalExpenses += expenseAmount;
+        totalSavings -= expenseAmount;
+
+        document.getElementById('totalSavings').innerText = `$${totalSavings}`;
+        document.getElementById('totalExpenses').innerText = `$${totalExpenses}`;
+    } else {
+        alert('Please enter valid expense name and amount');
+    }
+
+    document.getElementById('expenseName').value = '';
+    document.getElementById('expenseAmount').value = '';
+});
+
+document.getElementById('addSavings').addEventListener('click', function() {
+    var savingsAmount = parseInt(document.getElementById('savingsAmount').value);
+
+    if (savingsAmount) {
+        totalSavings += savingsAmount;
+        document.getElementById('totalSavings').innerText = `$${totalSavings}`;
+    } else {
+        alert('Please enter a valid savings amount');
+    }
+
+    document.getElementById('savingsAmount').value = '';
+});
+
+
+
+
+    </script>
+</body>
+</html>
+
+</body>
+</html>

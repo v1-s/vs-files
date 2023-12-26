@@ -10,17 +10,17 @@
 //  import About from './Components/About';
 // import Head from'./Components/Header2';
 import {BrowserRouter,Routes,Route,Link} from 'react-router-dom';
-//  import FForm from "./Components/Funform";
-   import UseEff from './Components/UseEff';
-   import prop from './Components/prop';
-   import Child1 from './Components/Child1';
+import FForm from "./Components/Funform";
+  //  import UseEff from './Components/UseEff';
+  //  import prop from './Components/prop';
+  //  import Child1 from './Components/Child1';
   // import Table from './Components/Table';
-  import Table1 from './Components/Table';
+  // import Table1 from './Components/Table';
 function App() {
   return (
-    // <div className="App">
-    //         {/* <prop value={data}/> */}
-    //         <Child1/>
+    <div className="App">
+            {/* <prop value={data}/> */}
+            {/* <Child1/> */}
 
 
 
@@ -59,28 +59,28 @@ function App() {
 
 
 
-       {/* <UseEff></UseEff>  */}
-      {/* {/* <Table></Table>  */}
-       {/* <FForm></FForm>  */}
-      {/* <Home></Home>
-      <MyForm></MyForm> */}
- {/* <Home>
-// </Home>
-  <Contacts></Contacts> */}
+//       //  {/* <UseEff></UseEff>  */}
+               {/* <Table></Table>  */}
+              <FForm></FForm> 
+//       // {/* <Home></Home>
+//       <MyForm></MyForm> */}
+// //  {/* <Home>
+// // // </Home>
+// //   <Contacts></Contacts> */}
      
-      {/* <BrowserRouter>
-      <Header></Header> 
-      {/* <Head></Head>*/}
-      {/* <Routes>
-        <Route exact path="/"  element={<Home/>} />
-        <Route exact path="/Contacts" element={<Contacts/>} />
-         <Route exact path="/About" element={<About/>} /> 
-        <Route exact path="/Features" element={<Features/>} />
+//       // {/* <BrowserRouter>
+//       // <Header></Header> 
+//       // {/* <Head></Head>*/}
+//       // {/* <Routes>
+//       //   <Route exact path="/"  element={<Home/>} />
+//       //   <Route exact path="/Contacts" element={<Contacts/>} />
+//       //    <Route exact path="/About" element={<About/>} /> 
+//       //   <Route exact path="/Features" element={<Features/>} />
 
       
 
-      </Routes>
-      </BrowserRouter> */}
+//       // </Routes>
+//       // </BrowserRouter> */}
 
  
     </div>
