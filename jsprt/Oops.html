@@ -8,13 +8,30 @@
 <body>
     
     <script>
-        function model1(){
-            this.name="vishnu";
-            this.place="bnglr"
-        };
-        console.log(model1.name)
+       
+// function factorial(n){
+//     const res=1;
+//     for(i=2;i<=n;i++){
+//          res*=i;
+//     }
+//     return res;
+//     console.log(res,"hwgeg");
+// }
+function factorial(n){
 
+if (n === 0) {
+   console.log(`The factorial of ${number} is 1.`);
+}
 
+else {
+   let fact = 1;
+   for (i = 1; i <= number; i++) {
+       fact *= i;
+   }
+   console.log(`The factorial of ${number} is ${fact}.`);
+}
+return fact;
+}
 
 
 
