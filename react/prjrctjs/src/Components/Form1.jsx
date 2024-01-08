@@ -8,7 +8,7 @@ export default function Form1(){
     const [showPopup, setShowPopup] = useState(false);
     const [Popup, setPopup] = useState(false);
     const [formData, setformData] = useState({
-      email: "",
+      email:"",
       password:"",
       name:"",
       phonenumber:""
