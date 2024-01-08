@@ -2,12 +2,12 @@ import React from "react";
 import { FontawesomeObject } from "@fortawesome/fontawesome-svg-core"; 
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import {faCircleUser} from '@fortawesome/free-regular-svg-icons';
-import {faCartShopping} from '@fortawesome/free-regular-svg-icons';
-import {faStore} from '@fortawesome/free-regular-svg-icons';
+import {faCartShopping} from '@fortawesome/free-solid-svg-icons';
+import {faStore} from '@fortawesome/free-solid-svg-icons';
 export default function Navbar(){
     return (
         <>
-    <nav className="navbar navbar-expand-lg bg-body-tertiary">
+    <nav className="navbar navbar-expand-lg">
   <div className="container-fluid">
     <a className="logo navbar-brand" href="#">FlipKart</a>
     <form className="d-flex" role="search">
