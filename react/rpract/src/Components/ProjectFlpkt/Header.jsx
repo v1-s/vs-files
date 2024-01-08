@@ -22,8 +22,7 @@ export default function Navbar(){
     <ul class="nav nav-pills">
       <li class="nav-item">
        <a class="nav-link"  href="#"><FontAwesomeIcon icon={faCircleUser} size="2xl"></FontAwesomeIcon>Login</a>
-  
-      </li>
+       </li>
       <li class="nav-item">
         <a class="nav-link" href="#"><FontAwesomeIcon icon={faCartShopping} size="2xl"></FontAwesomeIcon>Cart</a>
       </li>
