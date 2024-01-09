@@ -6,6 +6,7 @@ import './Components/ProjectFlpkt/Flpkt.css';
 // import Header from './Components/Header';
 import Navbar from './Components/ProjectFlpkt/Header';
 import MinSlider from './Components/ProjectFlpkt/Minnavbar';
+import Dropdown from './Components/ProjectFlpkt/Dropdown';
 function App() {
   return (
     <div className="App">
@@ -14,6 +15,7 @@ function App() {
       {/* <Header/> */}
       <Navbar/>
       <MinSlider/>
+      <Dropdown/>
     </div>
   );
 }

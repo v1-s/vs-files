@@ -1,5 +1,6 @@
 import React from "react";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import { faLessThan } from "@fortawesome/free-solid-svg-icons";
 import Grocery from './Assests/Grocery.png';
 import Electronics from './Assests/Electronics.png';
 import Fashion from './Assests/Fashion.png';
@@ -26,8 +27,20 @@ export default function MinSlider(){
                      </div><a href="#">Mobiles</a></div>
                     <div className="SlideItem col-md-1">
                     <div className="ImageSld">
-                    <img src={Fashion} alt="Electronics" />
-                    </div><a href="#">Fashion</a></div>
+    <img src={Fashion} alt="Electronics" />
+    <div class="dropdown">
+        <button class="dropdown-btn">Fashion
+        <i className="arrow"></i>
+        </button>
+        <div class="dropdown-content">
+            <a href="#">Item 1</a>
+            <a href="#">Item 2</a>
+            <a href="#">Item 3</a>
+        </div>
+    </div>
+</div>
+</div>
+
                     <div className="SlideItem col-md-1">
                     <div className="ImageSld">
                     <img src={Electronics} alt="Electronics" style={{marginTop:'20px'}}/>
