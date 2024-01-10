@@ -28,7 +28,6 @@ export default function MinSlider(){
                     <div className="SlideItem col-md-1">
                     <div className="ImageSld">
     <img src={Fashion} alt="Electronics" />
-    <div class="dropdown">
         <button class="dropdown-btn">Fashion
         <i className="arrow"></i>
         </button>
@@ -38,7 +37,6 @@ export default function MinSlider(){
             <a href="#">Item 3</a>
         </div>
     </div>
-</div>
 </div>
 
                     <div className="SlideItem col-md-1">
