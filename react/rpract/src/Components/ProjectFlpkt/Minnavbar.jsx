@@ -23,13 +23,13 @@ export default function MinSlider(){
                         <a href="#">Grocery</a></div>
                     <div className="SlideItem col-md-1">
                     <div className="ImageSld">
-                    <img src={Mobiles} alt="Electronics" style={{marginTop:'20px'}}/>
+                    <img src={Mobiles} alt="Electronics" style={{marginTop:'18px'}}/>
                      </div><a href="#">Mobiles</a></div>
                     <div className="SlideItem col-md-1">
                     <div className="ImageSld">
-    <img src={Fashion} alt="Electronics" />
-        <button class="dropdown-btn">Fashion
-        <i className="arrow"></i>
+    <img src={Fashion} alt="Electronics" style={{marginTop:'15px'}}/>
+    </div> <button class="dropdown-btn" style={{border:"none",display:"inline",backgroundColor:'white'}}>
+    <a href="#">Fashion</a><i className="arrow" style={{marginLeft:'6px'}}></i>
         </button>
         <div class="dropdown-content">
             <a href="#">Item 1</a>
@@ -37,16 +37,30 @@ export default function MinSlider(){
             <a href="#">Item 3</a>
         </div>
     </div>
-</div>
+
 
                     <div className="SlideItem col-md-1">
                     <div className="ImageSld">
-                    <img src={Electronics} alt="Electronics" style={{marginTop:'20px'}}/>
+                    <img src={Electronics} alt="Electronics" style={{marginTop:'28px'}}/>
                     </div><a href="#">Electronics</a></div>
                     <div className="SlideItem col-md-1">
                     <div className="ImageSld">
                     <img src={Home} alt="Electronics"/>
-                    </div><a href="#">Home & Furniture</a></div>
+                    <button class="dropdown-btn" style={{border:"none",display:"inline",backgroundColor:'white'}}><a href="#" style={{marginLeft:'-10px'}}>Home & Furniture</a>
+                    <i className="arrow" style={{marginLeft:'-5px'}}></i>
+        </button>
+        <div class="dropdown-content">
+            <a href="#">Item 1</a>
+            <a href="#">Item 2</a>
+            <a href="#">Item 3</a>
+        </div>
+        </div>
+    </div>
+
+
+
+
+
                     <div className="SlideItem col-md-1">
                     <div className="ImageSld">
                     <img src={Appliances} alt="Electronics"/>

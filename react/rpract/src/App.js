@@ -15,7 +15,7 @@ function App() {
       {/* <Header/> */}
       <Navbar/>
       <MinSlider/>
-      <Dropdown/>
+      {/* <Dropdown/> */}
     </div>
   );
 }
