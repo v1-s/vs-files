@@ -20,7 +20,7 @@ export default function Navbar() {
     /> 
        <a className="navbar-brand flex items-center">Mart</a>
 
-       <div className="orders__header">
+       <div className="header">
         <Link to="/">
           <h1>Home</h1>
         </Link>
