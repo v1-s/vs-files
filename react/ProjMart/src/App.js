@@ -5,12 +5,13 @@ import Shop from './Components/Shop';
 import Cart from './Components/Cart';
 import Home from './Components/Home';
 import Navbar from './Components/Navbar';
-import { BrowserRouter,Route,Routes } from 'react-router-dom';
+import { BrowserRouter,Route,Routes ,Link} from 'react-router-dom';
 function App() {
   return (
     <div className="App">
-     <Navbar/>
+   
      <BrowserRouter>
+     <Navbar/>
      <Routes>
       <Route exact path="/" element={Home}></Route>
       <Route exact path="/shop" element={Shop}></Route>
