@@ -54,9 +54,11 @@
     font-size: 0.7em;
   }
   .font{
+    display:flex;
+    justify-content: space-around;
     margin-right: 100px;
     width: 100px;
-    /* gap: 30px; */
+    gap: 10px; 
   }
   .more-options {
     margin-top: 0.6rem !important;

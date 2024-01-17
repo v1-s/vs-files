@@ -37,6 +37,9 @@ export default function Navbar() {
              size="xl"
             className="more-options"
           />
+
+
+          
           <FontAwesomeIcon icon={faCartShopping} 
           size="xl"
           className="more-options"
