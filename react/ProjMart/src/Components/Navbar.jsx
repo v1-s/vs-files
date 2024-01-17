@@ -9,9 +9,10 @@ export default function Navbar() {
     <>
     <nav className="navbar bg-body">
       <div className="container-fluid">
+        <div className="Title">
         <FontAwesomeIcon
           icon={faBagShopping}
-          size="xl"
+          size="2xl"
           className="Logo"
           style={{
             "--fa-primary-color": "#050505",
@@ -19,7 +20,11 @@ export default function Navbar() {
             "--fa-secondary-opacity": "1",
           }}
         />
+
+
+
         <a className="navbar-brand flex items-center">Mart</a>
+        </div>
         <div className="header">
           <Link to="/">
             <h1>Home</h1>
@@ -39,7 +44,7 @@ export default function Navbar() {
           />
 
 
-          
+
           <FontAwesomeIcon icon={faCartShopping} 
           size="xl"
           className="more-options"
