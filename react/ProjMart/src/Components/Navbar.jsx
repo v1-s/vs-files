@@ -2,13 +2,15 @@ import React from "react";
 import { Link } from "react-router-dom";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faBagShopping } from "@fortawesome/free-solid-svg-icons";
+import {faUser} from "@fortawesome/free-solid-svg-icons";
+import { faCartShopping } from "@fortawesome/free-solid-svg-icons";
 export default function Navbar() {
   return (
     <>
     <nav className="navbar bg-body">
       <div className="container-fluid">
-        {/* <FontAwesomeIcon
-          icon={faShoppingBag}
+        <FontAwesomeIcon
+          icon={faBagShopping}
           size="xl"
           className="Logo"
           style={{
@@ -16,7 +18,7 @@ export default function Navbar() {
             "--fa-secondary-color": "#0a0a0a",
             "--fa-secondary-opacity": "1",
           }}
-        /> */}
+        />
         <a className="navbar-brand flex items-center">Mart</a>
         <div className="header">
           <Link to="/">
@@ -27,13 +29,19 @@ export default function Navbar() {
           </Link>
           <Link to="/cart" className="orders--active">
             <h1>Cart</h1>
-            <span className="cart-count">1</span>
+            {/* <span className="cart-count">1</span> */}
           </Link>
-          {/* <FontAwesomeIcon
-            icon={faEllipsisV}
-            size="xl"
+          <div className="font">
+          <FontAwesomeIcon
+            icon={faUser}
+             size="xl"
             className="more-options"
-          /> */}
+          />
+          <FontAwesomeIcon icon={faCartShopping} 
+          size="xl"
+          className="more-options"
+           />
+           </div>
         </div>
       </div>
     </nav>
