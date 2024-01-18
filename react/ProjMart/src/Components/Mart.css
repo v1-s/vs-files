@@ -136,6 +136,32 @@
     height:180px;
     background-color:rgb(177, 195, 221);
 }
+.Big{
+    height: 100vh;
+   
+    margin-top: 80px;
+    background-color:whitesmoke ;
+}
+.Big h2{
+    padding-top: 50px;
+}
+.BigC{
+    padding-top: 30px;
+    gap: 20px;
+    align-items:center ;
+    /* margin-left: 100px; */
+    /* margin-right: 10px; */
+}
+.BC1,.BC2,.BC3{
+    background-color: white;
+    /* margin-left: 20px;
+    margin-right: 20px; */
+
+}
+.Br{
+    gap: 15px;
+    padding-left: 20px;
+}
 
 
 
