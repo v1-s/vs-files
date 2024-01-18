@@ -73,6 +73,52 @@
     /* margin-left: 10px; */
   }
   
+.banner{
+    height: 420px;
+    padding-top: 80px;
+    background-color: whitesmoke;
+}
+.hrlogo{
+    padding-top: 50px;
+    text-align: left;
+   
+}
+.hrlogo h1,p{
+    padding-left: 80px;
+}
+.hrlogo button{
+    border: none;
+    margin-left:15% ;
+    background-color:rgb(227, 225, 228);
+}
+.herologo img{
+
+    height: 300px;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 /* 
 .navbar {

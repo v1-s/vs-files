@@ -15,8 +15,8 @@ function App() {
      <Navbar/>
      <Routes>
       <Route exact path="/" element={<><Home/><Slider/></>}></Route>
-      <Route exact path="/shop" element={Shop}></Route>
-      <Route exact path="/cart" element={Cart}></Route>
+      <Route exact path="/shop" element={<Shop/>}></Route>
+      <Route exact path="/cart" element={<Cart/>}></Route>
      </Routes>
      </BrowserRouter>
 
