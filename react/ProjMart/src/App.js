@@ -6,6 +6,7 @@ import Cart from './Components/Cart';
 import Home from './Components/Home';
 import Navbar from './Components/Navbar';
 import Slider from './Components/Slider';
+import Banner1 from './Components/Banner1';
 import { BrowserRouter,Route,Routes ,Link} from 'react-router-dom';
 function App() {
   return (
@@ -14,7 +15,7 @@ function App() {
      <BrowserRouter>
      <Navbar/>
      <Routes>
-      <Route exact path="/" element={<><Home/><Slider/></>}></Route>
+      <Route exact path="/" element={<><Home/><Slider/><Banner1/></>}></Route>
       <Route exact path="/shop" element={<Shop/>}></Route>
       <Route exact path="/cart" element={<Cart/>}></Route>
      </Routes>

@@ -92,10 +92,50 @@
     background-color:rgb(227, 225, 228);
 }
 .herologo img{
-
     height: 300px;
 }
+.Bcont{
+    
+    margin-top: 50px;
+}
+.row{
+   gap:5px;
+}
+.Icon{
+    margin-top: 45px;
+    /* width: 45px; */
+    /* width: 40px; */
+    padding: 10px;
+    border-radius: 100%;
+    background-color: white;
 
+}
+.Bcontent{
+    padding-top: 20px;
+     text-align:center;
+}
+.Bcontent p{
+    /* width: 500px; */
+    padding-left: 40px;
+    text-align: left;
+}
+
+.B1{
+    height:180px;
+    background-color:rgb(245, 220, 220);
+}
+.B2{
+    height:180px;
+    background-color:rgb(166, 222, 216);
+}
+.B3{
+    height:180px;
+    background-color:rgb(235, 235, 169);
+}
+.B4{
+    height:180px;
+    background-color:rgb(177, 195, 221);
+}
 
 
 

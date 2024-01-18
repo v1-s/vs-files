@@ -6,7 +6,7 @@ export default function Slider() {
       <div className="banner">
         <div class="container text-center">
           <div class="row">
-            <div className="hrlogo col-sm-6">
+            <div className="hrlogo col-md-6">
              <h1>50%  Off  For  Your <br></br>  First  Shopping</h1> 
               <p>
                 Lorem ipsum dolor sit amet consectetur adipisicing elit. Ipsam
@@ -16,7 +16,7 @@ export default function Slider() {
             </p>
             <button>Visit Collections</button>
             </div>
-            <div className="herologo col-sm-4">
+            <div className="herologo col-md-4">
               <img src={ArmChair} alt="Image" />
             </div>
           </div>
