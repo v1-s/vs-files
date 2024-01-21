@@ -8,6 +8,7 @@ import Navbar from './Components/Navbar';
 import Slider from './Components/Slider';
 import Banner1 from './Components/Banner1';
 import BigD from './Components/BigDis';
+
 import { BrowserRouter,Route,Routes ,Link} from 'react-router-dom';
 function App() {
   return (
