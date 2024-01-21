@@ -205,12 +205,14 @@
     position: absolute;
     bottom: 25px;
     right: 10px;
+    padding: 3px;
     background-color:white; 
     border-radius: 50%;
     border-width: 1px;
+    /* box-shadow:1px 1px 1px 1.8px rgb(99, 99, 97); */
     /* border-color: black; */
     font-size: 1.5em;
-     color:navy;
+    color:rgb(19, 19, 20);
   }
   .BC1{
     width: 10%;
