@@ -144,24 +144,16 @@
 .Big h2{
     padding-top: 50px;
 }
-.BigC{
+/* .BigC{
     padding-top: 30px;
-    gap: 20px;
-    align-items:center ;
-    width:90%;
-    
+    align-items:center;
     /* margin-left: 100px; */
     /* margin-right: 10px; */
-}
-/* .BC1,.BC2,.BC3{ */
-    /* background-color: white; */
-    /* margin-left: 20px;
-    margin-right: 20px; */
+ */
 
-/* } */
 .Br{
+  width: 30%;
     height: 300px;
-    width:auto;
   /* padding-left: 30px; */
     gap: 5px;
     
@@ -211,19 +203,25 @@
   
   .add-to-cart {
     position: absolute;
-    bottom: 15px;
+    bottom: 25px;
     right: 10px;
     background-color:white; 
     border-radius: 50%;
     border-width: 1px;
-    padding: 1.5px;
-    border-color: black;
+    /* border-color: black; */
     font-size: 1.5em;
      color:navy;
   }
-  /* .Br{
+  .BC1{
+    width: 10%;
     padding-left: 300px;
-  } */
+
+  }
+  .card{
+    width: 60%;
+    height: 50px;
+    padding: 30px;
+  }
 
 
 
