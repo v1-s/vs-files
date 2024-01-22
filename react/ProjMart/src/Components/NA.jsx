@@ -5,18 +5,27 @@ import {products } from './products';
 function ProductCard({ product }) {
     console.log(product);
   const [isHovered, setIsHovered] = useState(false);
-
+  const [isInWishlist, setIsInWishlist] = useState(false);
+  const [wishlistCount, setWishlistCount] = useState(0);
+  const handleIconClick = () => {
+    setIsInWishlist(!isInWishlist);
+  };
+  const handleAddToWishlist = () => {
+    setWishlistCount(wishlistCount + 1);
+  }
   return (
     <div className="BC1 col-sm-12 col-md-3">
-      <div className="card">
+      <div className="card"onClick={handleIconClick}>
+      
         <div 
           className="product-card" 
           onMouseEnter={() => setIsHovered(true)} 
           onMouseLeave={() => setIsHovered(false)}
         >
           {isHovered && (
-            <div className="wishlist-icon">
-              <FontAwesomeIcon icon={faHeart} />
+            <div className="wishlist-icon" >
+              <FontAwesomeIcon icon={faHeart} color={isInWishlist ? 'red' : 'black'}  />
+             
             </div>
           )}
           <img src={product.imgUrl} alt="Sofa" className="product-img"/>
@@ -33,6 +42,7 @@ function ProductCard({ product }) {
 }
 
 export default function NA() {
+   
     const firstSetOfProducts = products.slice(11, 17); // first 8 products
   const secondSetOfProducts = products.slice(21, 25); // next 8 products
   return (

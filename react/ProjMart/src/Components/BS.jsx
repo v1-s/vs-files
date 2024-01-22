@@ -5,10 +5,13 @@ import {products } from './products';
 function ProductCard({ product }) {
     console.log(product);
   const [isHovered, setIsHovered] = useState(false);
-
+  const [isInWishlist, setIsInWishlist] = useState(false);
+  const handleIconClick = () => {
+    setIsInWishlist(!isInWishlist);
+  };
   return (
     <div className="BC1 col-sm-12 col-md-3">
-      <div className="card">
+      <div className="card" onClick={handleIconClick}>
         <div 
           className="product-card" 
           onMouseEnter={() => setIsHovered(true)} 
@@ -16,7 +19,7 @@ function ProductCard({ product }) {
         >
           {isHovered && (
             <div className="wishlist-icon">
-              <FontAwesomeIcon icon={faHeart} />
+              <FontAwesomeIcon icon={faHeart} color={isInWishlist ? 'red' : 'black'} />
             </div>
           )}
           <img src={product.imgUrl} alt="Sofa" className="product-img"/>
