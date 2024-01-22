@@ -31,10 +31,9 @@ export default function BigD(){
      >
       {isHovered && (
         <div className="wishlist-icon">
-          <FontAwesomeIcon icon={faHeart} />
+          <FontAwesomeIcon icon={faHeart} size="xl"/>
         </div>
       )}
-   
   <img src={sofa} alt="Sofa" class="product-img"/>
   <h4 class="product-name">Stone and Beam Westview</h4>
   <div class="rating">

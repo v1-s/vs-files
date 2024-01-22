@@ -100,6 +100,7 @@
 }
 .row{
    gap:5px;
+
 }
 .Icon{
     margin-top: 45px;
@@ -137,7 +138,7 @@
     background-color:rgb(177, 195, 221);
 }
 .Big{
-    height: 150vh;
+    height: 153vh;
     margin-top: 80px;
     background-color:whitesmoke ;
 }
@@ -147,7 +148,7 @@
 .card {
     position: relative;
     padding: 15px;
-    height: 330px !important;
+    height: 350px !important;
     box-shadow: 0 4px 8px 0 rgba(0,0,0,0.2);
   }
   
@@ -162,8 +163,9 @@
   }
   
   .product-img {
+    padding: 18px;
     width:100%;
-    height:226px;
+   height: 200px;
     padding-right: 10px;
   }
   
@@ -189,9 +191,8 @@
   .add-to-cart {
     width: 20px;
     position: absolute;
-    bottom: 25px;
-    right:15px;
-    padding: 0px;
+    right:10px;
+    bottom: 3px;
     background-color:white; 
     border-radius: 50%;
     border-width: 0.2px;
@@ -201,32 +202,26 @@
     font-size: 1.5em;
 
   }
-  .BC1,.BC4{
-    margin-left:140px;
-  
+  .BC1{
+    margin-bottom: 20px;
+    margin-top: 20px;
+ 
   }
-  /* .BC1,.BC2,.BC3{
-    height: 400px;
-  } */
-  .Bc{
-  
-    padding-top: 25px;
-  }
+.Br{
 
-  .BC7{
-   margin-left: 38%;
-    /* padding-top: 25px; */
-  }
+padding-left: 200px;
+}
+
 .BigC{
-    height: 140vh;
-    margin-top: 80px;
+    height: 150vh;
+    margin-top: 50px;
 
 }
 .BsH{
-  height: 210vh;
-  padding-top: 60px;
+  height: 215vh;
+  padding-top: 40px;
   background-color:whitesmoke ;
-  margin-top: 720px;
+  margin-top: 710px;
 }
 .BS7{
   margin-left: 25%;
@@ -305,10 +300,9 @@
 
 .wishlist-icon {
   position: absolute;
-  top: 10px;
+ 
   right: 10px;
-  color:red;
-  display: flex;
+
 }
 
 
