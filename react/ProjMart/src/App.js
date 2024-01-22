@@ -8,7 +8,9 @@ import Navbar from './Components/Navbar';
 import Slider from './Components/Slider';
 import Banner1 from './Components/Banner1';
 import BigD from './Components/BigDis';
-
+import  NewA from './Components/NewArl';
+import BestS from './Components/BestS';
+import Mfoot from './Components/Mfooter';
 import { BrowserRouter,Route,Routes ,Link} from 'react-router-dom';
 function App() {
   return (
@@ -17,7 +19,7 @@ function App() {
      <BrowserRouter>
      <Navbar/>
      <Routes>
-      <Route exact path="/" element={<><Home/><Slider/><Banner1/><BigD/></>}></Route>
+      <Route exact path="/" element={<><Home/><Slider/><Banner1/><BigD/><NewA/><BestS/><Mfoot/></>}></Route>
       <Route exact path="/shop" element={<Shop/>}></Route>
       <Route exact path="/cart" element={<Cart/>}></Route>
      </Routes>

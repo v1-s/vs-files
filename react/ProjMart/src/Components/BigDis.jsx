@@ -1,4 +1,6 @@
 import React from "react";
+import { useState } from "react";
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { useEffect } from "react";
 import sofa from './Assests/Images/double-sofa-01.png';
 import bmod from './Assests/Images/double-sofa-02.png';
@@ -6,10 +8,15 @@ import chair from './Assests/Images/arm-chair-02.jpg';
 import chair4 from './Assests/Images/arm-chair-03.jpg';
 import chair5 from './Assests/Images/phone-03.png';
 import chair6 from './Assests/Images/phone-04.jpg';
+import {faHeart} from '@fortawesome/free-solid-svg-icons';
+
 export default function BigD(){
-    // useEffect
+    const [isHovered, setIsHovered] = useState(false);
+   
     return(
         <>
+           
+    
         <div className="Big">
         <h2>Big Discount</h2>
         <div className="Bcont container text-center">
@@ -17,6 +24,17 @@ export default function BigD(){
           <div className="BC1 col-sm-12 col-md-3">
          <div className="card">
   <div class="discount-tag">30% Off</div>
+  <div 
+      className="product-card" 
+      onMouseEnter={() => setIsHovered(true)} 
+      onMouseLeave={() => setIsHovered(false)}
+     >
+      {isHovered && (
+        <div className="wishlist-icon">
+          <FontAwesomeIcon icon={faHeart} />
+        </div>
+      )}
+   
   <img src={sofa} alt="Sofa" class="product-img"/>
   <h4 class="product-name">Stone and Beam Westview</h4>
   <div class="rating">
@@ -26,6 +44,7 @@ export default function BigD(){
   <button class="add-to-cart">+</button>
 </div>
 
+         </div>
          </div>
          <div className="BC2 col-sm-12 col-md-3">
 
