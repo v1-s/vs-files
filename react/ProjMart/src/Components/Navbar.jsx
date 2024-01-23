@@ -40,7 +40,7 @@ export default function Navbar() {
           </Link>
           <Link to="/cart" className="orders--active">
             <h1>Cart</h1>
-             <span className="cart-count">1</span> 
+             
           </Link>
           <div className="font">
           <FontAwesomeIcon
@@ -57,7 +57,7 @@ export default function Navbar() {
       <FontAwesomeIcon icon={faHeart} 
           size="xl"
           className="more-options"
-          onClick={handleAddToWishlist}
+          
            />
            <span className="cart-count">{wishlistCount}</span>
           
