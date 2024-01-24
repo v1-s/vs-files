@@ -23,8 +23,7 @@ export default function Mfoot() {
               <p>
                 Lorem, ipsum dolor sit amet consectetur adipisicing elit.
                 Consequuntur, voluptates neque. Aut laborum qui adipisci quo hic
-                modi quisquam? Dignissimos nemo rem sit deleniti odio atque
-                minus similique architecto sint.
+                modi quisquam? 
               </p>
             </div>
           </div>

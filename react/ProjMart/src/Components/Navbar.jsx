@@ -8,9 +8,9 @@ import { faCartShopping } from "@fortawesome/free-solid-svg-icons";
 import { faHeart} from "@fortawesome/free-solid-svg-icons";
 export default function Navbar() {
   const [wishlistCount, setWishlistCount] = useState(0);
-  const handleAddToWishlist = () => {
-    setWishlistCount(wishlistCount + 1);
-  }
+  // const handleAddToWishlist = () => {
+  //   setWishlistCount(wishlistCount + 1);
+  // }
   return (
     <>
     <nav className="navbar bg-body">
