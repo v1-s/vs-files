@@ -21,18 +21,18 @@ function ProductCard({ product,handleAddToWishlist,handleAddToCart }) {
   
   return (
     <div className="BC1 col-sm-12 col-md-3">
-      <div className="card" onClick={handleIconClick} >
+      <div className="card" >
         <div 
           className="product-card" 
           onMouseEnter={() => setIsHovered(true)} 
           onMouseLeave={() => setIsHovered(false)}
         >
           {isHovered && (
-            <div className="wishlist-icon"onClick={handleAddToWishlist}>
+            <div className="wishlist-icon" onClick={handleAddToWishlist}>
               <FontAwesomeIcon icon={faHeart} color={isInWishlist ? 'red' : 'black'} />
             </div>
           )}
-          <img src={product.imgUrl} alt="Sofa" className="product-img"/>
+          <img src={product.imgUrl} alt="Sofa" className="product-img" onClick={handleIconClick}/>
           <h4 className="product-name">{product.productName}</h4>
           <div className="rating">
             ★★★★★
@@ -80,7 +80,7 @@ export default function BS() {
 
               </div>
           </div>
-           <Cart cart={cart}/>
+           {/* <Cart cart={cart}/> */}
       </div></>
   );
 }

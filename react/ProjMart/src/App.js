@@ -15,6 +15,8 @@ import products from './Components/products';
 import Big from './Components/Bd';
 import NA from './Components/NA';
 import BS from './Components/BS';
+import ProductD from './Components/ProductD';
+// import OrderPage from './Components/Cart';
 import { BrowserRouter,Route,Routes ,Link} from 'react-router-dom';
 function App() {
   return (
@@ -26,6 +28,7 @@ function App() {
      <Routes>
       <Route exact path="/" element={<><Home/><Slider/><Banner1/><Big/><NA/><BS/></>}></Route>
       <Route exact path="/shop" element={<><Shop/></>}></Route>
+      <Route exact path="/product/product.id" element={<><ProductD/></>}></Route>
       <Route exact path="/cart" element={<><Cart/></>}></Route>
      </Routes>
      {/* <Mfoot/> */}

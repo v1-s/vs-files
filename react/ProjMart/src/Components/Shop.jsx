@@ -1,11 +1,13 @@
 import React, { useState } from 'react';
+import { useNavigate } from 'react-router-dom';
 import table from './Assests/Images/table.jpg';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faHeart } from '@fortawesome/free-solid-svg-icons';
 import { faMagnifyingGlass } from '@fortawesome/free-solid-svg-icons';
+import ProductD from "./ProductD";
 import {products } from './products';
 function ProductCard({ product, onSelect }) {
-    
+
   const [isHovered, setIsHovered] = useState(false);
   const [isInWishlist, setIsInWishlist] = useState(false);
   const [wishlistCount, setWishlistCount] = useState(0);
@@ -48,18 +50,15 @@ return (
 }
 
 export default function Shop(){
-   
+  const navigate = useNavigate();
     const [selectedProduct, setSelectedProduct] = useState(null);
-    const [isModalOpen, setIsModalOpen] = useState(false);
+   
 
     const handleProductSelect = (product) => {
       setSelectedProduct(product);
-      setIsModalOpen(true);
       console.log("HAndle",product)
     };
-    const closeModal = () => {
-        setIsModalOpen(false);
-      };
+   
   const [isOpen, setIsOpen] = useState(false);
   const [selectedCategory, setSelectedCategory] = useState('All');
   const [searchTerm, setSearchTerm] = useState('');
@@ -124,15 +123,21 @@ export default function Shop(){
   </div>
       <div className="Bcont container text-center">
         <div className="Br row">
-           {filteredProducts.map(product => (
+        {filteredProducts.map(product => (
+    <ProductCard key={product.id} product={product} onSelect={() => navigate(`/product/${product.id}`)}/>
+))}
+
+
+           {/* {filteredProducts.map(product => (
             <ProductCard key={product.id} product={product} onSelect={handleProductSelect}/>
            ))}
-           {selectedProduct && 
+          {selectedProduct && 
             <div className="selected-product-details">
             <img src={selectedProduct.image} alt={selectedProduct.title} />
             <h2>{selectedProduct.title}</h2>
             </div>
-    }
+           } */}
+
        {/* {selectedProduct && (
         <div className="selected-product-details">
             {console.log("HIiii",selectedProduct)}
@@ -146,8 +151,7 @@ export default function Shop(){
          </div>
      )}  */}
        </div>
-       </div>
- </div>
+       </div></div>
   </>
     )
 }

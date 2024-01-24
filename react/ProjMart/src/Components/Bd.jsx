@@ -11,7 +11,7 @@ function ProductCard({ product }) {
   };
   return (
     <div className="BC1 col-sm-12 col-md-3">
-      <div className="card" onClick={handleIconClick}>
+      <div className="card" >
         <div className="discount-tag">30% Off</div>
         <div 
           className="product-card" 
@@ -23,7 +23,7 @@ function ProductCard({ product }) {
               <FontAwesomeIcon icon={faHeart} color={isInWishlist ? 'red' : 'black'}/>
             </div>
           )}
-          <img src={product.imgUrl} alt="Sofa" className="product-img"/>
+          <img src={product.imgUrl} alt="Sofa" className="product-img" onClick={handleIconClick}/>
           <h4 className="product-name">{product.productName}</h4>
           <div className="rating">
             ★★★★★
