@@ -416,6 +416,22 @@ padding-left: 200px;
   font-size: 14px;
 }
 
+/* shop footer */
+
+.Footer-relative{
+  /* background-color: #ff0; */
+  position: relative;
+  margin-top: 1080vh;
+  left: 0%;
+  width: 99%;
+  background-color:#0f0553;
+  color: white;
+}
+  
+  
+ 
+ 
+
 
 
 
