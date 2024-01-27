@@ -138,35 +138,9 @@ export default function Shop(){
 {filteredProducts.map(product => (
     <ProductCard key={product.id} product={product}  onAddToCart={addToCart}  onSelect={handleProductSelect}/>
 ))}
+{selectedProduct && <ProductD selectedProduct={selectedProduct} />}
     {/* <ProductD selectedProduct={selectedProduct}/>  */}
 
-
-
-
-
-
-           {/* {filteredProducts.map(product => (
-            <ProductCard key={product.id} product={product} onSelect={handleProductSelect}/>
-           ))}
-          {selectedProduct && 
-            <div className="selected-product-details">
-            <img src={selectedProduct.image} alt={selectedProduct.title} />
-            <h2>{selectedProduct.title}</h2>
-            </div>
-           } */}
-
-       {/* {selectedProduct && (
-        <div className="selected-product-details">
-            {console.log("HIiii",selectedProduct)}
-          <h2>{selectedProduct.productName}</h2>
-          <img src={selectedProduct.imgUrl} alt={selectedProduct.productName} />
-          <p>${selectedProduct.price}</p> 
-          <p>{selectedProduct.shortDesc}</p>
-          <p>{selectedProduct. description}</p> */}
-          {/* <p>{selectedProduct. reviews}</p> */}
-          {/* <button onClick={closeModal}>Close</button>
-         </div>
-     )}  */}
        </div>
        </div></div>
 
@@ -253,3 +227,47 @@ export default function Shop(){
   </>
     )
 }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+           {/* {filteredProducts.map(product => (
+            <ProductCard key={product.id} product={product} onSelect={handleProductSelect}/>
+           ))}
+          {selectedProduct && 
+            <div className="selected-product-details">
+            <img src={selectedProduct.image} alt={selectedProduct.title} />
+            <h2>{selectedProduct.title}</h2>
+            </div>
+           } */}
+
+       {/* {selectedProduct && (
+        <div className="selected-product-details">
+            {console.log("HIiii",selectedProduct)}
+          <h2>{selectedProduct.productName}</h2>
+          <img src={selectedProduct.imgUrl} alt={selectedProduct.productName} />
+          <p>${selectedProduct.price}</p> 
+          <p>{selectedProduct.shortDesc}</p>
+          <p>{selectedProduct. description}</p> */}
+          {/* <p>{selectedProduct. reviews}</p> */}
+          {/* <button onClick={closeModal}>Close</button>
+         </div>
+     )}  */}

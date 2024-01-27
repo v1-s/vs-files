@@ -14,11 +14,13 @@ export default function ProductD(selectedProduct){
       {selectedProduct.productName}
     </h1>
   </div> 
+  <div className="product">
   <h1 className="product-name">{selectedProduct.productName}</h1>
             <p className="product-description">{selectedProduct.productDescription}</p>
             <h2 className="product-price">{selectedProduct.productPrice}</h2>
             <button className="add-to-cart">Add to Cart</button>
 </div> 
+</div>
    </>
     )
 }

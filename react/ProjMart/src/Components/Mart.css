@@ -416,7 +416,7 @@ padding-left: 200px;
   font-size: 14px;
 }
 
-/* shop footer */
+/*---------------- shop footer --------------------*/
 
 .Footer-relative{
   /* background-color: #ff0; */
@@ -428,8 +428,13 @@ padding-left: 200px;
   color: white;
 }
   
-  
- 
+  /* -----------------product---------------------- */
+.product{
+  background-color: #f0eaea;
+  width: 100%;
+  height: 100%;
+  color: black;
+} 
  
 
 
