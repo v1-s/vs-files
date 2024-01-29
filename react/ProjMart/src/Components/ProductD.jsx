@@ -1,7 +1,6 @@
 import React from "react";
 import table from './Assests/Images/table.jpg';
 import { products } from "./products";
-
 export default function ProductD(selectedProduct){
   function UserCartComponent({
     cartCourses,

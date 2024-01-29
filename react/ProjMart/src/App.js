@@ -16,7 +16,7 @@ import Big from './Components/Bd';
 import NA from './Components/NA';
 import BS from './Components/BS';
 import ProductD from './Components/ProductD';
-// import OrderPage from './Components/Cart';
+//import OrderPage from './Components/Cart';
 import { BrowserRouter,Route,Routes ,Link} from 'react-router-dom';
 function App() {
   return (
