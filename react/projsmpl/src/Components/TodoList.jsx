@@ -1,7 +1,10 @@
 import React, { useState } from "react";
 import TodoItems from "./TodoItems";
-
 export default function Todo() {
+
+
+
+	
     const [items, setItems] = useState([]);
 	const addItem = (e) => {
         if (e.target.value !== "") {
@@ -17,10 +20,12 @@ export default function Todo() {
             });
 
             e.target.value = "";
-        }
+		
+	}
+	
         console.log(items);
         e.preventDefault();
-    }
+}
 
     const deleteItem = (key) => {
         var filteredItems = items.filter(function (item) {
