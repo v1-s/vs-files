@@ -1,0 +1,149 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Puzzle</title>
+    <link rel="stylesheet" href="game.css">
+    <link rel="stylesheet" href="game.js">
+</head>
+<body>
+   <!------------------------------------------------------------container-1--------------------------------------------------------->
+    <div class="container_1">
+      <div class="box">
+        <input type="button" id="btn" value="Again!">                  
+        <h4>(Between 1 and 20)</h4>
+      </div>
+       <div class="heading"><h1>
+         Guess My Number !
+       </h1>
+    </div> 
+           
+    </div>
+  <!-----------------------------------------------------------------container-2------------------------------------------------------------> 
+    <div class="container_2">
+       <hr>
+       <div id="answer"></div>
+      </hr>
+    </div>
+    <!-------------------------------------------------------------Container-3------------------------------------------------------------>
+    <div class="container_3">
+        <div class="box-1">
+        <label for ="num">
+        <input type="number" name="num" id="nmbr" >
+        <input type="button" id="butn" value="Check!">
+    </label>
+    </div>
+        <div class="box-2">
+            <p id ="dsp" style="color: white;"></p>
+           
+            <p> Current Score:<span id="crtscr"></span></p>
+            
+           
+           <p > HighScore : <span id="hscr"></span></p>
+        </div>
+    </div>
+<!------------------------------------------------------------------JavaScript------------------------------------------------------------>
+    <script>
+
+         let val =document.getElementById("butn");
+         let display =document.querySelector("#dsp");
+         let rebox =document.querySelector("#answer");
+         let highscore=document.querySelector("#hscr");
+         let random_num = Math.trunc(Math.random()*10)+1;
+        let score =document.getElementById("crtscr");
+         let currentscore=20;
+         let highscr=0;
+         val.addEventListener("click",function(){
+            let data=Number( document.getElementById("nmbr").value);
+            if(!data){
+                display.innerHTML="no number";
+            }else if(data == random_num){
+                    display.innerHTML="congratulations";
+                    let rebox =document.querySelector("#answer");
+                    rebox.innerHTML=data;
+                    document.body.style.backgroundColor="green";
+           if(currentscore>0){
+           document.querySelector("#crtscr").innerHTML = currentscore;
+            currentscore=currentscore--;
+           document.querySelector("#hscr").innerHTML=currentscore;
+         }
+            }else if(data!= random_num){
+                if(currentscore>1){
+                    if(data < random_num ){
+                display.innerHTML=" too low";
+                 currentscore--;
+                 score.innerHTML=currentscore;
+              }else if(data >random_num ){
+        
+                 display.innerHTML="too high";
+                 currentscore--;
+                 score.innerHTML=currentscore;
+                }else{
+                    display.innerHTML="you lost the game";
+                    score.innerHTML=0;
+                }
+            }
+
+            }
+        });
+// ----------------------------------------------------------------AGAIN!--------------------------------------------------------------------//       
+        document.getElementById("btn").addEventListener("click",function(){ 
+            let random_num = Math.floor(Math.random()*20);
+            let hscore=document.getElementById("hscr");
+            currentscore=20;
+            attemptsleft=10;
+            let score=document.getElementById("crtscr");
+            score.innerHTML=currentscore;
+            let display =document.getElementById("dsp");
+            display.innerHTML="Start Guessing................";
+            let rebox =document.getElementById("answer");
+            rebox.innerHTML="?";
+            let data= document.getElementById("nmbr").value;
+            data.innerHTML="";
+            document.body.style.backgroundColor="black";
+            hscore.innerHTML=0;
+    });
+    </script>
+</body>
+</html>
+
+
+
+
+
+
+<!-- onclick="location.reload()" -->
+<!--- val.addEventListener("click",function(){
+    //       if(data === random_num){
+    //          rebox.innerHTML=data;   
+    //         document.getElementById("answer").innerHTML=data;                                                                                                   
+    //         document.body.style.backgroundColor="green";
+    //         if(currentscore>highscore){
+    //         document.getElementById("hscr").innerHTML = currentscore;
+    //         }
+            
+    //     }else if(data < random_num ){
+    //         if(currentscore>0){
+    //     document.querySelector("#crtscr").innerHTML = currentscore;
+    //     currentscore=currentscore--;
+    //     }
+    //         display.innerHTML=" too low";
+    //         currentscore--;
+    //         score.innerHTML=currentscore;
+    //         // console.log(cur
+    //         // console.log(attemptsleft);
+    //      }else if(data >random_num ){
+    
+    //         display.innerHTML="too high";
+    //         currentscore--;
+    //         score.innerHTML=currentscore;
+    //         attemptsleft--;
+    //         chance.innerHTML=attemptsleft;
+
+    //      }else if(data <1) {
+    //         document.getElementById("dsp").innerHTML="input between 0 -20";
+    //      }else {
+    //         document.getElementById("dsp").innerHTML="better luck ,next time"
+    //      };
+    //     }); --->

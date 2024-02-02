@@ -8,6 +8,7 @@ import ProductD from "./ProductD";
 import {products } from './products';
 import { faBagShopping } from "@fortawesome/free-solid-svg-icons";
 
+
 function ProductCard({ product, onSelect,onAddToCart }) {
 
   const [isHovered, setIsHovered] = useState(false);
@@ -82,8 +83,8 @@ export default function Shop(){
   const firstSetOfProducts = products.slice(0,25); // first 8 products 
   const filteredProducts = firstSetOfProducts.filter(product => selectedCategory === 'All' || product.category === selectedCategory).filter(product =>
     product.productName.toLowerCase().includes(searchTerm.toLowerCase())
-  );;
-    
+  );
+ 
     return (
         <>
         <div class="background-image">
@@ -139,11 +140,12 @@ export default function Shop(){
     <ProductCard key={product.id} product={product}  onAddToCart={addToCart}  onSelect={handleProductSelect}/>
 ))}
 {selectedProduct && <ProductD selectedProduct={selectedProduct} />}
+
     {/* <ProductD selectedProduct={selectedProduct}/>  */}
 
        </div>
-       </div></div>
-
+       </div>
+</div>
 
 
 
