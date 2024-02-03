@@ -2,7 +2,7 @@ import React, { useState } from 'react';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faHeart } from '@fortawesome/free-solid-svg-icons';
 import {discoutProducts } from './products';
-function ProductCard({ product }) {
+function ProductCard({ product,onAddTocart }) {
     console.log(product);
   const [isHovered, setIsHovered] = useState(false);
   const [isInWishlist, setIsInWishlist] = useState(false);
@@ -29,7 +29,7 @@ function ProductCard({ product }) {
             ★★★★★
           </div>
           <div className="price">${product.price}</div>
-          <button className="add-to-cart">+</button>
+          <button className="add-to-cart" onClick={()=> onAddTocart(product)}>+</button>
         </div>
       </div>
     </div>
@@ -37,13 +37,17 @@ function ProductCard({ product }) {
 }
 
 export default function Big() {
+  const [cart,setCart] = useState([]);
+  const addToCart =(product) =>{
+    setCart(currentCart => [...currentCart ,product]);
+  };
   return (
     <div className="Big">
       <h2>Big Discount</h2>
       <div className="Bcont container text-center">
         <div className="Br row">
           {discoutProducts.map(product => (
-            <ProductCard key={product.id} product={product} />
+            <ProductCard key={product.id} product={product}  onAddTocart={addToCart}/>
           ))}
         </div>
       </div>

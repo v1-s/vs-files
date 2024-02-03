@@ -1,32 +1,112 @@
-import React from "react";
-import table from './Assests/Images/table.jpg';
-import { products } from "./products";
-import { Link } from 'react-router-dom';
-import { useState,useEffect } from "react";
+import React, { useState } from 'react';
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import { faHeart } from '@fortawesome/free-solid-svg-icons';
 
-export default function ProductD(selectedProduct){
-	const[product,setProduct]=useState(null);
-	const id = 1; // replace with your actual id
+function ProductCard({ product, onAddToCart }) {
+  const [isHovered, setIsHovered] = useState(false);
+  const [isInWishlist, setIsInWishlist] = useState(false);
 
-	useEffect(() => {
-	  const fetchProduct = async () => {
-		// simulate a fetch with a delay
-		await new Promise(resolve => setTimeout(resolve, 1000));
-		const data = products.find(product => product.id === id);
-		setProduct(data);
-	  };
+  const handleIconClick = () => {
+    setIsInWishlist(!isInWishlist);
+  };
+
+  return (
+    <div className="BC1 col-sm-12 col-md-3">
+      <div className="card">
+        <div 
+          className="product-card" 
+          onMouseEnter={() => setIsHovered(true)} 
+          onMouseLeave={() => setIsHovered(false)}
+        >
+          {isHovered && (
+            <div className="wishlist-icon">
+              <FontAwesomeIcon icon={faHeart} color={isInWishlist ? 'red' : 'black'} onClick={handleIconClick} />
+            </div>
+          )}
+          <img src={product.imgUrl} alt={product.productName} className="product-img"/>
+          <h4 className="product-name">{product.productName}</h4>
+          <div className="rating">
+            ★★★★★
+          </div>
+          <div className="price">${product.price}</div>
+          <button className="add-to-cart" onClick={() => onAddToCart(product)}>+</button>
+        </div>
+      </div>
+    </div>
+  );
+}
+
+export default ProductCard;
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+// import React from "react";
+// import table from './Assests/Images/table.jpg';
+// import { products } from "./products";
+// import { Link } from 'react-router-dom';
+// import { useState,useEffect } from "react";
+
+// export default function ProductD(selectedProduct){
+	// const[product,setProduct]=useState(null);
+	// const id = 1; // replace with your actual id
+
+	// useEffect(() => {
+	//   const fetchProduct = async () => {
+	// 	// simulate a fetch with a delay
+	// 	await new Promise(resolve => setTimeout(resolve, 1000));
+	// 	const data = products.find(product => product.id === id);
+	// 	console.log(setProduct(data));
+	//   };
   
-	  fetchProduct();
-	}, [id]);
+	//   fetchProduct();
+	// }, [id]);
   
-	const [selectedCategory, setSelectedCategory] = useState('all'); 
-	const [mobile, setMobile] = useState([]);
-	const [sofa, setSofa] = useState([]);
-	const [watch, setWatch] = useState([]);
-	const [chair, setChair] = useState([]);
-    return(
+	// const [selectedCategory, setSelectedCategory] = useState('all'); 
+	// const [mobile, setMobile] = useState([]);
+	// const [sofa, setSofa] = useState([]);
+	// const [watch, setWatch] = useState([]);
+	// const [chair, setChair] = useState([]);
+    // return(
 
-        <>
+  
 
 
 
@@ -100,7 +180,21 @@ export default function ProductD(selectedProduct){
           ))}
         </div>
       </div> */}
-    
+    //   return(
+    //    <>
+    //   {selectedProduct && (
+    //     <div className="product1">
+    //       <h1 className="product-name">{selectedProduct.productName}</h1>
+    //       <img className="product-name" src={selectedProduct.imgUrl} alt={selectedProduct.productName} />
+    //       <p className="product-description">{selectedProduct.description}</p>
+    //       <h2 className="product-price">{selectedProduct.price}</h2>
+    //       <button className="add-to-cart">Add to Cart</button>
+    //     </div>
+    //   )}
+
+    // </>
+    // )
+    //   }
 
 
 
@@ -108,11 +202,14 @@ export default function ProductD(selectedProduct){
 
 
 
-         {selectedProduct && <h1 className="product-name">{selectedProduct.productName}</h1>}
 
-          <div class="background-image">
+
+
+         {/* {selectedProduct && <h1 className="product-name">{selectedProduct.productName}</h1>}
+
+          <div class="background-image"> */}
          {/* <img src={table} alt=" table background" className="Shopbgrnd"/>  */}
-   <div className="overlay container-fluid">
+   {/* <div className="overlay container-fluid">
     <h1 className="ShTitle">
       {product.productName}
     </h1>
@@ -129,6 +226,4 @@ export default function ProductD(selectedProduct){
 </>
 
 )
-}
-
-
+} */}

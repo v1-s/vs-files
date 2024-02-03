@@ -24,6 +24,8 @@ function ProductCard({ product, onSelect,onAddToCart }) {
     onSelect(product);
     console.log(product);
   };
+  const [cart, setCart] = useState([]);
+  
 return (
     <div className="BC1 col-sm-12 col-md-3" >
       <div className="card" onClick={handleClick}>
@@ -56,14 +58,14 @@ export default function Shop(){
   
   const navigate = useNavigate();
   const [cart, setCart] = useState([]);
-  const addToCart = (product) => {
+ const addToCart = (product) => {
     setCart([...cart, product]);
   };
   
     const [selectedProduct, setSelectedProduct] = useState(null);
-    const handleProductSelect = (product) => {
+    const handleProductClick = (product) => {
       setSelectedProduct(product);
-      console.log("Handle",product)
+      console.log("Handle",selectedProduct)
     };
    
   const [isOpen, setIsOpen] = useState(false);
@@ -130,23 +132,22 @@ export default function Shop(){
   </div>
       <div className="Bcont container text-center">
         <div className="Br row">
-      
         {filteredProducts.map(product => (
-    <ProductCard key={product.id} product={product}  onSelect={() => navigate(`/product/${product.id}`)}/>
-
-
-))}
-{filteredProducts.map(product => (
-    <ProductCard key={product.id} product={product}  onAddToCart={addToCart}  onSelect={handleProductSelect}/>
-))}
-{selectedProduct && <ProductD selectedProduct={selectedProduct} />}
+           <ProductCard key={product.id} product={product} onAddToCart={addToCart} />
+        ))}
+        {filteredProducts.map(product => (
+      <div onClick={() => handleProductClick(product)}>
+        <ProductCard key={product.id} product={product} onAddToCart={addToCart} />
+      </div>
+    ))}
+    {selectedProduct && <ProductD selectedProduct={selectedProduct} />}
+  
 
     {/* <ProductD selectedProduct={selectedProduct}/>  */}
 
        </div>
        </div>
 </div>
-
 
 
        {/*  */}

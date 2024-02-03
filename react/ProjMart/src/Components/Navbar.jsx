@@ -50,6 +50,7 @@ export default function Navbar() {
                 icon={faCartShopping}
                 size="xl"
                 className="more-options"
+                
               />
 
               <FontAwesomeIcon
