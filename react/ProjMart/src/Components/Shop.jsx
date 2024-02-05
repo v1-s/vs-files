@@ -1,16 +1,18 @@
 import React, { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 import table from './Assests/Images/table.jpg';
+import ProductDetails from './ProductD';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faHeart } from '@fortawesome/free-solid-svg-icons';
 import { faMagnifyingGlass } from '@fortawesome/free-solid-svg-icons';
-import ProductD from "./ProductD";
 import {products } from './products';
 import { faBagShopping } from "@fortawesome/free-solid-svg-icons";
+import { useParams } from 'react-router-dom';
 
-
-function ProductCard({ product, handleProduct,onAddToCart }) {
-
+function ProductCard({ product,onAddToCart}) {
+  const {id}= useParams();
+  const navigate =useNavigate();
+  const [selectedProduct, setSelectedProduct] = useState(null);
   const [isHovered, setIsHovered] = useState(false);
   const [isInWishlist, setIsInWishlist] = useState(false);
   const [wishlistCount, setWishlistCount] = useState(0);
@@ -20,16 +22,15 @@ function ProductCard({ product, handleProduct,onAddToCart }) {
   const handleAddToWishlist = () => {
     setWishlistCount(wishlistCount + 1);
   }
-  const handleClick = () => {
-    handleProduct(product);
-    console.log(product);
+  const handleProductSelect = (product) => {
+    setSelectedProduct(product);
+    navigate(`/product/${product.id}`);
+
+    console.log("id",product);
   };
-  const [cart, setCart] = useState([]);
-  
-  
 return (
     <div className="BC1 col-sm-12 col-md-3" >
-      <div className="card" onClick={handleClick}>
+      <div className="card" onClick={handleProductSelect}>
       
         <div 
           className="product-card" 
@@ -43,6 +44,7 @@ return (
             </div>
           )}
           <img src={product.imgUrl} alt="Sofa" className="product-img"/>
+          {/* <h1>{product.id}</h1> */}
           <h4 className="product-name">{product.productName}</h4>
           <div className="rating">
             ★★★★★
@@ -56,25 +58,21 @@ return (
 }
 
 export default function Shop(){
-    const handleProduct = (product) => {
-      setSelectedProduct(product);
-      navigate('/ProductCard'); // Assuming your product details route is '/product-details'
-    };
-    
-
-  const navigate = useNavigate();
+  const{id}=useParams();
+  const navigate=useNavigate();
   const [cart, setCart] = useState([]);
  const addToCart = (product) => {
     setCart([...cart, product]);
   };
-  
-    const [selectedProduct, setSelectedProduct] = useState(null);
-    // const handleProductClick = (product) => {
-    //   setSelectedProduct(product);
-    //   console.log("Handle",selectedProduct)
-    // };
-   
-  const [isOpen, setIsOpen] = useState(false);
+  const handleProductSelect = (product) => {
+    setSelectedProduct(product);
+    navigate(`/product/${product.id}`);
+
+    console.log(product);
+  };
+
+  const [selectedProduct, setSelectedProduct] = useState(null); 
+   const [isOpen, setIsOpen] = useState(false);
   const [selectedCategory, setSelectedCategory] = useState('All');
   const [searchTerm, setSearchTerm] = useState('');
 
@@ -136,47 +134,18 @@ export default function Shop(){
       </div>
     </div>
   </div>
-      {/* <div className="Bcont container text-center">
-        <div className="Br row"> */}
-
-
-
-
-
-
-
-
         <div className="Bcont container text-center">
       <div className="Br row">
           {filteredProducts.map(product => (
-           <ProductCard key={product.id} product={product} onAddToCart={addToCart} />
+           <ProductCard key={product.id} product={product} onSelect={handleProductSelect} onAddToCart={addToCart} />
         ))} 
-        {filteredProducts.map((product) => (
-          <div key={product.id} onClick={() => handleProduct(product)}>
-            <ProductCard product={product} onAddToCart={addToCart} />
-          </div>
-        ))}
       </div>
-      {selectedProduct && <ProductD selectedProduct={selectedProduct} />}
-    </div>
-    </div>
-       
-
-        {/* {filteredProducts.map(product => (
-      <div onClick={() =>onSelect(product)}>
-        <ProductCard key={product.id} product={product} onAddToCart={addToCart}  onSelect={onSelect} />
-      </div>
-    ))}
-     </div> */}
-    {/* {selectedProduct && <ProductD selectedProduct={selectedProduct} />} */}
-  {/* {selectedProduct && (
-  <ProductD selectedProduct={selectedProduct} />
-)} */} 
-
       
-
-
-       {/*  */}
+     {/* {selectedProduct && <ProductDetails product={selectedProduct} />}  */}
+     <ProductDetails/>
+    </div>
+    </div>
+         {/*  */}
       
 
        
@@ -266,37 +235,3 @@ export default function Shop(){
 
 
 
-
-
-
-
-
-
-
-
-
-
-
-
-           {/* {filteredProducts.map(product => (
-            <ProductCard key={product.id} product={product} onSelect={handleProductSelect}/>
-           ))}
-          {selectedProduct && 
-            <div className="selected-product-details">
-            <img src={selectedProduct.image} alt={selectedProduct.title} />
-            <h2>{selectedProduct.title}</h2>
-            </div>
-           } */}
-
-       {/* {selectedProduct && (
-        <div className="selected-product-details">
-            {console.log("HIiii",selectedProduct)}
-          <h2>{selectedProduct.productName}</h2>
-          <img src={selectedProduct.imgUrl} alt={selectedProduct.productName} />
-          <p>${selectedProduct.price}</p> 
-          <p>{selectedProduct.shortDesc}</p>
-          <p>{selectedProduct. description}</p> */}
-          {/* <p>{selectedProduct. reviews}</p> */}
-          {/* <button onClick={closeModal}>Close</button>
-         </div>
-     )}  */}

@@ -1,44 +1,171 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
+import { useParams } from 'react-router-dom';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faHeart } from '@fortawesome/free-solid-svg-icons';
+import { products } from './products';
+import Sofa from './Assests/Images/double-sofa-01.png'
 
-function ProductCard({ product,onSelect, onAddToCart }) {
+
+function ProductDetails({ product,onSelect, onAddToCart }) {
+  const { id } = useParams();
+  const [fetchedProduct, setFetchedProduct] = useState(null);
   const [isHovered, setIsHovered] = useState(false);
   const [isInWishlist, setIsInWishlist] = useState(false);
+
+  useEffect(() => {
+    const product = products.find((item) => item.id === id);
+    if (product) {
+      setFetchedProduct(product);
+    } else {
+      console.error(`Product with ID ${id} not found!`); // Handle missing product
+    }
+  }, [id]);
 
   const handleIconClick = () => {
     setIsInWishlist(!isInWishlist);
   };
+
   const handleClick = () => {
-    onSelect(product);
+    onSelect(products); // Pass the fetched product to the parent component
   };
+
+  // if (!fetchedProduct) {
+  //   return <div>Loading product details...</div>; // Display a loading indicator
+  // }
+
   return (
-    <div className="BC1 col-sm-12 col-md-3">
-      <div className="card">
-        <div 
-          className="product-card" 
-          onMouseEnter={() => setIsHovered(true)} 
-          onMouseLeave={() => setIsHovered(false)}
-        >
+    <div className="BC1 col-sm-12 col-md-3" style={{ backgroundColor: 'blue' }}>
+      <div className="product-id">{products[0].id}</div>
+
+      <div className="card" onClick={handleClick}>
+        <div className="product-card" onMouseEnter={() => setIsHovered(true)} onMouseLeave={() => setIsHovered(false)}>
           {isHovered && (
             <div className="wishlist-icon">
               <FontAwesomeIcon icon={faHeart} color={isInWishlist ? 'red' : 'black'} onClick={handleIconClick} />
             </div>
           )}
-          <img src={props.selectedproduct.imgUrl} alt={product.productName} className="product-img"/>
-          <h4 className="product-name">{product.productName}</h4>
-          <div className="rating">
-            ★★★★★
-          </div>
-          <div className="price">${product.price}</div>
-          <button className="add-to-cart" onClick={() => onAddToCart(product)}>+</button>
+          <img src={products[0].imgUrl} alt={products[0].productName} className="product-img" />
+          <h4 className="product-name">{products[0].productName}</h4>
+          <div className="rating">★★★★★</div>
+          <div className="price">${products[0].price}</div>
+          <button className="add-to-cart" onClick={() => onAddToCart(products)}>+</button>
         </div>
       </div>
     </div>
   );
 }
 
-export default ProductCard;
+export default ProductDetails;
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+// import React, { useState } from 'react';
+// import { useEffect } from 'react';
+// import { useNavigate } from 'react-router-dom';
+// import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+// import { faHeart } from '@fortawesome/free-solid-svg-icons';
+// import { products } from './products';
+// import { useParams } from 'react-router-dom';
+// // import {shop} from './Shop';
+
+// function fetchProductDetailsById(id) {
+//   return products.find((product) => product.id === id);
+// }
+
+// function ProductDetails({product,onSelect, onAddToCart }) {
+//  const {id}=useParams();
+//  const [fetchedProduct,setFetchedProduct]=useState(null);
+//  useEffect(async () => {
+//   // ...
+//   const fetchedProduct = await fetchProductDetailsById(id);
+//   setFetchedProduct(fetchedProduct);
+//   // ...
+
+
+//   return()=>{
+
+//   }
+// }, [id,fetchProductDetailsById]);
+//   console.log("Pro",product);
+//   const navigate = useNavigate();
+//   const [isHovered, setIsHovered] = useState(false);
+//   const [isInWishlist, setIsInWishlist] = useState(false);
+
+//   const handleIconClick = () => {
+//     setIsInWishlist(!isInWishlist);
+//   };
+//   const handleClick = () => {
+//     onSelect(product);
+//     navigate(`/product/${product.id}`);
+//   };
+  
+
+
+//   return (
+//     <>
+//     <div className="BC1 col-sm-12 col-md-3" style={{backgroundColor:'blue'}}>
+//     <div className="product-id">{id}
+
+//       {fetchedProduct&& (
+
+//       <div className="card" onClick={handleClick}>
+//         <div 
+//           className="product-card" 
+//           onMouseEnter={() => setIsHovered(true)} 
+//           onMouseLeave={() => setIsHovered(false)}
+//         >
+//           {isHovered && (
+//             <div className="wishlist-icon">
+//               <FontAwesomeIcon icon={faHeart} color={isInWishlist ? 'red' : 'black'} onClick={handleIconClick} />
+//             </div>
+//           )}
+//           <img src={product.imgUrl} alt={product.productName} className="product-img"/>
+//           <h4 className="product-name">{product.productName}</h4>
+//           <div className="rating">
+//             ★★★★★
+//           </div>
+       
+// </div>
+
+         
+//           <div className="price">${product.price}</div>
+         
+//         </div>
+       
+//         )}
+//          </div>
+//       </div>
+//  </>
+//   );
+// }
+
+// export default ProductDetails;
 
 
 

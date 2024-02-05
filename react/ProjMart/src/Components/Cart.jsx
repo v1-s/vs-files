@@ -1,9 +1,12 @@
 import React from "react";
+// In ProductCard
+
 export default function Cart({ cart }) {
     return (
       <>
         <h1>AC</h1>
         {console.log(cart)}
+       
         {/* {cart && cart.map((product,index) => (
           <div key={index}>
             <h3>{product.productName}</h3>

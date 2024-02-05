@@ -19,6 +19,7 @@ import BS from './Components/BS';
 //import OrderPage from './Components/Cart';
 import { BrowserRouter,Route,Routes ,Link} from 'react-router-dom';
 import ProductCard from './Components/ProductD';
+import ProductDetails from './Components/ProductD';
 function App() {
   return (
     <div className="App">
@@ -27,9 +28,9 @@ function App() {
      <Navbar/>
      
      <Routes>
-      <Route exact path="/" element={<><Home/><Slider/><Banner1/><Big/><NA/><BS/> <Mfoot/></>}></Route>
-      <Route exact path="/shop" element={<><Shop/> </>}></Route>
-      <Route exact path="/ProductCard" element={<><ProductCard/></>}></Route>
+      <Route exact path="/" element={<><Home/><Slider/><Banner1/><Big/><NA/><BS/><Mfoot/></>}></Route>
+      <Route exact path="/shop" element={<><Shop/></>}></Route>
+      <Route exact path= "product/:id" element={<><ProductDetails/></>}></Route>
       <Route exact path="/cart" element={<><Cart/></>}></Route>
 
       {/* <Route exact path="/" element={<></>}></Route> */}
