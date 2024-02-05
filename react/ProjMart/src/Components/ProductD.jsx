@@ -2,14 +2,16 @@ import React, { useState } from 'react';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faHeart } from '@fortawesome/free-solid-svg-icons';
 
-function ProductCard({ product, onAddToCart }) {
+function ProductCard({ product,onSelect, onAddToCart }) {
   const [isHovered, setIsHovered] = useState(false);
   const [isInWishlist, setIsInWishlist] = useState(false);
 
   const handleIconClick = () => {
     setIsInWishlist(!isInWishlist);
   };
-
+  const handleClick = () => {
+    onSelect(product);
+  };
   return (
     <div className="BC1 col-sm-12 col-md-3">
       <div className="card">
@@ -23,7 +25,7 @@ function ProductCard({ product, onAddToCart }) {
               <FontAwesomeIcon icon={faHeart} color={isInWishlist ? 'red' : 'black'} onClick={handleIconClick} />
             </div>
           )}
-          <img src={product.imgUrl} alt={product.productName} className="product-img"/>
+          <img src={props.selectedproduct.imgUrl} alt={product.productName} className="product-img"/>
           <h4 className="product-name">{product.productName}</h4>
           <div className="rating">
             ★★★★★

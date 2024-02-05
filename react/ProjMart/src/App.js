@@ -29,7 +29,7 @@ function App() {
      <Routes>
       <Route exact path="/" element={<><Home/><Slider/><Banner1/><Big/><NA/><BS/> <Mfoot/></>}></Route>
       <Route exact path="/shop" element={<><Shop/> </>}></Route>
-      <Route exact path="/product/:id" element={<><ProductCard/></>}></Route>
+      <Route exact path="/ProductCard" element={<><ProductCard/></>}></Route>
       <Route exact path="/cart" element={<><Cart/></>}></Route>
 
       {/* <Route exact path="/" element={<></>}></Route> */}
