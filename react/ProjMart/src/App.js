@@ -9,7 +9,7 @@ import Slider from './Components/Slider';
 import Banner1 from './Components/Banner1';
 // import BigD from './Components/BigDis';
 import  NewA from './Components/NewArl';
-import BestS from './Components/BestS';
+// import BestS from './Components/BestS';
 import Mfoot from './Components/Mfooter';
 import products from './Components/products';
 import Big from './Components/Bd';
@@ -30,7 +30,7 @@ function App() {
      <Routes>
       <Route exact path="/" element={<><Home/><Slider/><Banner1/><Big/><NA/><BS/><Mfoot/></>}></Route>
       <Route exact path="/shop" element={<><Shop/></>}></Route>
-      <Route exact path= "product/:id" element={<><ProductDetails/></>}></Route>
+      <Route exact path= "/product/:id" element={<><ProductDetails/></>}></Route>
       <Route exact path="/cart" element={<><Cart/></>}></Route>
 
       {/* <Route exact path="/" element={<></>}></Route> */}

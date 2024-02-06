@@ -1,33 +1,46 @@
 import React, { useState, useEffect } from 'react';
-import { useParams } from 'react-router-dom';
+import { useNavigate, useParams } from 'react-router-dom';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faHeart } from '@fortawesome/free-solid-svg-icons';
-import { products } from './products';
+import {products} from './products';
 import table from './Assests/Images/table.jpg';
-import Sofa from './Assests/Images/double-sofa-01.png'
+// import Sofa from './Assests/Images/double-sofa-01.png';
 
 
-function ProductDetails({ product,onSelect, onAddToCart }) {
+function ProductDetails({ onSelect, onAddToCart }) {
   const { id } = useParams();
+  const navigate = useNavigate();
   const [fetchedProduct, setFetchedProduct] = useState(null);
   const [isHovered, setIsHovered] = useState(false);
   const [isInWishlist, setIsInWishlist] = useState(false);
 
+
+  const [isLoading, setIsLoading] = useState(true); // Add loading state
+  // ... other states
+
   useEffect(() => {
+    console.log("Extracted id from URL:", id); 
+    setIsLoading(true); // Set loading state to true
     const product = products.find((item) => item.id === id);
+    console.log("product id", product?.id);
+
     if (product) {
       setFetchedProduct(product);
+      console.log("fetched product",product.id);
     } else {
-      console.error(`Product with ID ${id} not found!`); // Handle missing product
+      console.error(`Product with ID ${id} not found!`);
+      // Handle product not found case here
     }
+    setIsLoading(false); // Set loading state to false after fetching
   }, [id]);
+
 
   const handleIconClick = () => {
     setIsInWishlist(!isInWishlist);
   };
-
   const handleClick = () => {
-    onSelect(products); // Pass the fetched product to the parent component
+    onSelect(fetchedProduct); // Pass the fetched product to the parent component
+    navigate(`/product/${fetchedProduct.id}`)
   };
 
   // if (!fetchedProduct) {
@@ -40,13 +53,18 @@ function ProductDetails({ product,onSelect, onAddToCart }) {
     <div class="background-image">
     <img src={table} alt=" table background" className="Shopbgrnd"/>
 <div className="overlay container-fluid">
-<div className="ProdDetails">
-        {products.map((product) => (
-          <div key={product.id} className="BC1 col-sm-12 col-md-3">
+{isLoading ? (
+        <div>Loading product details...</div>
+      ) : fetchedProduct ? (
+        // Render product details using fetchedProduct
+      
+    <div className="ProdDetails">
+       { fetchedProduct && (
+          <div key={fetchedProduct.id} className="ProdD col-sm-12 col-md-3">
             <h1 className="ProdTitle">
-                {product.productName} </h1>
+                {fetchedProduct.productName} </h1>
 
-      <div className="product-id">{product.id}</div>
+      <div className="product-id">{fetchedProduct.id}</div>
 
       <div className="card1" onClick={handleClick}>
         <div className="product-card" onMouseEnter={() => setIsHovered(true)} onMouseLeave={() => setIsHovered(false)}>
@@ -55,23 +73,28 @@ function ProductDetails({ product,onSelect, onAddToCart }) {
               <FontAwesomeIcon icon={faHeart} color={isInWishlist ? 'red' : 'black'} onClick={handleIconClick} />
             </div>
           )}
-          <img src={product.imgUrl} alt={product.productName} className="product-img" />
-          <h4 className="product-name">{product.productName}</h4>
+          <img src={fetchedProduct.imgUrl} alt={fetchedProduct.productName} className="product-img" />
+          <h4 className="product-name">{fetchedProduct.productName}</h4>
           <div className="rating">★★★★★</div>
-          <div className="price">${product.price}</div>
-          <div className="price">${product.shortDesc}</div>
-          <div className="price">${product.description}</div>
-          <div className="price">${product.reviews.rating}</div>
-          <div className="price">${product.avgRating}</div>
+          <div className="price">${fetchedProduct.price}</div>
+          <div className="price">${fetchedProduct.shortDesc}</div>
+          <div className="price">${fetchedProduct.description}</div>
+          <div className="price">${fetchedProduct.reviews.rating}</div>
+          <div className="price">${fetchedProduct.avgRating}</div>
           <button className="add-to-cart" onClick={() => onAddToCart(products)}>+</button>
           
         </div>
       </div>
       </div>
       )
-        )
           }
-   </div>   
+   </div>  
+   ) : (
+    // Handle product not found case here
+    <h1>Not Loadinggggg......</h1>
+  )
+  } 
+
           </div>
     </div>
     </>

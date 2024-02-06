@@ -8,6 +8,7 @@ import { faMagnifyingGlass } from '@fortawesome/free-solid-svg-icons';
 import {products } from './products';
 import { faBagShopping } from "@fortawesome/free-solid-svg-icons";
 import { useParams } from 'react-router-dom';
+import { Link } from 'react-router-dom';
 
 function ProductCard({ product,onAddToCart}) {
   const {id}= useParams();
@@ -22,16 +23,18 @@ function ProductCard({ product,onAddToCart}) {
   const handleAddToWishlist = () => {
     setWishlistCount(wishlistCount + 1);
   }
-  const handleProductSelect = (product) => {
-    setSelectedProduct(product);
+  const handleProductSelect = () => {
+    setSelectedProduct(product.id);
     navigate(`/product/${product.id}`);
 
-    console.log("id",product);
+    console.log(" Prooduct id",product);
   };
 return (
+
+  
     <div className="BC1 col-sm-12 col-md-3" >
       <div className="card" onClick={handleProductSelect}>
-      
+     
         <div 
           className="product-card" 
           onMouseEnter={() => setIsHovered(true)} 
@@ -53,10 +56,10 @@ return (
           <button className="add-to-cart" onClick={() =>onAddToCart(product)}>+</button>
         </div>
       </div>
-    </div>
-  );
-}
 
+    </div>
+      )
+  }
 export default function Shop(){
   const{id}=useParams();
   const navigate=useNavigate();
@@ -65,9 +68,10 @@ export default function Shop(){
     setCart([...cart, product]);
   };
   const handleProductSelect = (product) => {
-    setSelectedProduct(product);
+    setSelectedProduct(product.id);
     navigate(`/product/${product.id}`);
 
+    console.log("product id",product);
     console.log(product);
   };
 
@@ -142,7 +146,7 @@ export default function Shop(){
       </div>
       
      {/* {selectedProduct && <ProductDetails product={selectedProduct} />}  */}
-     <ProductDetails/>
+     {/* <ProductDetails/> */}
     </div>
     </div>
          {/*  */}
