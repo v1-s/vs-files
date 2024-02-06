@@ -3,6 +3,7 @@ import { useParams } from 'react-router-dom';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faHeart } from '@fortawesome/free-solid-svg-icons';
 import { products } from './products';
+import table from './Assests/Images/table.jpg';
 import Sofa from './Assests/Images/double-sofa-01.png'
 
 
@@ -34,24 +35,46 @@ function ProductDetails({ product,onSelect, onAddToCart }) {
   // }
 
   return (
-    <div className="BC1 col-sm-12 col-md-3" style={{ backgroundColor: 'blue' }}>
-      <div className="product-id">{products[0].id}</div>
+  <>
 
-      <div className="card" onClick={handleClick}>
+    <div class="background-image">
+    <img src={table} alt=" table background" className="Shopbgrnd"/>
+<div className="overlay container-fluid">
+<div className="ProdDetails">
+        {products.map((product) => (
+          <div key={product.id} className="BC1 col-sm-12 col-md-3">
+            <h1 className="ProdTitle">
+                {product.productName} </h1>
+
+      <div className="product-id">{product.id}</div>
+
+      <div className="card1" onClick={handleClick}>
         <div className="product-card" onMouseEnter={() => setIsHovered(true)} onMouseLeave={() => setIsHovered(false)}>
           {isHovered && (
             <div className="wishlist-icon">
               <FontAwesomeIcon icon={faHeart} color={isInWishlist ? 'red' : 'black'} onClick={handleIconClick} />
             </div>
           )}
-          <img src={products[0].imgUrl} alt={products[0].productName} className="product-img" />
-          <h4 className="product-name">{products[0].productName}</h4>
+          <img src={product.imgUrl} alt={product.productName} className="product-img" />
+          <h4 className="product-name">{product.productName}</h4>
           <div className="rating">★★★★★</div>
-          <div className="price">${products[0].price}</div>
+          <div className="price">${product.price}</div>
+          <div className="price">${product.shortDesc}</div>
+          <div className="price">${product.description}</div>
+          <div className="price">${product.reviews.rating}</div>
+          <div className="price">${product.avgRating}</div>
           <button className="add-to-cart" onClick={() => onAddToCart(products)}>+</button>
+          
         </div>
       </div>
+      </div>
+      )
+        )
+          }
+   </div>   
+          </div>
     </div>
+    </>
   );
 }
 
