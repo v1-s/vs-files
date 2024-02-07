@@ -1,14 +1,14 @@
 import React, { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 import table from './Assests/Images/table.jpg';
-import ProductDetails from './ProductD';
+// import ProductDetails from './ProductD';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faHeart } from '@fortawesome/free-solid-svg-icons';
 import { faMagnifyingGlass } from '@fortawesome/free-solid-svg-icons';
 import {products } from './products';
 import { faBagShopping } from "@fortawesome/free-solid-svg-icons";
 import { useParams } from 'react-router-dom';
-import { Link } from 'react-router-dom';
+// import { Link } from 'react-router-dom';
 
 function ProductCard({ product,onAddToCart}) {
   const {id}= useParams();

@@ -49,10 +49,6 @@ function ProductDetails({ onSelect, onAddToCart }) {
 
   return (
   <>
-
-    <div class="background-image">
-    <img src={table} alt=" table background" className="Shopbgrnd"/>
-<div className="overlay container-fluid">
 {isLoading ? (
         <div>Loading product details...</div>
       ) : fetchedProduct ? (
@@ -60,32 +56,39 @@ function ProductDetails({ onSelect, onAddToCart }) {
       
     <div className="ProdDetails">
        { fetchedProduct && (
-          <div key={fetchedProduct.id} className="ProdD col-sm-12 col-md-3">
-            <h1 className="ProdTitle">
-                {fetchedProduct.productName} </h1>
-
-      <div className="product-id">{fetchedProduct.id}</div>
-
-      <div className="card1" onClick={handleClick}>
-        <div className="product-card" onMouseEnter={() => setIsHovered(true)} onMouseLeave={() => setIsHovered(false)}>
-          {isHovered && (
-            <div className="wishlist-icon">
-              <FontAwesomeIcon icon={faHeart} color={isInWishlist ? 'red' : 'black'} onClick={handleIconClick} />
-            </div>
-          )}
-          <img src={fetchedProduct.imgUrl} alt={fetchedProduct.productName} className="product-img" />
-          <h4 className="product-name">{fetchedProduct.productName}</h4>
-          <div className="rating">★★★★★</div>
-          <div className="price">${fetchedProduct.price}</div>
-          <div className="price">${fetchedProduct.shortDesc}</div>
-          <div className="price">${fetchedProduct.description}</div>
-          <div className="price">${fetchedProduct.reviews.rating}</div>
-          <div className="price">${fetchedProduct.avgRating}</div>
-          <button className="add-to-cart" onClick={() => onAddToCart(products)}>+</button>
-          
-        </div>
-      </div>
-      </div>
+            <>
+            <div class="background-image">
+        <img src={table} alt=" table background" className="Shopbgrnd"/>
+  <div className="overlay container-fluid">
+    <h1 className="ProductTitle">
+        {/* Product */}
+        {fetchedProduct.productName}
+    </h1>
+  </div> 
+</div>
+                    <div key={fetchedProduct.id} className="ProdD col-sm-12 col-md-3">
+                  <div className="card1">
+                        <div className="product-card">
+                        {/* <div className="product-id">{fetchedProduct.id}</div> */}
+                          <div className='ProImg'>
+                          <img src={fetchedProduct.imgUrl} alt={fetchedProduct.productName} className="product-img1" />
+                         
+                          <div className='ProDesc'>
+                          <h2 className="product1-name">{fetchedProduct.productName}</h2>
+                          <div className="rating">★★★★★</div>
+                          <div className="price">{fetchedProduct.reviews.rating}</div>
+                          <div className="price">${fetchedProduct.price}</div>
+                          <div className="price">Category:{fetchedProduct.category}</div>
+                          <div className="price">{fetchedProduct.shortDesc}</div>
+                          <div className="price">${fetchedProduct.avgRating}</div>
+                          <div className='Price'><input type='text'></input></div>
+                          <button className="add-to-cart" onClick={() => onAddToCart(products)}>+</button>
+                          </div>
+                          <div className="price">${fetchedProduct.description}</div>
+                        </div>
+                        </div>
+                      </div>
+                    </div></>
       )
           }
    </div>  
@@ -95,8 +98,6 @@ function ProductDetails({ onSelect, onAddToCart }) {
   )
   } 
 
-          </div>
-    </div>
     </>
   );
 }
@@ -107,7 +108,11 @@ export default ProductDetails;
 
 
 
-
+ {/* {isHovered && (
+                            <div className="wishlist-icon">
+                              <FontAwesomeIcon icon={faHeart} color={isInWishlist ? 'red' : 'black'} onClick={handleIconClick} />
+                            </div>
+                          )} */}
 
 
 
