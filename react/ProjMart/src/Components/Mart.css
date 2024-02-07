@@ -599,6 +599,17 @@ padding-left: 200px;
   text-align: right;
   color: #323754;
 }
+.checkout-button {
+  background-color: #0f0553;
+  border: none;
+  color: white;
+  padding: 10px 15px;
+  border-radius: 20px;
+  cursor: pointer;
+  transition: background-color 0.3s ease-in-out;
+  font-size: 1.2rem;
+  float: left;
+}
 
 .cart .checkout-button {
   background-color: #6cc24a;

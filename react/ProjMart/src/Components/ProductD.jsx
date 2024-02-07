@@ -81,9 +81,11 @@ function ProductDetails({ onSelect, onAddToCart }) {
                           <div className="price">Category:{fetchedProduct.category}</div>
                           <div className="price">{fetchedProduct.shortDesc}</div>
                           <div className="price">${fetchedProduct.avgRating}</div>
+                          <div className='Price'>
                           <div className='Price'><input type='text'></input></div>
-                          <button className="add-to-cart" onClick={() => onAddToCart(products)}>+</button>
-                          </div>
+                          <button className="checkout-button">Add to Cart</button>
+                         </div>
+                         </div>
                           <div className="price">${fetchedProduct.description}</div>
                         </div>
                         </div>
