@@ -683,6 +683,10 @@ padding-left: 200px;
   width: 75%;
   height: 75%;
 }
+.rate-price{
+  display: grid;
+  grid-template-columns:repeat(2,1fr) ;
+}
 
 
 

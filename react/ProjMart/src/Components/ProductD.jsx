@@ -75,15 +75,21 @@ function ProductDetails({ onSelect, onAddToCart }) {
                          
                           <div className='ProDesc'>
                           <h2 className="product1-name">{fetchedProduct.productName}</h2>
+                          <div className="rate-price">
                           <div className="rating">★★★★★</div>
-                          <div className="price">{fetchedProduct.reviews.rating}</div>
+                          <div className="Re-price">{fetchedProduct.reviews.rating}</div>
+                          
+                          </div>
                           <div className="price">${fetchedProduct.price}</div>
                           <div className="price">Category:{fetchedProduct.category}</div>
                           <div className="price">{fetchedProduct.shortDesc}</div>
                           <div className="price">${fetchedProduct.avgRating}</div>
                           <div className='Price'>
-                          <div className='Price'><input type='text'></input></div>
+                          <div className="price">
+                          <input type='text'></input>
                           <button className="checkout-button">Add to Cart</button>
+                          
+                          </div>
                          </div>
                          </div>
                           <div className="price">${fetchedProduct.description}</div>
