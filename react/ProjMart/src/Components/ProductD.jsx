@@ -4,6 +4,7 @@ import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faHeart } from '@fortawesome/free-solid-svg-icons';
 import {products} from './products';
 import table from './Assests/Images/table.jpg';
+import { Link } from 'react-router-dom';
 // import Sofa from './Assests/Images/double-sofa-01.png';
 
 
@@ -13,7 +14,7 @@ function ProductDetails({ onSelect, onAddToCart }) {
   const [fetchedProduct, setFetchedProduct] = useState(null);
   const [isHovered, setIsHovered] = useState(false);
   const [isInWishlist, setIsInWishlist] = useState(false);
-
+  const [similarProducts, setSimilarProducts] = useState([]);
 
   const [isLoading, setIsLoading] = useState(true); // Add loading state
   // ... other states
@@ -27,6 +28,11 @@ function ProductDetails({ onSelect, onAddToCart }) {
     if (product) {
       setFetchedProduct(product);
       console.log("fetched product",product.id);
+      const category = product.category;
+      const filteredProducts = products.filter(
+        (item) => item.category === category && item.id !== id
+      );
+      setSimilarProducts(filteredProducts);
     } else {
       console.error(`Product with ID ${id} not found!`);
       // Handle product not found case here
@@ -77,35 +83,59 @@ function ProductDetails({ onSelect, onAddToCart }) {
                           <h2 className="product1-name">{fetchedProduct.productName}</h2>
                           <div className="rate-price">
                           <div className="rating">★★★★★</div>
-                          <div className="Re-price">{fetchedProduct.reviews.rating}</div>
+                          <div className="Re-price">{fetchedProduct.avgRating}  ratings</div>
                           
                           </div>
+                          <div className="rate-price">
                           <div className="price">${fetchedProduct.price}</div>
-                          <div className="price">Category:{fetchedProduct.category}</div>
-                          <div className="price">{fetchedProduct.shortDesc}</div>
-                          <div className="price">${fetchedProduct.avgRating}</div>
-                          <div className='Price'>
-                          <div className="price">
-                          <input type='text'></input>
+                          <div className="categPrice">Category:{fetchedProduct.category}</div>
+                          </div>
+                          <div className="proDesc">{fetchedProduct.shortDesc}</div>
+                          <input className='Pro-count' type='text'></input><br />
                           <button className="checkout-button">Add to Cart</button>
                           
-                          </div>
-                         </div>
-                         </div>
-                          <div className="price">${fetchedProduct.description}</div>
-                        </div>
+                           </div>
+                           </div>
+                          <div className="proLDesc"><h5>Product Description:</h5><p>{fetchedProduct.description}</p></div>
+                          <div className="proRDesc"><h5>Reviews({fetchedProduct.reviews.length}):</h5>{fetchedProduct.reviews.map((review) => (<p>{review.text}</p> ))}</div>
+
+                        
                         </div>
                       </div>
-                    </div></>
+                    </div>
+                    </>
+                    
       )
           }
-   </div>  
+          
+   </div> 
+    
    ) : (
     // Handle product not found case here
     <h1>Not Loadinggggg......</h1>
   )
   } 
-
+{fetchedProduct && similarProducts.length > 0 && (
+        <div className="similar-products row">
+          <h2>Similar Products ({similarProducts.length})</h2>
+          <div className="Prorow row flex-row flex-wrap gx-3 gy-3">
+            {similarProducts.map((product) => (
+              <div key={product.id} className="col-lg-3 col-md-4 col-sm-2">
+                <Link to={`/product/${product.id}`}>
+                  <div className="card">
+                    <img src={product.imgUrl} alt={product.productName} className="product-img" />
+                    <h3 className="product-name">{product.productName}</h3>
+                    <div className="product-details">
+                      <div className="rating">★★★★★</div>
+                      <div className="price">${product.price}</div>
+                    </div>
+                  </div>
+                </Link>
+              </div>
+            ))}
+          </div>
+        </div>
+      )}
     </>
   );
 }
