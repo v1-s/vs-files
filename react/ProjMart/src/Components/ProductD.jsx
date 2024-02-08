@@ -11,7 +11,7 @@ import { Link } from 'react-router-dom';
 function ProductDetails({ onSelect, onAddToCart }) {
   const { cartItems,  setCart } = useContext(Cart);
 
-    const { Cart = {} } = useContext(Cart);
+  const { Cart = {} } = useContext(Cart);
   const { id } = useParams();
   const navigate = useNavigate();
   const [fetchedProduct, setFetchedProduct] = useState(null);
@@ -21,8 +21,6 @@ function ProductDetails({ onSelect, onAddToCart }) {
   const [similarProducts, setSimilarProducts] = useState([]);
   const [quantity, setQuantity] = useState(1); 
   const [isLoading, setIsLoading] = useState(true); 
-
-  
   useEffect(() => {
     console.log("Extracted id from URL:", id); 
     setIsLoading(true); // Set loading state to true
