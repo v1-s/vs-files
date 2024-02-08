@@ -1,5 +1,6 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState, useEffect, useContext } from 'react';
 import { useNavigate, useParams } from 'react-router-dom';
+import Cart from './Cart';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faHeart } from '@fortawesome/free-solid-svg-icons';
 import {products} from './products';
@@ -7,18 +8,21 @@ import table from './Assests/Images/table.jpg';
 import { Link } from 'react-router-dom';
 // import Sofa from './Assests/Images/double-sofa-01.png';
 
-
 function ProductDetails({ onSelect, onAddToCart }) {
+  const { cartItems,  setCart } = useContext(Cart);
+
+    const { Cart = {} } = useContext(Cart);
   const { id } = useParams();
   const navigate = useNavigate();
   const [fetchedProduct, setFetchedProduct] = useState(null);
   const [isHovered, setIsHovered] = useState(false);
   const [isInWishlist, setIsInWishlist] = useState(false);
+
   const [similarProducts, setSimilarProducts] = useState([]);
+  const [quantity, setQuantity] = useState(1); 
+  const [isLoading, setIsLoading] = useState(true); 
 
-  const [isLoading, setIsLoading] = useState(true); // Add loading state
-  // ... other states
-
+  
   useEffect(() => {
     console.log("Extracted id from URL:", id); 
     setIsLoading(true); // Set loading state to true
@@ -39,19 +43,29 @@ function ProductDetails({ onSelect, onAddToCart }) {
     }
     setIsLoading(false); // Set loading state to false after fetching
   }, [id]);
-
-
   const handleIconClick = () => {
     setIsInWishlist(!isInWishlist);
   };
-  const handleClick = () => {
-    onSelect(fetchedProduct); // Pass the fetched product to the parent component
-    navigate(`/product/${fetchedProduct.id}`)
-  };
+  // const handleClick = () => {
+  //   onSelect(fetchedProduct); // Pass the fetched product to the parent component
+  //   navigate(`/product/${fetchedProduct.id}`)
+  // };
+  const handleAddToCart = (product) => {
+    // Validate quantity is a positive integer
+    if (isNaN(quantity) || quantity <= 0) {
+      alert('Please enter a valid quantity (positive integer).');
+      return;
+    }
 
-  // if (!fetchedProduct) {
-  //   return <div>Loading product details...</div>; // Display a loading indicator
-  // }
+    onAddToCart(fetchedProduct, quantity);
+    // Call prop function to notify parent (potentially for global state updates)
+
+    // Provide visual feedback
+    alert('Product added to cart!');
+
+  
+    navigate('/cart'); 
+  };
 
   return (
   <>
@@ -61,7 +75,7 @@ function ProductDetails({ onSelect, onAddToCart }) {
         // Render product details using fetchedProduct
       
     <div className="ProdDetails">
-       { fetchedProduct && (
+       { fetchedProduct && Cart(
             <>
             <div class="background-image">
         <img src={table} alt=" table background" className="Shopbgrnd"/>
@@ -91,18 +105,30 @@ function ProductDetails({ onSelect, onAddToCart }) {
                           <div className="categPrice">Category:{fetchedProduct.category}</div>
                           </div>
                           <div className="proDesc">{fetchedProduct.shortDesc}</div>
-                          <input className='Pro-count' type='text'></input><br />
-                          <button className="checkout-button">Add to Cart</button>
-                          
-                           </div>
+                        
+                          <div className='cart-actions'>
+                          <input
+        className='Pro-count'
+        type='number' // Use 'number' input type for better user experience
+        value={quantity}
+        onChange={(e) => setQuantity(parseInt(e.target.value) || 1)} // Ensure value is always a positive integer
+      /><br />
+                          <button className="checkout-button" onClick={handleAddToCart(fetchedProduct,quantity)}>Add to Cart</button>
+                          </div>
+                                               
+                      </div>
                            </div>
                           <div className="proLDesc"><h5>Product Description:</h5><p>{fetchedProduct.description}</p></div>
                           <div className="proRDesc"><h5>Reviews({fetchedProduct.reviews.length}):</h5>{fetchedProduct.reviews.map((review) => (<p>{review.text}</p> ))}</div>
 
                         
-                        </div>
+                       </div>
                       </div>
                     </div>
+                    <Cart onAddToCart={onAddToCart} />
+
+
+
                     </>
                     
       )
@@ -114,20 +140,26 @@ function ProductDetails({ onSelect, onAddToCart }) {
     // Handle product not found case here
     <h1>Not Loadinggggg......</h1>
   )
-  } 
+  }
+    
 {fetchedProduct && similarProducts.length > 0 && (
-        <div className="similar-products row">
-          <h2>Similar Products ({similarProducts.length})</h2>
+        <div className="similar-products">
+          <h5>You May Also Like </h5>
           <div className="Prorow row flex-row flex-wrap gx-3 gy-3">
             {similarProducts.map((product) => (
-              <div key={product.id} className="col-lg-3 col-md-4 col-sm-2">
-                <Link to={`/product/${product.id}`}>
+              <div key={product.id} className="Pro-card col-lg-3 col-md-4 col-sm-6">
+                <Link to={`/product/${product.id}`} style={{textDecoration:'none'}}>
                   <div className="card">
                     <img src={product.imgUrl} alt={product.productName} className="product-img" />
                     <h3 className="product-name">{product.productName}</h3>
                     <div className="product-details">
-                      <div className="rating">★★★★★</div>
+                    <div className="Pro-price">
+                          <div className="rating">★★★★★</div>
+                          <div className="Re-price">{product.avgRating}  ratings</div>
+                          
+                          </div>
                       <div className="price">${product.price}</div>
+
                     </div>
                   </div>
                 </Link>
@@ -136,6 +168,7 @@ function ProductDetails({ onSelect, onAddToCart }) {
           </div>
         </div>
       )}
+     
     </>
   );
 }

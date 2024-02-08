@@ -1,29 +1,158 @@
-import React from "react";
-// In ProductCard
+import React, { useState, useContext } from 'react';
+import { Link } from 'react-router-dom';
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import { faHeart, faShoppingBag } from '@fortawesome/free-solid-svg-icons';
+import {products} from './products';
+// Context for managing global cart state (replace with your implementation)
+const CartContext = React.createContext();
 
-export default function Cart({ cart }) {
-    return (
-      <>
-        <h1>AC</h1>
-        {console.log(cart)}
-       
-        {/* {cart && cart.map((product,index) => (
-          <div key={index}>
-            <h3>{product.productName}</h3>
-            {console.log("pr",product.productName)}
-            {/* Display other product details here */}
-          {/* </div> */}
-        {/* ))} */}
-      </>
-    );
-  }
-// import React, { useContext } from 'react';
-// import { CartContext } from './CartContext'; // Import context (replace with your context path)
+const CartItem = ({ item, handleRemoveItem, updateQuantity }) => {
+  const [productQuantity, setProductQuantity] = useState(item.quantity);
 
-// const Cart = () => {
+  const handleChangeQuantity = (event) => {
+    const newQuantity = parseInt(event.target.value, 10);
+    setProductQuantity(Math.max(1, newQuantity)); // Enforce positive quantity
+    updateQuantity(item.id, newQuantity);
+  };
+
+  return (
+    <li key={item.id} className="cart-item">
+      <img src={item.image} alt={item.name} className="cart-item-image" />
+      <div className="cart-item-details">
+        <h3>{item.name}</h3>
+        <p>Price: ${item.price.toFixed(2)}</p>
+        <QtyInput value={productQuantity} onChange={handleChangeQuantity} />
+        <button onClick={() => handleRemoveItem(item.id)}>
+          <FontAwesomeIcon icon={faHeart} /> Remove
+        </button>
+      </div>
+    </li>
+  );
+};
+
+const QtyInput = ({ value, onChange }) => {
+  return (
+    <div className="quantity-input">
+      <button onClick={() => onChange({ target: { value: value - 1 } })}>
+        -
+      </button>
+      <input type="number" value={value} onChange={onChange} min={1} />
+      <button onClick={() => onChange({ target: { value: value + 1 } })}>
+        +
+      </button>
+    </div>
+  );
+};
+
+const Cart = ({ product,quantity,onAddToCart,cartItems, handleRemoveItem, updateQuantity, checkout }) => {
+  const [isCartOpen, setIsCartOpen] = useState(false);
+  const cartTotal = cartItems.reduce((acc, item) => acc + item.price * item.quantity, 0);
+
+  const toggleCart = () => setIsCartOpen(!isCartOpen);
+
+  // Add context consumer based on your implementation
   // const { cartItems, handleRemoveItem, updateQuantity, checkout } = useContext(CartContext);
 
-//   const cartTotal = cartItems.reduce((acc, item) => acc + item.price * item.quantity, 0);
+  return (
+    <>
+      <button className="cart-icon" onClick={toggleCart}>
+        <FontAwesomeIcon icon={faShoppingBag} /> {cartItems.length}
+      </button>
+      <button onClick={() => onAddToCart(product, quantity)}>Add to Cart</button>
+      {isCartOpen && (
+        <div className="cart-overlay">
+          <div className="cart-container">
+            <h2>Your Cart</h2>
+
+            {cartItems.length > 0 ? (
+              <ul className="cart-items">
+                {cartItems.map((item) => (
+                  <CartItem
+                    key={item.id}
+                    item={item}
+                    handleRemoveItem={handleRemoveItem}
+                    updateQuantity={updateQuantity}
+                  />
+                ))}
+              </ul>
+            ) : (
+              <p className="cart-empty">Your cart is empty.</p>
+            )}
+
+            {cartItems.length > 0 && (
+              <div className="cart-summary">
+                <p>Cart Total: ${cartTotal.toFixed(2)}</p>
+                <button onClick={checkout}>Checkout</button>
+              </div>
+            )}
+
+            <Link to="/" className="close-cart" onClick={toggleCart}>
+              <span>&times;</span>
+            </Link>
+          </div>
+        </div>
+      )}
+    </>
+  );
+};
+
+export default Cart;
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+// import React, { useContext, useState } from 'react';
+
+// import {cart} from './ProductD'; // Import context (replace with your context path)
+
+// const cart = () => {
+//   const { cartItems, handleRemoveItem, updateQuantity, checkout } = useContext(CartContext);
+
+//   // const cartTotal = cartItems.reduce((acc, item) => acc + item.price * item.quantity, 0);
 
 //   return (
 //     <div className="cart">
@@ -62,7 +191,7 @@ export default function Cart({ cart }) {
 //   );
 // };
 
-// export default Cart;
+// export default cart;
 
 
 
