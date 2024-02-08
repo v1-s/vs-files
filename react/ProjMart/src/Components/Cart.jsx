@@ -10,7 +10,7 @@ const CartItem = ({ item, handleRemoveItem, updateQuantity }) => {
   const [productQuantity, setProductQuantity] = useState(item.quantity);
 
   const handleChangeQuantity = (event) => {
-    const newQuantity = parseInt(event.target.value, 10);
+  const newQuantity = parseInt(event.target.value, 10);
     setProductQuantity(Math.max(1, newQuantity)); // Enforce positive quantity
     updateQuantity(item.id, newQuantity);
   };

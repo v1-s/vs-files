@@ -195,18 +195,19 @@
   }
   
   .add-to-cart {
-    width: 20px;
+    width: 35px; /* Adjust width and height as needed */
+    height: 40px;
     position: absolute;
-    right:10px;
+    right: 10px;
     bottom: 0.1px;
-    background-color:white; 
-    border-radius: 50%;
-    border-width: 0.2px;
-    
-    /* box-shadow:1px 1px 1px 1.8px rgb(99, 99, 97); */
-    /* border-color: black; */
-    font-size: 1.5em;
-
+    background-color: white;
+    border-radius: 50%; /* ensures perfect circle shape */
+    border: none; /* removes box-shadow and border artifacts */
+    box-shadow: 0 0 3px rgba(0, 0, 0, 0.1); /* subtle drop shadow for depth */
+    cursor: pointer; /* indicates interactivity */
+    display: flex; /* creates container for plus sign */
+    justify-content: center; /* centers content horizontally */
+    align-items: center; /* centers content vertically */
   }
   .cart-count{
     position: absolute;
