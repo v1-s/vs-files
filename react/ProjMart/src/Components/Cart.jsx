@@ -46,7 +46,7 @@ const QtyInput = ({ value, onChange }) => {
 
 const Cart = ({ product,quantity,onAddToCart,cartItems, handleRemoveItem, updateQuantity, checkout }) => {
   const [isCartOpen, setIsCartOpen] = useState(false);
-  const cartTotal = cartItems.reduce((acc, item) => acc + item.price * item.quantity, 0);
+  // const cartTotal = cartItems.reduce((acc, item) => acc + item.price * item.quantity, 0);
 
   const toggleCart = () => setIsCartOpen(!isCartOpen);
 
@@ -79,9 +79,9 @@ const Cart = ({ product,quantity,onAddToCart,cartItems, handleRemoveItem, update
               <p className="cart-empty">Your cart is empty.</p>
             )}
 
-            {cartItems.length > 0 && (
+            {cartItems.length> 0 && (
               <div className="cart-summary">
-                <p>Cart Total: ${cartTotal.toFixed(2)}</p>
+                {/* <p>Cart Total: ${cartTotal.toFixed(2)}</p> */}
                 <button onClick={checkout}>Checkout</button>
               </div>
             )}
