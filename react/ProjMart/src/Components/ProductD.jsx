@@ -8,7 +8,7 @@ import table from './Assests/Images/table.jpg';
 import { Link } from 'react-router-dom';
 // import Sofa from './Assests/Images/double-sofa-01.png';
 
-function ProductDetails({ onSelect, onAddToCart }) {
+function ProductDetails({ onSelect, onAddToCart,linkTo }) {
   const { cartItems,  setCart } = useContext(Cart);
   const { Cart = {} } = useContext(Cart);
   const { id } = useParams();
@@ -18,7 +18,7 @@ function ProductDetails({ onSelect, onAddToCart }) {
   const [isInWishlist, setIsInWishlist] = useState(false);
   const [similarProducts, setSimilarProducts] = useState([]);
   const [quantity, setQuantity] = useState(1); 
-  const [isLoading, setIsLoading] = useState(true); 
+  const [isLoading, setIsLoading] = useState(true);
   useEffect(() => {
     console.log("Extracted id from URL:", id); 
     setIsLoading(true); // Set loading state to true
@@ -46,30 +46,39 @@ function ProductDetails({ onSelect, onAddToCart }) {
   //   onSelect(fetchedProduct); // Pass the fetched product to the parent component
   //   navigate(`/product/${fetchedProduct.id}`)
   // };
-  const handleAddToCart = (product) => {
-    // Validate quantity is a positive integer
-    if (isNaN(quantity) || quantity <= 0) {
-      alert('Please enter a valid quantity (positive integer).');
-      return;
-    }
+  const handleAddToCart = () => {
+    setCart((prevCart) => [...prevCart, { fetchedProduct, quantity }]);
 
-    onAddToCart(fetchedProduct, quantity);
+    // Link with query parameters (replace with your cart component path)
+    const linkTo = `/cart?product=${fetchedProduct.id}&quantity=${quantity}`;
+    return <Link to={linkTo} onClick={handleAddToCart}>Add to Cart</Link>;
+  };
+
+    // Validate quantity is a positive integer
+    // if (isNaN(quantity) || quantity <= 0) {
+    //   alert('Please enter a valid quantity (positive integer).');
+    //   return;
+    // }
+
+    // onAddToCart(fetchedProduct, quantity);
     // Call prop function to notify parent (potentially for global state updates)
 
     // Provide visual feedback
-    alert('Product added to cart!');
-    navigate('/cart'); 
-  };
+   
+  //   alert('Product added to cart!');
+  //   navigate('/cart'); 
+  // };
 
   return (
   <>
+ 
 {isLoading ? (
         <div>Loading product details...</div>
       ) : fetchedProduct ? (
         // Render product details using fetchedProduct
       
     <div className="ProdDetails">
-       { fetchedProduct && Cart(
+       { fetchedProduct &&(
             <>
             <div class="background-image">
         <img src={table} alt=" table background" className="Shopbgrnd"/>
@@ -80,6 +89,7 @@ function ProductDetails({ onSelect, onAddToCart }) {
     </h1>
   </div> 
 </div>
+
                     <div key={fetchedProduct.id} className="ProdD col-sm-12 col-md-3">
                   <div className="card1">
                         <div className="product-card">
@@ -107,7 +117,8 @@ function ProductDetails({ onSelect, onAddToCart }) {
         value={quantity}
         onChange={(e) => setQuantity(parseInt(e.target.value) || 1)} // Ensure value is always a positive integer
       /><br />
-                          <button className="checkout-button" onClick={handleAddToCart(fetchedProduct,quantity)}>Add to Cart</button>
+    <button className="checkout-button" onClick={handleAddToCart(fetchedProduct,quantity)}>Add to Cart</button>
+    <Cart setCart={setCart} />{handleAddToCart}
                           </div>
                                                
                       </div>

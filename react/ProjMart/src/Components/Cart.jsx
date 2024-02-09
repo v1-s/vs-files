@@ -1,4 +1,4 @@
-import React, { useState, useContext } from 'react';
+import React, { useState, useContext,useParams,useEffect } from 'react';
 import { Link } from 'react-router-dom';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faHeart, faShoppingBag } from '@fortawesome/free-solid-svg-icons';
@@ -14,7 +14,13 @@ const CartItem = ({ item, handleRemoveItem, updateQuantity }) => {
     setProductQuantity(Math.max(1, newQuantity)); // Enforce positive quantity
     updateQuantity(item.id, newQuantity);
   };
+  const { product, quantity } = useParams();
 
+  useEffect(() => {
+    if (product && quantity) {
+      // Handle adding product to cart based on query parameters
+    }
+  }, [product, quantity]);
   return (
     <li key={item.id} className="cart-item">
       <img src={item.image} alt={item.name} className="cart-item-image" />
@@ -52,7 +58,10 @@ const Cart = ({ product,quantity,onAddToCart,cartItems, handleRemoveItem, update
 
   // Add context consumer based on your implementation
   // const { cartItems, handleRemoveItem, updateQuantity, checkout } = useContext(CartContext);
-
+  const handleAddToCartFromProduct = (newProduct, newQuantity) => {
+    // Add logic to handle adding the new product with quantity to the cart
+    onAddToCart(newProduct, newQuantity);
+  };
   return (
     <>
       <button className="cart-icon" onClick={toggleCart}>
