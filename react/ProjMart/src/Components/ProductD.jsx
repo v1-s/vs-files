@@ -10,14 +10,12 @@ import { Link } from 'react-router-dom';
 
 function ProductDetails({ onSelect, onAddToCart }) {
   const { cartItems,  setCart } = useContext(Cart);
-
   const { Cart = {} } = useContext(Cart);
   const { id } = useParams();
   const navigate = useNavigate();
   const [fetchedProduct, setFetchedProduct] = useState(null);
   const [isHovered, setIsHovered] = useState(false);
   const [isInWishlist, setIsInWishlist] = useState(false);
-
   const [similarProducts, setSimilarProducts] = useState([]);
   const [quantity, setQuantity] = useState(1); 
   const [isLoading, setIsLoading] = useState(true); 
@@ -60,8 +58,6 @@ function ProductDetails({ onSelect, onAddToCart }) {
 
     // Provide visual feedback
     alert('Product added to cart!');
-
-  
     navigate('/cart'); 
   };
 
