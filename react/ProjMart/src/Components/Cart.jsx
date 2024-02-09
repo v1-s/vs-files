@@ -3,6 +3,7 @@ import { Link } from 'react-router-dom';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faHeart, faShoppingBag } from '@fortawesome/free-solid-svg-icons';
 import {products} from './products';
+import ProductDetails from './ProductD';
 // Context for managing global cart state (replace with your implementation)
 const CartContext = React.createContext();
 
@@ -52,6 +53,8 @@ const QtyInput = ({ value, onChange }) => {
 
 const Cart = ({ product,quantity,onAddToCart,cartItems, handleRemoveItem, updateQuantity, checkout }) => {
   const [isCartOpen, setIsCartOpen] = useState(false);
+  // const {   setCart } = useContext(Cart);
+
   // const cartTotal = cartItems.reduce((acc, item) => acc + item.price * item.quantity, 0);
 
   const toggleCart = () => setIsCartOpen(!isCartOpen);
@@ -67,6 +70,8 @@ const Cart = ({ product,quantity,onAddToCart,cartItems, handleRemoveItem, update
       <button className="cart-icon" onClick={toggleCart}>
         <FontAwesomeIcon icon={faShoppingBag} /> {cartItems.length}
       </button>
+      <ProductDetails {...onAddToCart} />
+{/* <Cart setCart={setCart} /> */}
       <button onClick={() => onAddToCart(product, quantity)}>Add to Cart</button>
       {isCartOpen && (
         <div className="cart-overlay">

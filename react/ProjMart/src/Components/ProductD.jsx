@@ -9,8 +9,6 @@ import { Link } from 'react-router-dom';
 // import Sofa from './Assests/Images/double-sofa-01.png';
 
 function ProductDetails({ onSelect, onAddToCart,linkTo }) {
-  const { cartItems,  setCart } = useContext(Cart);
-  const { Cart = {} } = useContext(Cart);
   const { id } = useParams();
   const navigate = useNavigate();
   const [fetchedProduct, setFetchedProduct] = useState(null);
@@ -35,40 +33,12 @@ function ProductDetails({ onSelect, onAddToCart,linkTo }) {
       setSimilarProducts(filteredProducts);
     } else {
       console.error(`Product with ID ${id} not found!`);
-      // Handle product not found case here
     }
     setIsLoading(false); // Set loading state to false after fetching
   }, [id]);
   const handleIconClick = () => {
     setIsInWishlist(!isInWishlist);
   };
-  // const handleClick = () => {
-  //   onSelect(fetchedProduct); // Pass the fetched product to the parent component
-  //   navigate(`/product/${fetchedProduct.id}`)
-  // };
-  const handleAddToCart = () => {
-    setCart((prevCart) => [...prevCart, { fetchedProduct, quantity }]);
-
-    // Link with query parameters (replace with your cart component path)
-    const linkTo = `/cart?product=${fetchedProduct.id}&quantity=${quantity}`;
-    return <Link to={linkTo} onClick={handleAddToCart}>Add to Cart</Link>;
-  };
-
-    // Validate quantity is a positive integer
-    // if (isNaN(quantity) || quantity <= 0) {
-    //   alert('Please enter a valid quantity (positive integer).');
-    //   return;
-    // }
-
-    // onAddToCart(fetchedProduct, quantity);
-    // Call prop function to notify parent (potentially for global state updates)
-
-    // Provide visual feedback
-   
-  //   alert('Product added to cart!');
-  //   navigate('/cart'); 
-  // };
-
   return (
   <>
  
@@ -113,15 +83,13 @@ function ProductDetails({ onSelect, onAddToCart,linkTo }) {
                           <div className='cart-actions'>
                           <input
         className='Pro-count'
-        type='number' // Use 'number' input type for better user experience
+        type='number'
         value={quantity}
-        onChange={(e) => setQuantity(parseInt(e.target.value) || 1)} // Ensure value is always a positive integer
+        onChange={(e) => setQuantity(parseInt(e.target.value) || 1)} 
       /><br />
-    <button className="checkout-button" onClick={handleAddToCart(fetchedProduct,quantity)}>Add to Cart</button>
-    <Cart setCart={setCart} />{handleAddToCart}
-                          </div>
-                                               
-                      </div>
+    <button className="checkout-button" >Add to Cart</button>
+                        </div>
+                        </div>
                            </div>
                           <div className="proLDesc"><h5>Product Description:</h5><p>{fetchedProduct.description}</p></div>
                           <div className="proRDesc"><h5>Reviews({fetchedProduct.reviews.length}):</h5>{fetchedProduct.reviews.map((review) => (<p>{review.text}</p> ))}</div>
@@ -130,10 +98,6 @@ function ProductDetails({ onSelect, onAddToCart,linkTo }) {
                        </div>
                       </div>
                     </div>
-                    <Cart onAddToCart={onAddToCart} />
-
-
-
                     </>
                     
       )
@@ -180,10 +144,36 @@ function ProductDetails({ onSelect, onAddToCart,linkTo }) {
 
 export default ProductDetails;
 
+ // const { cartItems,  setCart } = useContext(Cart);
+  // const { Cart = {} } = useContext(Cart);
 
+ {/* <Cart onAddToCart={onAddToCart} /> */}
+ // const handleClick = () => {
+  //   onSelect(fetchedProduct); // Pass the fetched product to the parent component
+  //   navigate(`/product/${fetchedProduct.id}`)
+  // };
+  // const handleAddToCart = () => {
+  //   setCart((prevCart) => [...prevCart, { fetchedProduct, quantity }]);
 
+    // Link with query parameters (replace with your cart component path)
+  //   const linkTo = `/cart?product=${fetchedProduct.id}&quantity=${quantity}`;
+  //   return <Link to={linkTo} >Add to Cart</Link>;
+  // };
 
+    // Validate quantity is a positive integer
+    // if (isNaN(quantity) || quantity <= 0) {
+    //   alert('Please enter a valid quantity (positive integer).');
+    //   return;
+    // }
 
+    // onAddToCart(fetchedProduct, quantity);
+    // Call prop function to notify parent (potentially for global state updates)
+
+    // Provide visual feedback
+   
+  //   alert('Product added to cart!');
+  //   navigate('/cart'); 
+  // };
  {/* {isHovered && (
                             <div className="wishlist-icon">
                               <FontAwesomeIcon icon={faHeart} color={isInWishlist ? 'red' : 'black'} onClick={handleIconClick} />
