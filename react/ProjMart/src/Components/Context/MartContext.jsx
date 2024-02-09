@@ -4,6 +4,16 @@ import discountProductsData from '../products'; // Assuming correct path to disc
 import serviceData from '../products'; // Assuming correct path to service data
 import SliderData from '../products'; // Assuming correct path to slider data
 
+
+
+
+const getDefaultCart =()=>{
+    let cart={};
+    for(let index =0;index < products.length;index++){
+        cart[index]=0;
+    }
+    return cart;
+  }
 const ProductContext = createContext({
   products: [], // Initial empty state for products
   filteredProducts: [], // Add filtered products state
@@ -19,6 +29,7 @@ const ProductContext = createContext({
 });
 
 const ProductContextProvider = ({ children }) => {
+  const [cartItems,setCartItems]=useState(getDefaultCart());  
   const [products, setProducts] = useState([]);
   const [filteredProducts, setFilteredProducts] = useState([]);
   const [discountProducts, setDiscountProducts] = useState([]);
@@ -48,11 +59,13 @@ const ProductContextProvider = ({ children }) => {
   const addToCart = (product) => {
     // Implement cart-related logic and state updates
     // ...
+    setCartItems((prev)=>({...prev,[id]:prev[id]+1}))
   };
 
   const removeFromCart = (product) => {
     // Implement cart-related logic and state updates
     // ...
+    setCartItems((prev)=>({...prev,[id]:prev[id]-1}))
   };
 
   const updateQuantity = (product, quantity) => {
@@ -83,7 +96,7 @@ const ProductContextProvider = ({ children }) => {
   };
 
   // Handle filtering, searching, and category-based logic here
-
+ 
   return (
     <ProductContext.Provider value={contextValue}>
       {children}

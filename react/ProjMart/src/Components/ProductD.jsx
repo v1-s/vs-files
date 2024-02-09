@@ -6,10 +6,12 @@ import { faHeart } from '@fortawesome/free-solid-svg-icons';
 import {products} from './products';
 import table from './Assests/Images/table.jpg';
 import { Link } from 'react-router-dom';
+import {MartContext} from "../Components/"
 // import Sofa from './Assests/Images/double-sofa-01.png';
 
-function ProductDetails({ onSelect, onAddToCart,linkTo }) {
+function ProductDetails({ onSelect, addToCart,linkTo }) {
   const { id } = useParams();
+  const {addToCart}=useContext(MartContext);
   const navigate = useNavigate();
   const [fetchedProduct, setFetchedProduct] = useState(null);
   const [isHovered, setIsHovered] = useState(false);
