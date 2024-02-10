@@ -7,11 +7,14 @@ import {products} from './products';
 import table from './Assests/Images/table.jpg';
 import { Link } from 'react-router-dom';
 import {ProductContext} from "./Context/MartContext";
+import { CartContext } from './Context/CartContext';
+import {Cart} from "./Cart"
 // import Sofa from './Assests/Images/double-sofa-01.png';
 
-function ProductDetails({ onSelect,linkTo }) {
+function ProductDetails({ onSelect,linkTo}) {
   const { id } = useParams();
-  const {addToCart}=useContext(ProductContext);
+  // const {addToCart}=useContext(ProductContext);
+  const {addToCart} = useContext(CartContext);
   const navigate = useNavigate();
   const [fetchedProduct, setFetchedProduct] = useState(null);
   const [isHovered, setIsHovered] = useState(false);
@@ -41,13 +44,11 @@ function ProductDetails({ onSelect,linkTo }) {
   const handleIconClick = () => {
     setIsInWishlist(!isInWishlist);
   };
-  const handleAddToCart = () => {
-    addToCart(fetchedProduct); // Add product to cart
-  
-    // Option 1: Using useNavigate hook from react-router-dom
-  
+  const handleAddToCartFromProduct = () => {
+    console.log("Adding product to cart:", fetchedProduct);
+    addToCart(fetchedProduct);
     navigate('/cart');
-  }
+  };
   return (
   <>
  
@@ -96,8 +97,9 @@ function ProductDetails({ onSelect,linkTo }) {
         value={quantity}
         onChange={(e) => setQuantity(parseInt(e.target.value) || 1)} 
       /><br />
-    <button className="checkout-button" onClick={handleAddToCart}>Add to Cart</button>
-                        </div>
+    <button className="checkout-button" onClick={handleAddToCartFromProduct}>Add to Cart</button>
+    {/* <Cart product={fetchedProduct} quantity={quantity} addToCart={handleAddToCartFromProduct} />   */}
+                          </div>
                         </div>
                            </div>
                           <div className="proLDesc"><h5>Product Description:</h5><p>{fetchedProduct.description}</p></div>

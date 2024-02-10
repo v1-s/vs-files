@@ -5,6 +5,7 @@ import { faHeart, faShoppingBag } from '@fortawesome/free-solid-svg-icons';
 import {products} from './products';
 import ProductDetails from './ProductD';
 import {ProductContext} from "./Context/MartContext";
+// import { CartContext } from './Context/CartContext';
 // Context for managing global cart state (replace with your implementation)
 const CartContext = React.createContext();
 
@@ -51,8 +52,32 @@ const QtyInput = ({ value, onChange }) => {
     </div>
   );
 };
+// const Cart = ({ product, quantity, addToCart }) => {
+//   const { cartItems, addToCart: addToCartFromContext, handleRemoveItem, updateQuantity, checkout } = useContext(CartContext);
 
-const Cart = ({ product,quantity,addToCart,cartItems, handleRemoveItem, updateQuantity, checkout }) => {
+//   // Now, you can remove the unused "addToCart" prop from the Cart component
+
+//   const handleAddToCartFromProduct = (newProduct, newQuantity) => {
+//     addToCartFromContext(newProduct, newQuantity);
+//   };
+
+//   // Rest of the Cart component implementation remains the same
+// };
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+const Cart = ({ product,quantity,addToCart,cartItems,handleRemoveItem, updateQuantity, checkout }) => {
   const [isCartOpen, setIsCartOpen] = useState(false);
   // const {   setCart } = useContext(Cart);
 
