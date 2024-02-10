@@ -32,9 +32,9 @@ function App() {
      <BrowserRouter>
      <Navbar/>
      <Routes>
-   <Route exact path="/" element={<><Home/><Slider/><Banner1/><Big/><NA/><BS/><Mfoot/></>}></Route> 
-   <Route exact path="/shop" element={<><Shop/></>}></Route>
-   <Route path="/product/:id" element={<ProductDetails />}>   </Route> 
+   {/* <Route exact path="/" element={<><Home/><Slider/><Banner1/><Big/><NA/><BS/><Mfoot/></>}></Route> 
+   <Route exact path="/shop" element={<><Shop/></>}></Route> */}
+   {/* <Route path="/product/:id" element={<ProductDetails />}>   </Route>  */}
     {/* <Route path=":productId" element={<ProductCard />} /> */}
  
    {/* <Route path="/cart/:id" element={<><CartWrapper/></>}></Route>  
