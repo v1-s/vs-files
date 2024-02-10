@@ -4,6 +4,7 @@ import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faHeart, faShoppingBag } from '@fortawesome/free-solid-svg-icons';
 import {products} from './products';
 import ProductDetails from './ProductD';
+import {ProductContext} from "./Context/MartContext";
 // Context for managing global cart state (replace with your implementation)
 const CartContext = React.createContext();
 
@@ -51,7 +52,7 @@ const QtyInput = ({ value, onChange }) => {
   );
 };
 
-const Cart = ({ product,quantity,onAddToCart,cartItems, handleRemoveItem, updateQuantity, checkout }) => {
+const Cart = ({ product,quantity,addToCart,cartItems, handleRemoveItem, updateQuantity, checkout }) => {
   const [isCartOpen, setIsCartOpen] = useState(false);
   // const {   setCart } = useContext(Cart);
 
@@ -63,22 +64,22 @@ const Cart = ({ product,quantity,onAddToCart,cartItems, handleRemoveItem, update
   // const { cartItems, handleRemoveItem, updateQuantity, checkout } = useContext(CartContext);
   const handleAddToCartFromProduct = (newProduct, newQuantity) => {
     // Add logic to handle adding the new product with quantity to the cart
-    onAddToCart(newProduct, newQuantity);
+    addToCart(newProduct, newQuantity);
   };
   return (
     <>
       <button className="cart-icon" onClick={toggleCart}>
-        <FontAwesomeIcon icon={faShoppingBag} /> {cartItems.length}
+        {/* <FontAwesomeIcon icon={faShoppingBag} /> {cartItems.length} */}
       </button>
-      <ProductDetails {...onAddToCart} />
+      <ProductDetails {...addToCart} />
 {/* <Cart setCart={setCart} /> */}
-      <button onClick={() => onAddToCart(product, quantity)}>Add to Cart</button>
+      <button onClick={() => addToCart(product, quantity)}>Add to Cart</button>
       {isCartOpen && (
         <div className="cart-overlay">
           <div className="cart-container">
             <h2>Your Cart</h2>
 
-            {cartItems.length > 0 ? (
+            {/* {cartItems.length > 0 ? (
               <ul className="cart-items">
                 {cartItems.map((item) => (
                   <CartItem
@@ -91,14 +92,14 @@ const Cart = ({ product,quantity,onAddToCart,cartItems, handleRemoveItem, update
               </ul>
             ) : (
               <p className="cart-empty">Your cart is empty.</p>
-            )}
+            )} */}
 
-            {cartItems.length> 0 && (
-              <div className="cart-summary">
+            {/* {cartItems.length> 0 && (
+              <div className="cart-summary"> */}
                 {/* <p>Cart Total: ${cartTotal.toFixed(2)}</p> */}
-                <button onClick={checkout}>Checkout</button>
+                {/* <button onClick={checkout}>Checkout</button>
               </div>
-            )}
+            )} */}
 
             <Link to="/" className="close-cart" onClick={toggleCart}>
               <span>&times;</span>

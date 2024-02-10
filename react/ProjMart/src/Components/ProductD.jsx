@@ -1,17 +1,17 @@
 import React, { useState, useEffect, useContext } from 'react';
 import { useNavigate, useParams } from 'react-router-dom';
-import Cart from './Cart';
+// import Cart from './Cart';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faHeart } from '@fortawesome/free-solid-svg-icons';
 import {products} from './products';
 import table from './Assests/Images/table.jpg';
 import { Link } from 'react-router-dom';
-import {MartContext} from "../Components/"
+import {ProductContext} from "./Context/MartContext";
 // import Sofa from './Assests/Images/double-sofa-01.png';
 
-function ProductDetails({ onSelect, addToCart,linkTo }) {
+function ProductDetails({ onSelect,linkTo }) {
   const { id } = useParams();
-  const {addToCart}=useContext(MartContext);
+  const {addToCart}=useContext(ProductContext);
   const navigate = useNavigate();
   const [fetchedProduct, setFetchedProduct] = useState(null);
   const [isHovered, setIsHovered] = useState(false);
@@ -41,6 +41,13 @@ function ProductDetails({ onSelect, addToCart,linkTo }) {
   const handleIconClick = () => {
     setIsInWishlist(!isInWishlist);
   };
+  const handleAddToCart = () => {
+    addToCart(fetchedProduct); // Add product to cart
+  
+    // Option 1: Using useNavigate hook from react-router-dom
+  
+    navigate('/cart');
+  }
   return (
   <>
  
@@ -89,7 +96,7 @@ function ProductDetails({ onSelect, addToCart,linkTo }) {
         value={quantity}
         onChange={(e) => setQuantity(parseInt(e.target.value) || 1)} 
       /><br />
-    <button className="checkout-button" >Add to Cart</button>
+    <button className="checkout-button" onClick={handleAddToCart}>Add to Cart</button>
                         </div>
                         </div>
                            </div>

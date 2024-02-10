@@ -1,20 +1,20 @@
 import React, { createContext, useState, useEffect } from 'react';
-import productsData from '../products'; // Assuming correct path to product data
-import discountProductsData from '../products'; // Assuming correct path to discount data
-import serviceData from '../products'; // Assuming correct path to service data
-import SliderData from '../products'; // Assuming correct path to slider data
+import {products} from '../products'; // Assuming correct path to product data
+import {discountProducts} from '../products'; // Assuming correct path to discount data
+import {serviceData} from '../products'; // Assuming correct path to service data
+import {SliderData} from '../products'; // Assuming correct path to slider data
 
-
-
-
-const getDefaultCart =()=>{
-    let cart={};
-    for(let index =0;index < products.length;index++){
-        cart[index]=0;
-    }
-    return cart;
+const getDefaultCart = () => {
+  // Initialize cart with 0 quantity for each product
+  let cart = {};
+  for (let index = 0; index < products.length; index++) {
+    cart[products[index].id] = 0;
+    console.log("ADD",cart);
   }
-const ProductContext = createContext({
+  return cart;
+};
+
+export const ProductContext = createContext({
   products: [], // Initial empty state for products
   filteredProducts: [], // Add filtered products state
   discountProducts: [], // Add discount products state
@@ -22,14 +22,17 @@ const ProductContext = createContext({
   sliderData: [], // Add slider data state
   searchQuery: '', // Add search query state
   currentCategory: '', // Add current category state
+  cartItems: getDefaultCart(), // Add cart items state with correct initialization
   addToCart: (product) => {}, // Add addToCart function state
   removeFromCart: (product) => {}, // Add removeFromCart function state
   updateQuantity: (product, quantity) => {}, // Add updateQuantity function state
   clearCart: () => {}, // Add clearCart function state
+  setSearchQuery: (query) => {}, // Add function to update search query
+  setCurrentCategory: (category) => {}, // Add function to update current category
 });
 
 const ProductContextProvider = ({ children }) => {
-  const [cartItems,setCartItems]=useState(getDefaultCart());  
+  const [cartItems, setCartItems] = useState(getDefaultCart());
   const [products, setProducts] = useState([]);
   const [filteredProducts, setFilteredProducts] = useState([]);
   const [discountProducts, setDiscountProducts] = useState([]);
@@ -47,7 +50,7 @@ const ProductContextProvider = ({ children }) => {
         setProducts(data.products);
       } catch (error) {
         console.error('Error fetching products:', error);
-        // Handle errors gracefully
+        // Handle errors gracefully (e.g., display an error message)
       }
     };
 
@@ -57,25 +60,23 @@ const ProductContextProvider = ({ children }) => {
   // Add other data fetch methods as needed (discountProducts, serviceData, sliderData)
 
   const addToCart = (product) => {
-    // Implement cart-related logic and state updates
-    // ...
-    setCartItems((prev)=>({...prev,[id]:prev[id]+1}))
+    setCartItems((prev) => ({ ...prev, [product.id]: prev[product.id] + 1 }));
+    console.log(`Added ${product.productName} to cart (quantity: ${cartItems[product]})`);
   };
 
   const removeFromCart = (product) => {
-    // Implement cart-related logic and state updates
-    // ...
-    setCartItems((prev)=>({...prev,[id]:prev[id]-1}))
+    setCartItems((prev) => ({ ...prev, [product.id]: Math.max(prev[product.id] - 1, 0) }));
+    console.log(`Removed ${product.productName} from cart (quantity: ${cartItems[product]})`);
   };
 
   const updateQuantity = (product, quantity) => {
-    // Implement cart-related logic and state updates
-    // ...
+    setCartItems((prev) => ({ ...prev, [product.id]: Math.max(quantity, 0) }));
+    console.log(`Updated quantity of ${product.productName} to ${cartItems[product]}`);
   };
 
   const clearCart = () => {
-    // Implement cart-related logic and state updates
-    // ...
+    setCartItems(getDefaultCart());
+    console.log('Cart cleared');
   };
 
   const contextValue = {
