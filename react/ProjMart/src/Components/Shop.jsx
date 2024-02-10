@@ -8,9 +8,10 @@ import { faMagnifyingGlass } from '@fortawesome/free-solid-svg-icons';
 import {products } from './products';
 import { faBagShopping } from "@fortawesome/free-solid-svg-icons";
 import { useParams } from 'react-router-dom';
+import {CartContext} from "./Context/CartContext";
 // import { Link } from 'react-router-dom';
 
-function ProductCard({ product,onAddToCart}) {
+function ProductCard({ product,addToCart}) {
   const {id}= useParams();
   const navigate =useNavigate();
   const [selectedProduct, setSelectedProduct] = useState(null);
@@ -53,7 +54,7 @@ return (
             ★★★★★
           </div>
           <div className="price">${product.price}</div>
-          <button className="add-to-cart" onClick={() =>onAddToCart(product)}>+</button>
+          <button className="add-to-cart" onClick={() =>addToCart(product)}>+</button>
         </div>
       </div>
 

@@ -6,15 +6,21 @@ import { faHeart } from '@fortawesome/free-solid-svg-icons';
 import {products} from './products';
 import table from './Assests/Images/table.jpg';
 import { Link } from 'react-router-dom';
-import {ProductContext} from "./Context/MartContext";
+import { ProductContext } from './Context/MartContext';
 import { CartContext } from './Context/CartContext';
 import {Cart} from "./Cart"
+
 // import Sofa from './Assests/Images/double-sofa-01.png';
 
-function ProductDetails({ onSelect,linkTo}) {
+function ProductDetails({ match,onSelect, linkTo}) {
+  // ...
+  
+  // const id = match.params.id;
   const { id } = useParams();
-  // const {addToCart}=useContext(ProductContext);
-  const {addToCart} = useContext(CartContext);
+  const [selectedId, setSelectedId] = useState(id || 'default-id');  
+   const {products}=useContext(ProductContext);
+   const { addToCart } = useContext(CartContext);
+  // const {addToCart} = useContext(CartContext);
   const navigate = useNavigate();
   const [fetchedProduct, setFetchedProduct] = useState(null);
   const [isHovered, setIsHovered] = useState(false);
@@ -22,6 +28,8 @@ function ProductDetails({ onSelect,linkTo}) {
   const [similarProducts, setSimilarProducts] = useState([]);
   const [quantity, setQuantity] = useState(1); 
   const [isLoading, setIsLoading] = useState(true);
+  // const {products,addToCart}=useContext(ProductContext);
+
   useEffect(() => {
     console.log("Extracted id from URL:", id); 
     setIsLoading(true); // Set loading state to true
@@ -41,6 +49,12 @@ function ProductDetails({ onSelect,linkTo}) {
     }
     setIsLoading(false); // Set loading state to false after fetching
   }, [id]);
+  useEffect(() => {
+    if (selectedId !== id) {
+      setSelectedId(id);
+      // Fetch product data here
+    }
+  }, [id, selectedId]);
   const handleIconClick = () => {
     setIsInWishlist(!isInWishlist);
   };

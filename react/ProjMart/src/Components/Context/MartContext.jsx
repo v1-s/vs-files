@@ -59,7 +59,7 @@ const ProductContextProvider = ({ children }) => {
 
   // Add other data fetch methods as needed (discountProducts, serviceData, sliderData)
 
-  const addToCart = (product) => {
+ const addToCart = (product) => {
     setCartItems((prev) => ({ ...prev, [product.id]: prev[product.id] + 1 }));
     console.log(`Added ${product.productName} to cart (quantity: ${cartItems[product]})`);
   };

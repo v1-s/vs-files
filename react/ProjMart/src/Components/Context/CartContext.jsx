@@ -2,7 +2,7 @@ import React from 'react';
 
 const CartContext = React.createContext();
 
-const CartContextProvider = ({ children }) => {
+const CartContextProvider = ({ ProductDetails }) => {
   const [cartItems, setCartItems] = React.useState([]);
 
   const addToCart = (product, quantity) => {
@@ -36,7 +36,7 @@ const CartContextProvider = ({ children }) => {
 
   return (
     <CartContext.Provider value={{ cartItems, addToCart, handleRemoveItem, updateQuantity, checkout }}>
-      {children}
+      {ProductDetails}
     </CartContext.Provider>
   );
 };
