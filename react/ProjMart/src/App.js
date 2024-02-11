@@ -32,14 +32,14 @@ function App() {
      <BrowserRouter>
      <Navbar/>
      <Routes>
-   {/* <Route exact path="/" element={<><Home/><Slider/><Banner1/><Big/><NA/><BS/><Mfoot/></>}></Route> 
-   <Route exact path="/shop" element={<><Shop/></>}></Route> */}
-   {/* <Route path="/product/:id" element={<ProductDetails />}>   </Route>  */}
-    {/* <Route path=":productId" element={<ProductCard />} /> */}
+    <Route exact path="/" element={<><Home/><Slider/><Banner1/><Big/><NA/><BS/><Mfoot/></>}></Route> 
+   <Route exact path="/shop" element={<><Shop/></>}></Route> 
+    <Route path="/product/:id" element={<ProductDetails />}>   </Route>  
+        <Route path=":productId" element={<ProductCard />} /> 
  
-   {/* <Route path="/cart/:id" element={<><CartWrapper/></>}></Route>  
-   <Route exact path="/cart" element={<><Cart/></>}></Route>  */}
-</Routes>
+   {/* <Route path="/cart/:id" element={<><CartWrapper/></>}></Route>   */}
+   {/* <Route exact path="/cart" element={<><Cart/></>}></Route>  */}
+ </Routes>
 
 
 
@@ -49,11 +49,11 @@ function App() {
 
      {/* <Routes>
       <Route exact path="/" element={<><Home/><Slider/><Banner1/><Big/><NA/><BS/><Mfoot/></>}></Route>
-      <Route exact path="/shop" element={<><Shop/></>}></Route>
-      <Route>
+      <Route exact path="/shop" element={<><Shop/></>}></Route> */}
+      {/* <Route>
       <Route path="/product/:id" render={(props) => <ProductDetails {...props} selectedId={selectedId} setSelectedId={setSelectedId} />} />
       <Route path="/cart/:id" component={CartWrapper} />
-    </Route>
+    </Route> */}
       {/* <Route exact path= "/product/:id" element={<><ProductDetails/></>}></Route> */}
       {/* <Route exact path="/cart" element={<><Cart/></>}></Route> */}
 
@@ -63,7 +63,7 @@ function App() {
         <Route exact path="/" element={<></>}></Route> 
         </> */} 
      
-     {/* </Routes> */}
+      {/* </Routes> */}
      {/* <Mfoot/> */}
      </BrowserRouter>
      

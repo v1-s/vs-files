@@ -6,21 +6,21 @@ import { faHeart } from '@fortawesome/free-solid-svg-icons';
 import {products} from './products';
 import table from './Assests/Images/table.jpg';
 import { Link } from 'react-router-dom';
-import { ProductContext } from './Context/MartContext';
+import {ProductContext} from './Context/MartContext';
 import { CartContext } from './Context/CartContext';
 import {Cart} from "./Cart"
 
 // import Sofa from './Assests/Images/double-sofa-01.png';
 
-function ProductDetails({ match,onSelect, linkTo}) {
+function ProductDetails({match,onSelect, linkTo}) {
   // ...
   
   // const id = match.params.id;
   const { id } = useParams();
   const [selectedId, setSelectedId] = useState(id || 'default-id');  
-   const {products}=useContext(ProductContext);
+  //  const {products}=useContext(ProductContext);
    const { addToCart } = useContext(CartContext);
-  // const {addToCart} = useContext(CartContext);
+  // const {addToCart} = useContext(ProductContext);
   const navigate = useNavigate();
   const [fetchedProduct, setFetchedProduct] = useState(null);
   const [isHovered, setIsHovered] = useState(false);
@@ -60,7 +60,7 @@ function ProductDetails({ match,onSelect, linkTo}) {
   };
   const handleAddToCartFromProduct = () => {
     console.log("Adding product to cart:", fetchedProduct);
-    addToCart(fetchedProduct);
+    addToCart(fetchedProduct,quantity);
     navigate('/cart');
   };
   return (
@@ -111,7 +111,7 @@ function ProductDetails({ match,onSelect, linkTo}) {
         value={quantity}
         onChange={(e) => setQuantity(parseInt(e.target.value) || 1)} 
       /><br />
-    <button className="checkout-button" onClick={handleAddToCartFromProduct}>Add to Cart</button>
+    <button className="checkout-button" onClick={()=> addToCart()} >Add to Cart</button><br/>
     {/* <Cart product={fetchedProduct} quantity={quantity} addToCart={handleAddToCartFromProduct} />   */}
                           </div>
                         </div>
@@ -310,12 +310,103 @@ export default ProductDetails;
 // export default ProductDetails;
 
 
+// AII 
 
 
 
 
+import React, { useState, useEffect } from 'react';
+import { useParams } from 'react-router-dom';
+import { useSelector, useDispatch } from 'react-redux';
+import { addToCart } from '../redux/actions/cartActions';
+import { listProductDetails } from '../redux/actions/productActions';
+import { listSimilarProducts } from '../redux/actions/productActions';
+import Cart from '../components/Cart';
 
+function ProductDetails() {
+  const { id } = useParams();
+  const [quantity, setQuantity] = useState(1);
+  const dispatch = useDispatch();
 
+  const productDetails = useSelector((state) => state.productDetails);
+  const { product, loading, error } = productDetails;
+
+  const similarProducts = useSelector((state) => state.similarProducts);
+  const { products: similarProductsList, loading: similarProductsLoading, error: similarProductsError } = similarProducts;
+
+  useEffect(() => {
+    dispatch(listProductDetails(id));
+    dispatch(listSimilarProducts(id));
+  }, [dispatch, id]);
+
+  const addToCart = () => {
+    dispatch(addToCart(product, quantity));
+  };
+
+  return (
+    <>
+      {loading ? (
+        <h1>Loading...</h1>
+      ) : error ? (
+        <h1>{error}</h1>
+      ) : (
+        <div className="product-details">
+          <div className="ProD col-sm-12 col-md-6">
+            <h1 className="product-title">
+              {/* Product */}
+              {product.productName}
+            </h1>
+          </div>
+
+          <div key={product.id} className="ProD col-sm-12 col-md-3">
+            <div className="card1">
+              <div className="product-card">
+                {/* <div className="product-id">{product.id}</div> */}
+                <div className="ProImg">
+                  <img src={product.imgUrl} alt={product.productName} className="product-img1" />
+                </div>
+                <div className="ProDesc">
+                  <h2 className="product1-name">{product.productName}</h2>
+                  <div className="rate-price">
+                    <div className="rating">★★★★★</div>
+                    <div className="Re-price">{product.avgRating} ratings</div>
+                  </div>
+                  <div className="rate-price">
+                    <div className="price">${product.price}</div>
+                    <div className="categPrice">Category:{product.category}</div>
+                  </0>
+                  <div className="proDesc">{product.shortDesc}</div>
+                  <div className="cart-actions">
+                    <input
+                      className="Pro-count"
+                      type="number"
+                      value={quantity}
+                      onChange={(e) => setQuantity(parseInt(e.target.value) || 1)}
+                    />
+                    <button className="checkout-button" onClick={() => addToCart()}>
+                      Add to Cart
+                    </button>
+                  </div>
+                </div>
+              </div>
+              <div className="proLDesc">
+                <h5>Product Description:</h5>
+                <p>{product.description}</p>
+              </div>
+              <div className="proRDesc">
+                <h5>Reviews({product.reviews.length}):</h5>
+                {product.reviews.map((review) => (
+                  <p>{review.text}</p>
+                ))}
+              </div>
+            </div>
+          </div>
+        </div>
+      )}
+
+      {product && similarProducts.length > 0 && (
+        <div className="similar-products">
+          <h5>You
 
 
 
