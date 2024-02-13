@@ -12,15 +12,17 @@ import {Cart} from "./Cart"
 
 // import Sofa from './Assests/Images/double-sofa-01.png';
 
-function ProductDetails({match,onSelect, linkTo}) {
+function ProductDetails({onSelect, linkTo}) {
   // ...
   
   // const id = match.params.id;
   const { id } = useParams();
   const [selectedId, setSelectedId] = useState(id || 'default-id');  
   //  const {products}=useContext(ProductContext);
-   const { addToCart } = useContext(CartContext);
+  //  const { addToCart } = useContext(CartContext);
   // const {addToCart} = useContext(ProductContext);
+  const [cart,setCart]=useContext(CartContext); 
+  console.log('Products: ', products)
   const navigate = useNavigate();
   const [fetchedProduct, setFetchedProduct] = useState(null);
   const [isHovered, setIsHovered] = useState(false);
@@ -29,7 +31,9 @@ function ProductDetails({match,onSelect, linkTo}) {
   const [quantity, setQuantity] = useState(1); 
   const [isLoading, setIsLoading] = useState(true);
   // const {products,addToCart}=useContext(ProductContext);
-
+  const productCategory = fetchedProduct?.category;
+  const similarProductsArray = products.filter((product) => product.category === productCategory && product.id !== fetchedProduct.id);
+  setSimilarProducts(similarProductsArray);
   useEffect(() => {
     console.log("Extracted id from URL:", id); 
     setIsLoading(true); // Set loading state to true
@@ -55,6 +59,14 @@ function ProductDetails({match,onSelect, linkTo}) {
       // Fetch product data here
     }
   }, [id, selectedId]);
+  useEffect(() => {
+    if (fetchedProduct) {
+      const filteredProducts = Object.values(products).filter(
+        (product) => product.category === fetchedProduct.category && product.id !== fetchedProduct.id
+      );
+      setSimilarProducts(filteredProducts);
+    }
+  }, [fetchedProduct]);
   const handleIconClick = () => {
     setIsInWishlist(!isInWishlist);
   };
@@ -62,6 +74,19 @@ function ProductDetails({match,onSelect, linkTo}) {
     console.log("Adding product to cart:", fetchedProduct);
     addToCart(fetchedProduct,quantity);
     navigate('/cart');
+  };
+  
+  const addToCart = (product, quantity) => {
+    if (!product || !product.id || !quantity) {
+      console.error('Unable to add to cart: missing product or quantity');
+      return;
+    }
+  
+    const productToAdd = products.find((item) => item.id === product.id);
+    if (productToAdd) {
+      const updatedCart = [...cart, { ...productToAdd, quantity }];
+      setCart(updatedCart);
+    }
   };
   return (
   <>
@@ -315,98 +340,6 @@ export default ProductDetails;
 
 
 
-import React, { useState, useEffect } from 'react';
-import { useParams } from 'react-router-dom';
-import { useSelector, useDispatch } from 'react-redux';
-import { addToCart } from '../redux/actions/cartActions';
-import { listProductDetails } from '../redux/actions/productActions';
-import { listSimilarProducts } from '../redux/actions/productActions';
-import Cart from '../components/Cart';
-
-function ProductDetails() {
-  const { id } = useParams();
-  const [quantity, setQuantity] = useState(1);
-  const dispatch = useDispatch();
-
-  const productDetails = useSelector((state) => state.productDetails);
-  const { product, loading, error } = productDetails;
-
-  const similarProducts = useSelector((state) => state.similarProducts);
-  const { products: similarProductsList, loading: similarProductsLoading, error: similarProductsError } = similarProducts;
-
-  useEffect(() => {
-    dispatch(listProductDetails(id));
-    dispatch(listSimilarProducts(id));
-  }, [dispatch, id]);
-
-  const addToCart = () => {
-    dispatch(addToCart(product, quantity));
-  };
-
-  return (
-    <>
-      {loading ? (
-        <h1>Loading...</h1>
-      ) : error ? (
-        <h1>{error}</h1>
-      ) : (
-        <div className="product-details">
-          <div className="ProD col-sm-12 col-md-6">
-            <h1 className="product-title">
-              {/* Product */}
-              {product.productName}
-            </h1>
-          </div>
-
-          <div key={product.id} className="ProD col-sm-12 col-md-3">
-            <div className="card1">
-              <div className="product-card">
-                {/* <div className="product-id">{product.id}</div> */}
-                <div className="ProImg">
-                  <img src={product.imgUrl} alt={product.productName} className="product-img1" />
-                </div>
-                <div className="ProDesc">
-                  <h2 className="product1-name">{product.productName}</h2>
-                  <div className="rate-price">
-                    <div className="rating">★★★★★</div>
-                    <div className="Re-price">{product.avgRating} ratings</div>
-                  </div>
-                  <div className="rate-price">
-                    <div className="price">${product.price}</div>
-                    <div className="categPrice">Category:{product.category}</div>
-                  </0>
-                  <div className="proDesc">{product.shortDesc}</div>
-                  <div className="cart-actions">
-                    <input
-                      className="Pro-count"
-                      type="number"
-                      value={quantity}
-                      onChange={(e) => setQuantity(parseInt(e.target.value) || 1)}
-                    />
-                    <button className="checkout-button" onClick={() => addToCart()}>
-                      Add to Cart
-                    </button>
-                  </div>
-                </div>
-              </div>
-              <div className="proLDesc">
-                <h5>Product Description:</h5>
-                <p>{product.description}</p>
-              </div>
-              <div className="proRDesc">
-                <h5>Reviews({product.reviews.length}):</h5>
-                {product.reviews.map((review) => (
-                  <p>{review.text}</p>
-                ))}
-              </div>
-            </div>
-          </div>
-        </div>
-      )}
-
-      {product && similarProducts.length > 0 && (
-        <div className="similar-products">
-          <h5>You
 
 
 
