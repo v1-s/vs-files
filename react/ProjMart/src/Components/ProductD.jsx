@@ -1,44 +1,26 @@
 import React, { useState, useEffect, useContext } from 'react';
 import { useNavigate, useParams } from 'react-router-dom';
-// import Cart from './Cart';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faHeart } from '@fortawesome/free-solid-svg-icons';
-import {products} from './products';
+import { products } from './products';
 import table from './Assests/Images/table.jpg';
 import { Link } from 'react-router-dom';
-import {ProductContext} from './Context/MartContext';
-import { CartContext } from './Context/CartContext';
-import {Cart} from "./Cart"
-
-// import Sofa from './Assests/Images/double-sofa-01.png';
-
-function ProductDetails({onSelect, linkTo}) {
-  // ...
-  
-  // const id = match.params.id;
+import AddToCart from './AddToCart';
+function ProductDetails({onSelect,linkTo}) {
   const { id } = useParams();
-  const [selectedId, setSelectedId] = useState(id || 'default-id');  
-  //  const {products}=useContext(ProductContext);
-  //  const { addToCart } = useContext(CartContext);
-  // const {addToCart} = useContext(ProductContext);
-  const [cart,setCart]=useContext(CartContext); 
-  console.log('Products: ', products)
+  const [selectedId, setSelectedId] = useState(id || 'default-id');
+
   const navigate = useNavigate();
   const [fetchedProduct, setFetchedProduct] = useState(null);
-  const [isHovered, setIsHovered] = useState(false);
-  const [isInWishlist, setIsInWishlist] = useState(false);
   const [similarProducts, setSimilarProducts] = useState([]);
-  const [quantity, setQuantity] = useState(1); 
+  const [quantity, setQuantity] = useState(1);
   const [isLoading, setIsLoading] = useState(true);
-  // const {products,addToCart}=useContext(ProductContext);
-  const productCategory = fetchedProduct?.category;
-  const similarProductsArray = products.filter((product) => product.category === productCategory && product.id !== fetchedProduct.id);
-  setSimilarProducts(similarProductsArray);
+
   useEffect(() => {
     console.log("Extracted id from URL:", id); 
     setIsLoading(true); // Set loading state to true
     const product = products.find((item) => item.id === id);
-    console.log("product id", product?.id);
+    console.log("product id", product.id);
 
     if (product) {
       setFetchedProduct(product);
@@ -53,47 +35,19 @@ function ProductDetails({onSelect, linkTo}) {
     }
     setIsLoading(false); // Set loading state to false after fetching
   }, [id]);
-  useEffect(() => {
-    if (selectedId !== id) {
-      setSelectedId(id);
-      // Fetch product data here
-    }
-  }, [id, selectedId]);
-  useEffect(() => {
-    if (fetchedProduct) {
-      const filteredProducts = Object.values(products).filter(
-        (product) => product.category === fetchedProduct.category && product.id !== fetchedProduct.id
-      );
-      setSimilarProducts(filteredProducts);
-    }
-  }, [fetchedProduct]);
-  const handleIconClick = () => {
-    setIsInWishlist(!isInWishlist);
-  };
-  const handleAddToCartFromProduct = () => {
-    console.log("Adding product to cart:", fetchedProduct);
-    addToCart(fetchedProduct,quantity);
-    navigate('/cart');
-  };
-  
-  const addToCart = (product, quantity) => {
-    if (!product || !product.id || !quantity) {
-      console.error('Unable to add to cart: missing product or quantity');
-      return;
-    }
-  
-    const productToAdd = products.find((item) => item.id === product.id);
-    if (productToAdd) {
-      const updatedCart = [...cart, { ...productToAdd, quantity }];
-      setCart(updatedCart);
-    }
-  };
-  return (
+    // const handleProductCart=()=>{
+    //   <AddToCart product={fetchedProduct} />
+    // }
+
+  // Rest of the code
+
+return(
   <>
  
 {isLoading ? (
         <div>Loading product details...</div>
       ) : fetchedProduct ? (
+        
         // Render product details using fetchedProduct
       
     <div className="ProdDetails">
@@ -107,9 +61,7 @@ function ProductDetails({onSelect, linkTo}) {
         {fetchedProduct.productName}
     </h1>
   </div> 
-</div>
-
-                    <div key={fetchedProduct.id} className="ProdD col-sm-12 col-md-3">
+</div>            <div key={fetchedProduct.id} className="ProdD col-sm-12 col-md-3">
                   <div className="card1">
                         <div className="product-card">
                         {/* <div className="product-id">{fetchedProduct.id}</div> */}
@@ -136,8 +88,9 @@ function ProductDetails({onSelect, linkTo}) {
         value={quantity}
         onChange={(e) => setQuantity(parseInt(e.target.value) || 1)} 
       /><br />
-    <button className="checkout-button" onClick={()=> addToCart()} >Add to Cart</button><br/>
-    {/* <Cart product={fetchedProduct} quantity={quantity} addToCart={handleAddToCartFromProduct} />   */}
+    {/* <AddToCart product={fetchedProduct} handleAddToCart={handleAddToCart} /> */}
+   <AddToCart product={fetchedProduct}/>
+
                           </div>
                         </div>
                            </div>
@@ -190,162 +143,9 @@ function ProductDetails({onSelect, linkTo}) {
      
     </>
   );
-}
+            }
 
 export default ProductDetails;
-
- // const { cartItems,  setCart } = useContext(Cart);
-  // const { Cart = {} } = useContext(Cart);
-
- {/* <Cart onAddToCart={onAddToCart} /> */}
- // const handleClick = () => {
-  //   onSelect(fetchedProduct); // Pass the fetched product to the parent component
-  //   navigate(`/product/${fetchedProduct.id}`)
-  // };
-  // const handleAddToCart = () => {
-  //   setCart((prevCart) => [...prevCart, { fetchedProduct, quantity }]);
-
-    // Link with query parameters (replace with your cart component path)
-  //   const linkTo = `/cart?product=${fetchedProduct.id}&quantity=${quantity}`;
-  //   return <Link to={linkTo} >Add to Cart</Link>;
-  // };
-
-    // Validate quantity is a positive integer
-    // if (isNaN(quantity) || quantity <= 0) {
-    //   alert('Please enter a valid quantity (positive integer).');
-    //   return;
-    // }
-
-    // onAddToCart(fetchedProduct, quantity);
-    // Call prop function to notify parent (potentially for global state updates)
-
-    // Provide visual feedback
-   
-  //   alert('Product added to cart!');
-  //   navigate('/cart'); 
-  // };
- {/* {isHovered && (
-                            <div className="wishlist-icon">
-                              <FontAwesomeIcon icon={faHeart} color={isInWishlist ? 'red' : 'black'} onClick={handleIconClick} />
-                            </div>
-                          )} */}
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-// import React, { useState } from 'react';
-// import { useEffect } from 'react';
-// import { useNavigate } from 'react-router-dom';
-// import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-// import { faHeart } from '@fortawesome/free-solid-svg-icons';
-// import { products } from './products';
-// import { useParams } from 'react-router-dom';
-// // import {shop} from './Shop';
-
-// function fetchProductDetailsById(id) {
-//   return products.find((product) => product.id === id);
-// }
-
-// function ProductDetails({product,onSelect, onAddToCart }) {
-//  const {id}=useParams();
-//  const [fetchedProduct,setFetchedProduct]=useState(null);
-//  useEffect(async () => {
-//   // ...
-//   const fetchedProduct = await fetchProductDetailsById(id);
-//   setFetchedProduct(fetchedProduct);
-//   // ...
-
-
-//   return()=>{
-
-//   }
-// }, [id,fetchProductDetailsById]);
-//   console.log("Pro",product);
-//   const navigate = useNavigate();
-//   const [isHovered, setIsHovered] = useState(false);
-//   const [isInWishlist, setIsInWishlist] = useState(false);
-
-//   const handleIconClick = () => {
-//     setIsInWishlist(!isInWishlist);
-//   };
-//   const handleClick = () => {
-//     onSelect(product);
-//     navigate(`/product/${product.id}`);
-//   };
-  
-
-
-//   return (
-//     <>
-//     <div className="BC1 col-sm-12 col-md-3" style={{backgroundColor:'blue'}}>
-//     <div className="product-id">{id}
-
-//       {fetchedProduct&& (
-
-//       <div className="card" onClick={handleClick}>
-//         <div 
-//           className="product-card" 
-//           onMouseEnter={() => setIsHovered(true)} 
-//           onMouseLeave={() => setIsHovered(false)}
-//         >
-//           {isHovered && (
-//             <div className="wishlist-icon">
-//               <FontAwesomeIcon icon={faHeart} color={isInWishlist ? 'red' : 'black'} onClick={handleIconClick} />
-//             </div>
-//           )}
-//           <img src={product.imgUrl} alt={product.productName} className="product-img"/>
-//           <h4 className="product-name">{product.productName}</h4>
-//           <div className="rating">
-//             ★★★★★
-//           </div>
-       
-// </div>
-
-         
-//           <div className="price">${product.price}</div>
-         
-//         </div>
-       
-//         )}
-//          </div>
-//       </div>
-//  </>
-//   );
-// }
-
-// export default ProductDetails;
-
-
-// AII 
-
-
-
-
-
-
-
-
-
-
 
 
 

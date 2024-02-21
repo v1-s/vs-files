@@ -149,7 +149,7 @@
 .card {
     position: relative;
     padding: 15px;
-    height: 350px !important;
+    height: 365px !important;
     box-shadow: 0 4px 8px 0 rgba(0,0,0,0.2);
   }
   
@@ -194,21 +194,7 @@
     color: #000;
   }
   
-  .add-to-cart {
-    width: 35px; /* Adjust width and height as needed */
-    height: 40px;
-    position: absolute;
-    right: 10px;
-    bottom: 0.1px;
-    background-color: white;
-    border-radius: 50%; /* ensures perfect circle shape */
-    border: none; /* removes box-shadow and border artifacts */
-    box-shadow: 0 0 3px rgba(0, 0, 0, 0.1); /* subtle drop shadow for depth */
-    cursor: pointer; /* indicates interactivity */
-    display: flex; /* creates container for plus sign */
-    justify-content: center; /* centers content horizontally */
-    align-items: center; /* centers content vertically */
-  }
+ 
   .cart-count{
     position: absolute;
     margin-right: 160px;
@@ -534,14 +520,33 @@ padding-left: 200px;
   z-index: 999;
 }
 
-.cart-container {
-  background-color: white;
-  padding: 20px;
-  border-radius: 5px;
-  max-width: 800px;
-  width: 80%;
+.add-to-cart {
+  background-color: darkblue;
+  border-radius: 1rem;
+  padding: 0.5rem;
+  color: #fff;
+  text-align: center;
+  /* margin-top: 0.5rem; */
+  cursor: pointer;
+  border: none;
 }
 
+.add-to-cart-container {
+  display: flex;
+  align-items: center;
+}
+
+.add {
+  background-color: darkblue;
+  padding: 0.25rem 0.5rem;
+  border-radius: 0.5rem;
+  color: #fff;
+  margin: 0 0.5rem;
+  /* margin-top: 0.5rem; */
+}
+.quantity {
+  margin-right: 0.5rem;
+}
 .cart-container h2 {
   text-align: center;
   margin-bottom: 20px;

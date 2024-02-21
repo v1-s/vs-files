@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <div id="br"></div> 
+    <!-- <div id="parent"> -->
+        <!-- <div id="child">
+            <h2 ></h2>
+            <h2></h2>
+        </div> -->
+    </div>
+<script crossorigin src="https://unpkg.com/react@18/umd/react.development.js"></script>
+<script crossorigin src="https://unpkg.com/react-dom@18/umd/react-dom.development.js">
+</script>
+ 
+<script>
+      
+    // let re=ReactDOM.createRoot(document.getElementById('br'));
+    // let reactmsg=React.createElement("h1",{},"hello react World hiii");
+    //  re.render(reactmsg);
+    // let root1=ReactDOM.createRoot(document.getElementById('parent'));
+    // let child1=React.createElement("div",{id:"child"},[React.createElement("h1",{id:"heading1"},"Hello")],[React.createElement("h2",{id:"heading2"},"hiii")]);
+    // root1.render(child1);
+    let rot=ReactDOM.createRoot(document.getElementById("br"));
+   
+   let root1=React.createElement("div",{id:"parent"},React.createElement("div",{id:"children"},[React.createElement('h1',{id:"greeting1"},"hello World"),React.createElement("h2",{id:"greeting2"},"hello")]))
+rot.render(root1);
+</script>
+</body>
+</html>

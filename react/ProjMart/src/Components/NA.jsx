@@ -2,6 +2,7 @@ import React, { useState } from 'react';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faHeart } from '@fortawesome/free-solid-svg-icons';
 import {products } from './products';
+import AddToCart from './AddToCart';
 function ProductCard({ product }) {
     console.log(product);
   const [isHovered, setIsHovered] = useState(false);
@@ -34,7 +35,8 @@ function ProductCard({ product }) {
             ★★★★★
           </div>
           <div className="price">${product.price}</div>
-          <button className="add-to-cart">+</button>
+          {/* <button className="add-to-cart">+</button> */}
+          <AddToCart product={product}/>
         </div>
       </div>
     </div>

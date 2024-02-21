@@ -1,8 +1,11 @@
 import React, { useState } from 'react';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faHeart } from '@fortawesome/free-solid-svg-icons';
-import Cart from './Cart';
+
+import AddToCart from './AddToCart';
+
 import {products } from './products';
+import { Link } from 'react-router-dom';
 function ProductCard({ product,handleAddToWishlist,handleAddToCart }) {
     console.log(product);
   const [isHovered, setIsHovered] = useState(false);
@@ -12,6 +15,9 @@ function ProductCard({ product,handleAddToWishlist,handleAddToCart }) {
     setIsInWishlist(!isInWishlist);
     handleAddToWishlist();
   };
+  // const handleProduct=()=>{
+  //   <AddToCart product={product}/> 
+  // }
   // const Product = ({ product }) => {
   //   const [cart, setCart] = useState([]);
   
@@ -38,7 +44,8 @@ function ProductCard({ product,handleAddToWishlist,handleAddToCart }) {
             ★★★★★
           </div>
           <div className="price">${product.price}</div>
-          <button className="add-to-cart" onClick={()=> handleAddToCart(product)}>+</button>
+          {/* <button className="add-to-cart"  onClick={handleAdd}>+</button> */}
+          <AddToCart product={product}/>
         </div>
       </div>
     </div>
@@ -74,8 +81,7 @@ export default function BS() {
           <div className="Bcont container text-center">
               <div className="Br row">
                   {firstSetOfProducts.map(product => (
-                      <ProductCard key={product.id} product={product} handleAddToWishlist={handleAddToWishlist}
-                      handleAddToCart={handleAddToCart}/>
+                      <ProductCard key={product.id} product={product} handleAddToWishlist={handleAddToWishlist}/>
                   ))}
 
               </div>

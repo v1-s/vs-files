@@ -1,15 +1,13 @@
 import React, { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 import table from './Assests/Images/table.jpg';
-// import ProductDetails from './ProductD';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faHeart } from '@fortawesome/free-solid-svg-icons';
 import { faMagnifyingGlass } from '@fortawesome/free-solid-svg-icons';
 import {products } from './products';
 import { faBagShopping } from "@fortawesome/free-solid-svg-icons";
 import { useParams } from 'react-router-dom';
-import {CartContext} from "./Context/CartContext";
-// import { Link } from 'react-router-dom';
+import AddToCart from './AddToCart';
 
 function ProductCard({ product,addToCart}) {
   const {id}= useParams();
@@ -54,7 +52,8 @@ return (
             ★★★★★
           </div>
           <div className="price">${product.price}</div>
-          <button className="add-to-cart" onClick={() =>addToCart(product)}>+</button>
+          {/* <button className="add-to-cart">+</button> */}
+          <AddToCart product={product}/>
         </div>
       </div>
 
