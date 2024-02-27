@@ -1,39 +1,53 @@
 import React from 'react';
-import logo from './logo.svg';
-
 import './App.css';
-import Row from './Components/Row/Row';
-import requests from './Components/API/request';
-import Navbar from './Components/Navbar/Navbar';
-// let movies=[
-// {title:"x",name:"y"},{title:"x",name:"y"},
-// {title:"x",name:"y"}
-  
-// ]
 
+import Home from './Pages/Home';
+import Search from './Pages/Search/Search';
+import NotFound from './Pages/NotFound/NotFound';
+import { SearchProvider } from './context/SearchContext';
+import { Switch, Route } from "react-router-dom";
 
-
-
-
-
-
+// import {a,b} from "./Row";
+//  destructuring
+// {a:{}, b:{}}
 
 function App() {
-  return (<>
-<Navbar/>
+  // state variable 
+  // method to set that state variable
+  return (
     <div className="App">
-     <Row title="Netflix Originals" fetchUrl={requests.fetchNetflixOriginals}/>
-     <Row title="Trending" fetchUrl={requests.fetchTrending}/>
-     <Row title="Top Rated" fetchUrl={requests.fetchTopRated}/>
-     <Row title="Action Movies" fetchUrl={requests.fetchActionMovies}/>
-     <Row title="Comedy Movies" fetchUrl={requests.fetchComedyMovies}/>
-     <Row title="Horror Movies" fetchUrl={requests.fetchHorrorMovies}/>
-     <Row title="Romance Movies" fetchUrl={requests.fetchRomanceMovies}/>
-     <Row title="Documentaries" fetchUrl={requests.fetchDocumentaries}/>
+      <SearchProvider>
+        <Switch>
+          <Route exact={true} path="/" component={Home} />
+          <Route exact={true} path="/search/:query" component={Search} />
+          <Route component={NotFound} />
+        </Switch>
+      </SearchProvider>
     </div>
-  
-    </>
   );
 }
 
 export default App;
+
+
+// component in react
+// functional components
+// it returns html 
+// reusable block of code 
+// html written in js is known as JSX
+// App(a)
+
+
+//  what is ajax 
+// api - is a way for your backend and frontend to talk to each other
+// ajax - asyncronus javascript and xml
+// fetch 
+// axios is a package on top of ajax which gives you a way to do ajax calls on a particular url
+
+
+
+// imports work 
+// import Row from "./components/Row/Row";
+// import Row from "./components/Row/";
+// and find a index.js file in it 
+
