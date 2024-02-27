@@ -1,10 +1,11 @@
-import Nav from '../../components/Nav';
-import Main from '../../components/Main/';
+import React from 'react';
+import Navbar from '../../Components/Navbar/Navbar';
+import Main from '../../Components/Main/Main';
 
 function Home() {
     return(
         <div>
-            <Nav />
+            <Navbar />
             <Main />
         </div>
     )

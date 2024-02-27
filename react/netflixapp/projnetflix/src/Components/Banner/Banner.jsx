@@ -1,4 +1,5 @@
-import ReactHlsPlayer from "react-hls-player/dist";
+import ReactHlsPlayer from 'react-hls-player';
+
 import React, { useState,useRef } from 'react'
 import Icon from '@mdi/react';
 import { mdiVolumeOff, mdiVolumeHigh } from '@mdi/js';

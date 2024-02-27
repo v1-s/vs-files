@@ -1,7 +1,8 @@
 //  context.provider
+import React from "react";
 import { createContext, useState, useContext } from "react";
-import axios from "../api/axios";
-import requests from "../api/requests";
+import axios from "../Components/API/axios";
+import requests from "../Components/API/request";
 const SearchContext = createContext();
 
 // useContext is a hook provided by react 

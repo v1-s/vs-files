@@ -5,8 +5,8 @@
 // you need to do an api call 
 // state variable onchange of the input 
 import {useState, useContext} from "react";
-import { useSearch } from "../../context/SearchContext";
-import './Search.css';
+import { useSearch } from "../../Context/SearchContext";
+import '../Search/Search.css';
 import { useHistory } from 'react-router-dom';
 
 

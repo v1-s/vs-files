@@ -1,6 +1,7 @@
-import {useSearch}  from '../../context/SearchContext';
-import './SearchResults.css'
-function SearchResults() {
+import React from 'react';
+import {useSearch}  from '../../Context/SearchContext';
+import '../SearchResults/SearchResults.css';
+function SearchResults(){
   const {results, flag, loading} = useSearch();
   const base_url = "https://image.tmdb.org/t/p/original"
   console.log(results, flag);

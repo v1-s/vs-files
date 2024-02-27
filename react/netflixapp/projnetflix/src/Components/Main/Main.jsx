@@ -1,8 +1,9 @@
+import React from "react";
 import Row from "../Row/Row";
 import Banner from "../Banner/Banner";
 
 import requests from "../API/request";
-import { useSearch } from '../Search/';
+import { useSearch } from '../../Context/SearchContext';
 
 function Main() {
     const { flag } = useSearch();
@@ -22,5 +23,4 @@ function Main() {
         </div>)
     )
 }
-
 export default Main;
