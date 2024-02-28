@@ -3,12 +3,14 @@
     box-sizing: border-box;
     padding: 10px 40px 10px 20px;
     width: 300px;
-    border-radius: 10px;
+    border-radius: 20px;
     font-size: 16px;
-    background-color: rgba(0, 0, 0, 0.75);
+    background-color: rgba(73, 70, 70, 0.75);
     color: #fff;
     outline: none;
-    border: 1px solid white;
+    border: 0px solid white;
+    margin-right: 200px;
+    height: 40px;
   }
   
   .search-form {
@@ -26,6 +28,7 @@
     background-color: transparent;
     color: #fff;
     cursor: pointer;
+    margin-right: 200px;
   }
   
   .cancel-button {

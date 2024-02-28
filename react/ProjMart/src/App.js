@@ -15,7 +15,8 @@ import { useState } from 'react';
 import ProductDetails from './Components/ProductD';
 import React from 'react';
 import AddToCart from './Components/AddToCart';
-import CartContextProvider from './Components/Context/Cart';
+import {CartContextProvider} from './Components/Context/Cart';
+import CartPage from './Components/Cartpage';
 function App() {
   const [selectedId, setSelectedId] = useState(null);
   return (
@@ -30,9 +31,11 @@ function App() {
       <Route exact path="/shop" element={<><Shop/></>}></Route> 
       <Route path="/product/:id" element={<ProductDetails/>}></Route>  
  
-      <Route path="/cart" element={<><AddToCart/></>}></Route>  
+      <Route path="/cartpage" element={<CartPage cartItems={cart.items} onRemoveItem={removeFromCart}/>}/>
+
+ 
      </Routes>
-      </CartContextProvider>
+     </CartContextProvider>
      </BrowserRouter>
      
     </div>
