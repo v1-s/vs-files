@@ -2,7 +2,7 @@ import React, { useState } from 'react';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faHeart } from '@fortawesome/free-solid-svg-icons';
 import {discoutProducts } from './products';
-import AddToCart from './AddToCart';
+import AddToCart from './CartItem';
 function ProductCard({ product,onAddTocart }) {
     console.log(product);
   const [isHovered, setIsHovered] = useState(false);
@@ -31,7 +31,7 @@ function ProductCard({ product,onAddTocart }) {
           </div>
           <div className="price">${product.price}</div>
           {/* <button className="add-to-cart" onClick={()=> onAddTocart(product)}>+</button> */}
-          <AddToCart product={product}/>
+          {/* <AddToCart product={product}/> */}
 
         </div>
       </div>
@@ -40,17 +40,17 @@ function ProductCard({ product,onAddTocart }) {
 }
 
 export default function Big() {
-  const [cart,setCart] = useState([]);
-  const addToCart =(product) =>{
-    setCart(currentCart => [...currentCart ,product]);
-  };
+  // const [cart,setCart] = useState([]);
+  // const addToCart =(product) =>{
+  //   setCart(currentCart => [...currentCart ,product]);
+  // };
   return (
     <div className="Big">
       <h2>Big Discount</h2>
       <div className="Bcont container text-center">
         <div className="Br row">
           {discoutProducts.map(product => (
-            <ProductCard key={product.id} product={product}  onAddTocart={addToCart}/>
+            <ProductCard key={product.id} product={product}/>
           ))}
         </div>
       </div>

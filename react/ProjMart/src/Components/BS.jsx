@@ -2,7 +2,7 @@ import React, { useState } from 'react';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faHeart } from '@fortawesome/free-solid-svg-icons';
 
-import AddToCart from './AddToCart';
+import AddToCart from './CartItem';
 
 import {products } from './products';
 import { Link } from 'react-router-dom';
@@ -45,7 +45,7 @@ function ProductCard({ product,handleAddToWishlist,handleAddToCart }) {
           </div>
           <div className="price">${product.price}</div>
           {/* <button className="add-to-cart"  onClick={handleAdd}>+</button> */}
-          <AddToCart product={product}/>
+          {/* <AddToCart product={product}/> */}
         </div>
       </div>
     </div>

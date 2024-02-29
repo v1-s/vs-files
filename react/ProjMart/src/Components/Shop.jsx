@@ -7,7 +7,7 @@ import { faMagnifyingGlass } from '@fortawesome/free-solid-svg-icons';
 import {products } from './products';
 import { faBagShopping } from "@fortawesome/free-solid-svg-icons";
 import { useParams } from 'react-router-dom';
-import AddToCart from './AddToCart';
+import AddToCart from './CartItem';
 
 function ProductCard({ product,addToCart}) {
   const {id}= useParams();

@@ -1,19 +1,25 @@
 import { useCartContext } from "./Context/Cart";
-import { products } from "./products";
-const AddToCart = ({ product }) => {
-   const { cart, addToCart, removeFromCart } = useCartContext();
-  //  const productId = product ? product.id : null;
-  const productId = product ? product.id : null;
+import { products } from "./products"; // Assuming products data is available
+
+const CartItem = ({ product }) => {
+  const { cart, addToCart, removeFromCart } = useCartContext();
+
+  // Ensure product is valid before processing
+  if (!product) {
+    return null; // Return early if product is undefined or null
+  }
+
+  const productId = product.id;
   const productInCart = cart[productId];
 
   const handleAdd = () => {
-    addToCart(product);
-    
+    addToCart(product); // Ensure product is passed correctly
   };
+
   const handleRemove = () => {
-    removeFromCart(product);
-   
+    removeFromCart(productId); // Pass product ID for removal
   };
+
   if (!productInCart) {
     return (
       <div>
@@ -32,10 +38,9 @@ const AddToCart = ({ product }) => {
         <div className="add" onClick={handleAdd}>
           +
         </div>
-        
       </div>
     );
   }
 };
 
-export default AddToCart;
+export default CartItem;

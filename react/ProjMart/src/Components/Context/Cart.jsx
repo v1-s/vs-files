@@ -1,5 +1,9 @@
 import React from "react";
 import { createContext, useContext, useState } from "react";
+import { Link } from "react-router-dom";
+import CartPage from "../Cartpage";
+// import {useCartContext} from './Context/Cart'; // Import useCartContext
+
 
 const CartContext = React.createContext();
 export const useCartContext = () => {
@@ -48,6 +52,9 @@ function CartContextProvider({ children }) {
  
   return (
     <CartContext.Provider value={{cart,setCart, addToCart, removeFromCart}}>
+       {/* <addToCart product={{ id: 1, name: 'Product 1' }} />
+      <Link to="/cartpage">Go to Cart</Link> {/* Or use programmatic navigation */}
+      <CartContextProvider/>
       {children}
     </CartContext.Provider>
   );
