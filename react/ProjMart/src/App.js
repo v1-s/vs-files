@@ -61,7 +61,7 @@ function App() {
           />
           <Route exact path="/shop" element={<Shop />} />
           <Route path="/product/:id" element={<ProductDetails />} />
-          <Route path="/cartpage" element={<CartPage />} />
+          {/* <Route path="/cartpage" element={<CartPage />} /> */}
           </Routes>
         </React.Fragment>
         </CartContextProvider>
