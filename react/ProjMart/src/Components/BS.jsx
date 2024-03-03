@@ -2,7 +2,7 @@ import React, { useState } from 'react';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faHeart } from '@fortawesome/free-solid-svg-icons';
 
-import AddToCart from './CartItem';
+// import AddToCart from './CartItem';
 
 import {products } from './products';
 import { Link } from 'react-router-dom';

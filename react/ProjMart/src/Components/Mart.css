@@ -144,6 +144,7 @@
     background-color:whitesmoke ;
 }
 .Big h2{
+  text-align: center;
     padding-top: 50px;
 }
 .card {
@@ -214,11 +215,18 @@ padding-left: 200px;
     margin-top: 50px;
 
 }
+.BigC h2{
+        text-align: center;
+
+}
 .BsH{
   height: 215vh;
   padding-top: 40px;
   background-color:whitesmoke ;
   margin-top: 710px;
+}
+.BsH h1{
+  text-align: center;
 }
 .BS7{
   margin-left: 25%;

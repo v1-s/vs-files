@@ -7,27 +7,38 @@ import { faMagnifyingGlass } from '@fortawesome/free-solid-svg-icons';
 import {products } from './products';
 import { faBagShopping } from "@fortawesome/free-solid-svg-icons";
 import { useParams } from 'react-router-dom';
-import AddToCart from './CartItem';
-
-function ProductCard({ product,addToCart}) {
+// import AddToCart from './CartItem';
+import Cart from './Cart';
+function ProductCard({ product}) {
   const {id}= useParams();
   const navigate =useNavigate();
   const [selectedProduct, setSelectedProduct] = useState(null);
   const [isHovered, setIsHovered] = useState(false);
   const [isInWishlist, setIsInWishlist] = useState(false);
   const [wishlistCount, setWishlistCount] = useState(0);
-  const handleIconClick = () => {
-    setIsInWishlist(!isInWishlist);
-  };
-  const handleAddToWishlist = () => {
-    setWishlistCount(wishlistCount + 1);
-  }
+  const [cartItems, setCartItems] = useState([]);
   const handleProductSelect = () => {
     setSelectedProduct(product.id);
     navigate(`/product/${product.id}`);
 
     console.log(" Prooduct id",product);
   };
+  const onAddToCart =(product, quantity) => {
+    console.log("produnct",product)
+    const existingItem = cartItems.find((item) => item.id === product.id);
+
+    if (existingItem) {
+      const updatedCartItems = cartItems.map((item) =>
+        item.id === product.id
+          ? { ...existingItem, quantity: existingItem.quantity + quantity }
+          : item
+      );
+      setCartItems(updatedCartItems);
+      navigate('/cart');
+    } else {
+      setCartItems([...cartItems, { ...product, quantity }]);
+    }
+  }
 return (
 
   
@@ -52,8 +63,8 @@ return (
             ★★★★★
           </div>
           <div className="price">${product.price}</div>
-          {/* <button className="add-to-cart">+</button> */}
-          <AddToCart product={product}/>
+          <button className="add-to-cart" onClick={onAddToCart}>+</button>
+             {/* onAddToCart={handleAddToCart}  */}
         </div>
       </div>
 
@@ -63,10 +74,8 @@ return (
 export default function Shop(){
   const{id}=useParams();
   const navigate=useNavigate();
-  const [cart, setCart] = useState([]);
- const addToCart = (product) => {
-    setCart([...cart, product]);
-  };
+  const [cartItems, setCartItems] = useState([]);
+  
   const handleProductSelect = (product) => {
     setSelectedProduct(product.id);
     navigate(`/product/${product.id}`);
@@ -94,7 +103,22 @@ export default function Shop(){
   const filteredProducts = firstSetOfProducts.filter(product => selectedCategory === 'All' || product.category === selectedCategory).filter(product =>
     product.productName.toLowerCase().includes(searchTerm.toLowerCase())
   );
- 
+  const handleAddToCart =(product, quantity) => {
+    console.log("produnct",product)
+    const existingItem = cartItems.find((item) => item.id === product.id);
+
+    if (existingItem) {
+      const updatedCartItems = cartItems.map((item) =>
+        item.id === product.id
+          ? { ...existingItem, quantity: existingItem.quantity + quantity }
+          : item
+      );
+      setCartItems(updatedCartItems);
+      navigate('/cart');
+    } else {
+      setCartItems([...cartItems, { ...product, quantity }]);
+    }
+  } 
     return (
         <>
         <div class="background-image">
@@ -139,14 +163,13 @@ export default function Shop(){
     </div>
   </div>
         <div className="Bcont container text-center">
-      <div className="Br row">
+        <div className="Br row">
           {filteredProducts.map(product => (
-           <ProductCard key={product.id} product={product} onSelect={handleProductSelect} onAddToCart={addToCart} />
+          //  <ProductCard key={product.id} product={product} onSelect={handleProductSelect} />
+           <ProductCard key={product.id} product={product} onAddToCart={handleAddToCart}/>
         ))} 
       </div>
-      
-     {/* {selectedProduct && <ProductDetails product={selectedProduct} />}  */}
-     {/* <ProductDetails/> */}
+     <Cart cartItems={cartItems} />
     </div>
     </div>
          {/*  */}

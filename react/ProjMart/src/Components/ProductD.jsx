@@ -4,11 +4,10 @@ import { products } from './products';
 import { Link } from 'react-router-dom';
 import { Navigate } from 'react-router-dom';
 import table from './Assests/Images/table.jpg';
-import AddToCart from './CartAdd';
-import CartItem from './CartItem';
-import CartPage from './Cartpage';
+import onAddToCart from './Shop';
 
-const ProductDetails = ({ onSelect, linkTo}) => {
+
+const ProductDetails = ({onSelect, linkTo,onAddToCart,product}) => {
   const navigate=useNavigate();
   const { id } = useParams();
   const [selectedId, setSelectedId] = useState(id || 'default-id');
@@ -22,7 +21,12 @@ const ProductDetails = ({ onSelect, linkTo}) => {
     console.log('Extracted id from URL:', id);
     setIsLoading(true);
     const product = products.find((item) => item.id === id);
-
+    console.log("product",product);
+      const handleGoToCart = (product,quantity) => {
+        onAddToCart(product,quantity); // Add product to cart before navigating
+        console.log("cartItems",cartItems)
+        // navigate('/cart'); // Navigate to the cart page using react\-router\-dom
+    };
     if (product) {
       setFetchedProduct(product);
       const category = product.category;
@@ -35,67 +39,16 @@ const ProductDetails = ({ onSelect, linkTo}) => {
     }
     setIsLoading(false);
   }, [id]);
-
-  const handleAddToCart = (product, quantity) => {
-    const existingItem = cartItems.find((item) => item.id === product.id);
-
-    if (existingItem) {
-      const updatedCartItems = cartItems.map((item) =>
-        item.id === product.id
-          ? { ...existingItem, quantity: existingItem.quantity + quantity }
-          : item
-      );
-      setCartItems(updatedCartItems);
-    } else {
-      setCartItems([...cartItems, { ...product, quantity }]);
+  const handleGoToCart = async (product, quantity) => {
+    try {
+      await onAddToCart(product, quantity); 
+      navigate('/cart');
+    } catch (error) {
+      console.error("Error adding to cart:", error);
+  
     }
-
-  };
-  const handleGoToCart = () => {
-    handleAddToCart(fetchedProduct, quantity); // Add product to cart before navigating
-    navigate('/cart'); // Navigate to the cart page using react\-router\-dom
-    };
-// import React, { useState, useEffect, useContext } from 'react';
-// import { useNavigate, useParams } from 'react-router-dom';
-// import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-// import { faHeart } from '@fortawesome/free-solid-svg-icons';
-// import { products } from './products';
-// import table from './Assests/Images/table.jpg';
-// import { Link } from 'react-router-dom';
-// import AddToCart from './CartAdd';
-// import CartItem from './CartItem';
-// import CartPage from './Cartpage';
-// function ProductDetails({onSelect,linkTo}) {
-//   const { id } = useParams();
-//   const [selectedId, setSelectedId] = useState(id || 'default-id');
-
-//   const navigate = useNavigate();
-//   const [fetchedProduct, setFetchedProduct] = useState(null);
-//   const [similarProducts, setSimilarProducts] = useState([]);
-//   const [quantity, setQuantity] = useState(1);
-//   const [isLoading, setIsLoading] = useState(true);
-
-//   useEffect(() => {
-//     console.log("Extracted id from URL:", id); 
-//     setIsLoading(true); // Set loading state to true
-//     const product = products.find((item) => item.id === id);
-//     console.log("product id", product.id);
-
-//     if (product) {
-//       setFetchedProduct(product);
-//       console.log("fetched product",product.id);
-//       const category = product.category;
-//       const filteredProducts = products.filter(
-//         (item) => item.category === category && item.id !== id
-//       );
-//       setSimilarProducts(filteredProducts);
-//     } else {
-//       console.error(`Product with ID ${id} not found!`);
-//     }
-//     setIsLoading(false); // Set loading state to false after fetching
-//   }, [id]);
-   
-
+  }
+  
 return(
   <>
  
@@ -144,10 +97,14 @@ return(
          onChange={(e) => setQuantity(parseInt(e.target.value) || 1)}
           />
           <br />
+          {onAddToCart?(
           <button onClick={handleGoToCart}>
             Add to Cart
           </button>
-          {/* <Link to="/cartpage">Go to Cart</Link> */}
+          ) : (
+            <p>Loading...</p>
+          )}
+        
 
         </div>
                           </div>
@@ -212,6 +169,19 @@ export default ProductDetails;
 
 
 
+  // const onAddToCart = (product, quantity) => {
+  //   const existingItem = cartItems.find((item) => item.id === product.id);
+
+  //   if (existingItem) {
+  //     const updatedCartItems = cartItems.map((item) =>
+  //       item.id === product.id
+  //         ? { ...existingItem, quantity: existingItem.quantity + quantity }
+  //         : item
+  //     );
+  //     setCartItems(updatedCartItems);
+  //   } else {
+  //     setCartItems([...cartItems, { ...product, quantity }]);
+  //   }
 
 
 

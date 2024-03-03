@@ -14,91 +14,41 @@ import { BrowserRouter,Route,Routes ,Link} from 'react-router-dom';
 import { useState,useContext } from 'react';
 import ProductDetails from './Components/ProductD';
 import React from 'react';
-// import CartItem from './Components/AddToCart';
-import CartContextProvider from './Components/Context/Cart';
-// import  { useCartContext } from './Components/Context/Cart';
-import CartPage from './Components/Cartpage';
-// import { Link } from 'react-router-dom';
-const CartContext = React.createContext();
-  export const useCartContext = () => {
-  const context = useContext(CartContext);
 
-  if (!context) {
-    throw new Error("useCartContext must be used within a CartProvider");
-  }
+// import CartPage from './Components/Cartpage';
+import Cartitems from './Components/Cartitems';
+import CartActions from './Components/CartActions';
+import CartSummary from './Components/Cartsummary';
+import Cart from './Components/Cart';
 
-  return context;
-}
+
 function App() {
-  const [selectedId, setSelectedId] = useState(null);
-
-
-  // return (
-
-    {/* <div className="App"> */}
-  return (
-   
-      <BrowserRouter>
-       <CartContextProvider>
-        <Navbar />
-        {/* Wrap the routes in a React.Fragment */}
-        <React.Fragment>
-          <Routes>
-          <Route
-            exact
-            path="/"
-            element={
-              <>
-                <Home />
-                <Slider />
-                <Banner1 />
-                <Big />
-                <NA />
-                <BS />
-                <Mfoot />
-              </>
-            }
-          />
-          <Route exact path="/shop" element={<Shop />} />
-          <Route path="/product/:id" element={<ProductDetails />} />
-          {/* <Route path="/cartpage" element={<CartPage />} /> */}
-          </Routes>
-        </React.Fragment>
-        </CartContextProvider>
-      </BrowserRouter>
+  const [cartItems, setCartItems] = useState([]);
   
-  );
+  return (
+    <div>
+    <BrowserRouter>
+    <Navbar/>
+   
+   
+    <Routes>
+  
+     <Route exact path="/" element={<><Home/><Slider/><Banner1/><Big/><NA/><BS/><Mfoot/></>}></Route> 
+     <Route exact path="/shop" element={<><Shop/></>}></Route> 
+     <Route path="/product/:id" element={<ProductDetails cartItems={cartItems}/>}></Route>  
+    
+     <Route path="/cart" element={<><Cart cartItems= {cartItems}/></>}/>
+    
+   
+ 
+    </Routes>
+   
+    </BrowserRouter>
+     </div>
+ );
 }
 
 export default App;
 
-{/* 
-     <BrowserRouter>
-     <Navbar/>
-     
-     <Routes>
-    
-   
-     
+ 
 
-    
-   
-      <Route exact path="/" element={<><Home/><Slider/><Banner1/><Big/><NA/><BS/><Mfoot/></>}></Route> 
-      <Route exact path="/shop" element={<><Shop/></>}></Route> 
-      <Route path="/product/:id" element={<ProductDetails/>}></Route>  
-      <CartContextProvider>
-      <Route path="/cartpage" element={<><CartPage/></>}/>
-    
-     </CartContextProvider>
-    
-     </Routes>
-     </BrowserRouter>
-     
-    
-     
-    </div>
-    </>
-  );
-}
-
-export default App; */}

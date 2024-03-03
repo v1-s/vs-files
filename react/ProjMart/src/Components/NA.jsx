@@ -2,7 +2,7 @@ import React, { useState } from 'react';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faHeart } from '@fortawesome/free-solid-svg-icons';
 import {products } from './products';
-import AddToCart from './CartItem';
+// import AddToCart from './CartItem';
 function ProductCard({ product }) {
     console.log(product);
   const [isHovered, setIsHovered] = useState(false);
