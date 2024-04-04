@@ -1,10 +1,20 @@
 import React, { useContext,useEffect } from 'react';
-import {CartContext} from './CartContext';
+import {CartContext} from "./CartContext";
+import { products } from './products';
 import Footer from './Mfooter';
 import  './CartStyle.css';
 
 const Cart = ({inputValue}) => {
-  const { cartItems, dispatch, removeItemFromCart, increaseItemQuantity, decreaseItemQuantity, getTotalAmount, updateItemQuantity } = useContext(CartContext);
+  const {cartItems,
+    addItemToCart,
+    removeItemFromCart,
+    increaseItemQuantity,
+    decreaseItemQuantity,
+    updateItemQuantity,
+    getTotalAmount,
+  } = useContext(CartContext);
+
+
   console.log("Cart Items",cartItems);
   const totalAmount = getTotalAmount();
   console.log(totalAmount);
@@ -13,7 +23,10 @@ const Cart = ({inputValue}) => {
   console.log('Cart Items:', cartItems);
   useEffect(() => {
      console.log('Cart items updated:', cartItems);
-  }, [cartItems]);
+  },[cartItems]);
+  const handleQuantityChange = (itemId, newQuantity) => {
+    updateItemQuantity(itemId, newQuantity);
+  };
   if (cartItems.length === 0) {
     return(
       <div className='pageTitle'>
@@ -24,13 +37,12 @@ const Cart = ({inputValue}) => {
     )
   }
 
-  const handleQuantityChange = (itemId, newQuantity) => {
-    updateItemQuantity(itemId, newQuantity);
-  };
+  
 
   return (
     <div className='CartPage'>
        <h2 style={{height:'30px',paddingTop:'100px'}} >Shopping Cart</h2>
+      
             <div className='cartDivisions'>      
             <div className='displayCartItems'> 
 

@@ -4,7 +4,7 @@ import { products } from './products';
 import { Link } from 'react-router-dom';
 import { Navigate } from 'react-router-dom';
 import table from './Assests/Images/table.jpg';
-import { CartContext } from './CartContext';
+import { CartContext } from '';
 
 const ProductDetails = ({ cartItems, setCartItems }) => {
   const { state, dispatch } = useContext(CartContext);
@@ -37,10 +37,11 @@ const ProductDetails = ({ cartItems, setCartItems }) => {
     setIsLoading(false);
   }, [id]);
 
-  const addToCartAndNavigate = async (product, quantity) => {
+  const addItemToCart = async (product, quantity) => {
     try {
       const updatedCartItems = [...cartItems, { ...product, quantity }];
       setCartItems(updatedCartItems);
+      alert("product got added");
       console.log("updated",updatedCartItems);
       navigate('/cart');
     } catch (error) {
@@ -115,7 +116,8 @@ const ProductDetails = ({ cartItems, setCartItems }) => {
 
                         <button
                           onClick={() =>
-                            addToCartAndNavigate(fetchedProduct, quantity)
+                            addItemToCart(fetchedProduct, quantity)
+                            +1
                           }
                         >
                           Add to cart
