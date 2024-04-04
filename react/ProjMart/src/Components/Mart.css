@@ -262,10 +262,14 @@ padding-left: 200px;
   padding-top: 15px;
     margin-left: 16px;
 }
+.BF3content h5{
+  margin-left: 40px;
+}
 .BF3content{
   padding-top: 20px;
   padding-right:30px;
 }
+
 .BF4content h5{
   padding-top: 20px;
   text-align: left;

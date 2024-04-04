@@ -14,19 +14,78 @@ import { BrowserRouter,Route,Routes ,Link} from 'react-router-dom';
 import { useState,useContext } from 'react';
 import ProductDetails from './Components/ProductD';
 import React from 'react';
+import {CartProvider} from './Components/CartContext';
 
-// import CartPage from './Components/Cartpage';
-import Cartitems from './Components/Cartitems';
-import CartActions from './Components/CartActions';
-import CartSummary from './Components/Cartsummary';
 import Cart from './Components/Cart';
-
-
-function App() {
-  const [cartItems, setCartItems] = useState([]);
   
+function App() {
+   const [cartItems, setCartItems] = useState([]);
   return (
     <div>
+
+<CartProvider>
+      <BrowserRouter>
+        <Navbar />
+        <Routes>
+   
+
+        <Route exact path="/" element={<> <Home /> <Slider /> <Banner1 /> <Big /> <NA /> <BS /> <Mfoot /> </>}></Route>
+          <Route exact path="/shop" element={<Shop />}></Route>
+          <Route
+            path="/product/:id"
+            element={<ProductDetails cartItems={cartItems} setCartItems={setCartItems} />}
+          ></Route>
+
+          <Route path="/cart" element={<Cart cartItems={cartItems} />}></Route>
+         
+        </Routes>
+      </BrowserRouter>
+  
+      </CartProvider>
+    </div>
+
+   
+ );
+}
+
+export default App;
+
+ 
+
+
+
+{/* 
+<CartProvider>
+      <BrowserRouter>
+        <Navbar />
+
+        <Routes>
+          <Route exact path="/" element={<> <Home /> <Slider /> <Banner1 /> <Big /> <NA /> <BS /> <Mfoot /> </>}></Route>
+          <Route exact path="/shop" element={<> <Shop /> </>}></Route>
+          <Route path="/product/:id" element={<ProductDetails cartItems={cartItems} />}></Route>
+
+          <Route path="/cart" element={<Cart cartItems={cartItems}/>}></Route>
+        </Routes>
+      </BrowserRouter>
+  </CartProvider> */}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+         {/* <CartProvider>
     <BrowserRouter>
     <Navbar/>
    
@@ -44,11 +103,4 @@ function App() {
     </Routes>
    
     </BrowserRouter>
-     </div>
- );
-}
-
-export default App;
-
- 
-
+    </CartProvider> */}
