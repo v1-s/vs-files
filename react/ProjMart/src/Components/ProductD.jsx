@@ -4,7 +4,7 @@ import { products } from './products';
 import { Link } from 'react-router-dom';
 import { Navigate } from 'react-router-dom';
 import table from './Assests/Images/table.jpg';
-import { CartContext } from '';
+import { CartContext,CartProvider } from '../Components/CartContext';
 
 const ProductDetails = ({ cartItems, setCartItems }) => {
   const { state, dispatch } = useContext(CartContext);
