@@ -1,4 +1,4 @@
-import React, { useContext } from 'react';
+import React, { useContext,useEffect } from 'react';
 import {CartContext} from './CartContext';
 import Footer from './Mfooter';
 import  './CartStyle.css';
@@ -11,7 +11,9 @@ const Cart = ({inputValue}) => {
 
   const formattedTotalAmount = Number(totalAmount).toFixed(2);
   console.log('Cart Items:', cartItems);
-
+  useEffect(() => {
+     console.log('Cart items updated:', cartItems);
+  }, [cartItems]);
   if (cartItems.length === 0) {
     return(
       <div className='pageTitle'>
