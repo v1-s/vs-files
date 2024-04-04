@@ -146,6 +146,11 @@ const updateItemQuantity = (id) => {
 const useCartContext = () => useContext(CartContext);
 
 export {CartContext, CartProvider, useCartContext };
+
+
+
+
+
 //   <CartContext.Provider value={contextValue}>{children}</CartContext.Provider>;
 
 
