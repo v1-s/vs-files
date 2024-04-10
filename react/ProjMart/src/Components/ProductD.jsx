@@ -4,7 +4,7 @@ import { products } from './products';
 import { Link } from 'react-router-dom';
 import { Navigate } from 'react-router-dom';
 import table from './Assests/Images/table.jpg';
-import { CartContext,CartProvider } from '../Components/CartContext';
+import { CartContext,CartProvider } from './CartContext';
 
 const ProductDetails = ({ cartItems, setCartItems }) => {
   const { state, dispatch } = useContext(CartContext);
@@ -36,6 +36,18 @@ const ProductDetails = ({ cartItems, setCartItems }) => {
     }
     setIsLoading(false);
   }, [id]);
+  // const addItemToCart = async (product, quantity) => {
+  //   try {
+  //     // Update cart items using the state updater function
+  //     setCartItems(prevCartItems => [...prevCartItems, { ...product, quantity }]);
+  //     alert("Product added to cart");
+  //     // Navigate to the cart page after adding the product
+  //     navigate('/cart');
+  //   } catch (error) {
+  //     console.error("Error adding to cart:", error);
+  //   }
+  // };
+  
 
   const addItemToCart = async (product, quantity) => {
     try {
