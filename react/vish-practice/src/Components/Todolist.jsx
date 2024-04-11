@@ -1,7 +1,7 @@
 import React from "react";
 import { useState } from "react";
 export default function Todo(){
-    const [Text,setText]=useState('');
+    const [Text,setText]=useState("");
     const [List,setList]=useState([]);
     function Del(index){
             setList(List.filter(e=>e.id!==index))
@@ -25,10 +25,5 @@ export default function Todo(){
                 <button onClick={Del}>Delete</button>
                         
             </div>
-        }
-        )};
-               
-            
-        </div>
-    );
-}
+    )
+        };

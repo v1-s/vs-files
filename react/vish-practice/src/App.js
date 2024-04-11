@@ -7,6 +7,7 @@ import './App.css';
 // import './Taskclk.css';
 // import Counter from './Components/Prac';
 import Funcform from './Components/Funcform';
+import MySuspenseComponent from './Components/Susp';
 function App() {
   return (
     <div className="App">
@@ -15,7 +16,8 @@ function App() {
     {/* <Task></Task> */}
     {/* <Calender></Calender> */}
     {/* <Counter/> */}
-    <Funcform/>
+    {/* <Funcform/> */}
+    <MySuspenseComponent/>
     </div>
 
   );
