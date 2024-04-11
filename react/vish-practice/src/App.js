@@ -8,6 +8,7 @@ import './App.css';
 // import Counter from './Components/Prac';
 import Funcform from './Components/Funcform';
 import MySuspenseComponent from './Components/Susp';
+import ConditionalRendering from './Components/Taskclk';
 function App() {
   return (
     <div className="App">
@@ -17,7 +18,8 @@ function App() {
     {/* <Calender></Calender> */}
     {/* <Counter/> */}
     {/* <Funcform/> */}
-    <MySuspenseComponent/>
+    <ConditionalRendering/>
+    {/* <MySuspenseComponent/> */}
     </div>
 
   );
