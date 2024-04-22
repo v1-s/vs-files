@@ -10,6 +10,14 @@ import Funcform from './Components/Funcform';
 import MySuspenseComponent from './Components/Susp';
 import ConditionalRendering from './Components/Taskclk';
 function App() {
+  const [isLoggedIn,setIsLoggedIn] =React.useState(false);
+  const handleLogin = () => {
+    setLoggedIn(true);
+  };
+
+  const handleLogout = () => {
+    setLoggedIn(false);
+  };
   return (
     <div className="App">
     {/* <Color></Color> */}
@@ -18,8 +26,17 @@ function App() {
     {/* <Calender></Calender> */}
     {/* <Counter/> */}
     {/* <Funcform/> */}
-    <ConditionalRendering/>
+    <ConditionalRendering/>/
+    <button>
+    <LoginButton isLoggedIn={isLoggedIn} onLogin={handleLogin} onLogout={handleLogout} />
+    </button>
     {/* <MySuspenseComponent/> */}
+
+
+
+
+
+
     </div>
 
   );
