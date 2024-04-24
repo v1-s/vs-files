@@ -1,0 +1,57 @@
+.table {
+  border-collapse: collapse;
+  width: 100%; /* Set the table width */
+}
+
+.table th,
+.table td {
+  border: 1px solid #ddd;
+  padding: 8px;
+}
+
+.table th {
+  background-color: #f2f2f2;
+  font-weight: bold;
+}
+
+/* .table tr:nth-child(even) {
+  background-color: #f2f2f2;
+} */
+
+.table tr.clickable:hover {
+  cursor: pointer;
+  background-color: #fff;
+}
+
+.table .details {
+  display: none;
+}
+
+.table .details.show {
+  display: table-row-group; /* Display nested details when expanded */
+}
+
+.table .details.collapse {
+  display: flex; /* Changed from display: block for better layout control */
+  width: 100%; /* Match the width of the main table */
+}
+
+.table .details td {
+  border-top: 0; /* Remove top border for nested details */
+}
+
+
+.clickable.show {
+  background-color: #f5f5f5; /* Light gray background for clicked row */
+  cursor: pointer; /* Change cursor to pointer on hover */
+}
+
+.details-table {
+  margin-top: 5px; /* Add some space between the main row and details */
+  padding: 5px; /* Add padding for better readability */
+  border: 1px solid #ddd; /* Add a thin border to separate the details */
+}
+
+.details-table th {
+  font-weight: bold; /* Bold text for headers in details table */
+}
