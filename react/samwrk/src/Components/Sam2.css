@@ -1,4 +1,82 @@
-  .user-dashboard {
+body {
+  font-family: Arial, sans-serif;
+}
+
+h2 {
+  margin-bottom: 20px;
+}
+
+form {
+  display: flex;
+  flex-direction: row;
+  width: 100%;
+  margin-bottom: 20px;
+}
+
+label {
+  margin-bottom: 10px;
+}
+
+input[type="text"] {
+  margin-bottom: 10px;
+  padding: 5px;
+  width: 50%;
+}
+
+input[type="submit"] {
+  margin-top: 10px;
+  padding: 5px;
+  width: 10%;
+  background-color: #007bff;
+  color: white;
+  border: none;
+  cursor: pointer;
+}
+
+table {
+  width: 100%;
+  border-collapse: collapse;
+}
+
+th, td {
+  padding: 10px;
+  text-align: left;
+  border-bottom: 1px solid #ddd;
+}
+
+th {
+  background-color: #f2f2f2;
+}
+
+tr:hover {
+  background-color: #f5f5f5;
+}
+
+button {
+  background-color: #dc3545;
+  color: white;
+  padding: 5px;
+  border: none;
+  cursor: pointer;
+  margin-top: 100px;
+  height: 50px;
+}
+
+button:hover {
+  background-color: #c82333;
+}
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  /* .user-dashboard {
     display: flex;
     flex-direction:column;
     align-items: center;
@@ -54,4 +132,4 @@
     background-color: #f2f2f2;
     font-weight: bold;
   }
-  
+   */
