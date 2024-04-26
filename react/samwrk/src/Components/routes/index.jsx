@@ -1,8 +1,9 @@
+import React from "react";
 import { RouterProvider, createBrowserRouter } from "react-router-dom";
 import { useAuth } from "../Provider/authprovider";
 import { ProtectedRoute } from "./ProtectedRoute";
-import Login from "../pages/Login";
-import Logout from "../pages/Logout";
+import Login from "../Login";
+import Logout from "../Logout";
 
 const Routes = () => {
   const { token } = useAuth();
@@ -38,7 +39,7 @@ const Routes = () => {
           element: <Logout/>,
         },
       ],
-    },
+    },  
   ];
 
   // Define routes accessible only to non-authenticated users
