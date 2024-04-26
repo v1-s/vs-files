@@ -8,23 +8,24 @@ import AuthProvider from './Components/Provider/authprovider';
 import { BrowserRouter as Router, Route, Switch } from 'react-router-dom';
 import LoginPage from '../src/Components/Login';
 import HomePage from './Components/HomePage';
-import ProtectedRoute from './components/ProtectedRoute';
+import ProtectedRoute from "../src/Components/routes/ProtectedRoute";
 function App() {
   return (
     <>
-<AuthProvider>
+      {/* <UserDashboard/> */}
+{/* <AuthProvider>
       <Router>
         <Switch>
           <Route path="/login" component={LoginPage} />
           <ProtectedRoute path="/" component={HomePage} />
         </Switch>
       </Router>
-    </AuthProvider>
+    </AuthProvider> */}
     {/* <AuthProvider>
       <Routes/>
     </AuthProvider> */}
-    {/* <CallDetailsTable/> */}
-    {/* <UserDashboard/> */}
+    <CallDetailsTable/>
+  
     </>
   );
 }
