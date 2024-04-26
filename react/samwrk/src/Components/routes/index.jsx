@@ -1,7 +1,7 @@
 import React from "react";
 import { RouterProvider, createBrowserRouter } from "react-router-dom";
 import { useAuth } from "../Provider/authprovider";
-import { ProtectedRoute } from "./ProtectedRoute";
+import {ProtectedRoute} from "../routes/ProtectedRoute";
 import Login from "../Login";
 import Logout from "../Logout";
 

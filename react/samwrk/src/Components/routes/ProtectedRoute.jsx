@@ -1,16 +1,22 @@
-import React from "react";
-import { Navigate, Outlet } from "react-router-dom";
-import { useAuth } from "../Provider/authprovider";
+import React from 'react';
+import { Route, Redirect } from 'react-router-dom';
+import { useAuth } from '../Provider/authprovider';
 
-export const ProtectedRoute = () => {
-  const { token } = useAuth();
+const ProtectedRoute = ({ component: Component, ...rest }) => {
+  const { auth } = useAuth();
 
-  // Check if the user is authenticated
-  if (!token) {
-    // If not authenticated, redirect to the login page
-    return <Navigate to="/login" />;
-  }
-
-  // If authenticated, render the child routes
-  return <Outlet />;
+  return (
+    <Route
+      {...rest}
+      render={(props) =>
+        auth.token ? (
+          <Component {...props} />
+        ) : (
+          <Redirect to="/login" />
+        )
+      }
+    />
+  );
 };
+
+export default ProtectedRoute;
