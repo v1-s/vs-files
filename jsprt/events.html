@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <div class="parent" style="background-color: blue;padding:20px; text-align: center;">
+        Parent
+        <div class="child1" style="background-color: red;padding:20px;">Child1
+        <div class="child2" style="background-color: rebeccapurple;padding:20px;">Child2</div>
+    </div>
+    </div>
+    <script>
+        document.querySelector(".parent").addEventListener("click", () => {
+            alert("Hello I'm parent");
+        });
+    
+        document.querySelector(".child1").addEventListener("click", () => {
+            alert("I'm child1");
+        });
+    
+        // document.querySelector(".child2").addEventListener("click", (event) => {
+        //     event.stopPropagation();
+        //     alert("I'm child2 (stopPropagation)");
+        // });
+    
+       
+        document.querySelector(".child2").addEventListener("click", (event) => {
+            event.stopImmediatePropagation();
+            alert("I'm child2 (stopImmediatePropagation)");
+        });
+        document.querySelector(".child2").addEventListener("click", (event) => {
+            alert("I'm child2 (second listener)");
+        });
+    
+    </script>
+    
+</body>
+
+</html>

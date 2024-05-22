@@ -1,39 +1,75 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Animated Navbar</title>
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+<style>
+  /* Add your custom CSS styles here */
+
+  /* Circle animation */
+  .circle {
+    position: absolute;
+    border-radius: 50%;
+    background-color: rgba(255, 255, 255, 0.5);
+    width: 20px;
+    height: 20px;
+    transform: scale(0);
+    transition: transform 0.3s ease-out;
+  }
+
+  /* Navbar animation */
+  .nav-item {
+    position: relative;
+    cursor: pointer;
+    transition: transform 0.3s ease-out;
+  }
+
+  .nav-item:hover {
+    transform: scale(1.1);
+  }
+
+  .nav-item.active .circle {
+    transform: scale(3);
+  }
+</style>
 </head>
 <body>
-    <script>
-        const dummy_Url2='https://dummyjson.com/posts';
-        fetch(dummy_Url2)
-        .then(response=>response.json())
-        .then(posts=>
-                console.log(posts))
-        posts=>{
-            posts.forEach(post=>{
-                console.log(`ID:${post.id}`)
-            })
-        }
-        
-        //     let li=`<tr><th>Id</th><th>Name</th><th>body</th></tr>`
-        //     let td=document.createElement("td");
-        //     let tr=document.createElement("tr");
-        //     posts.forEach(post => {
-        //         li+=`<tr> 
-        //         <td>${post.id} </td>
-        //         <td>${post.title}</td>  
-        //         <td>${post.body}</td>        
-        //     </tr>`;
-        //     });
-        //     let table = document.createElement('table');
-        // table.innerHTML = output;
-        // document.body.appendChild(table);
-        // })
-        // .catch(error => console.error('Error:', error));
 
-    </script>
+<section class="headerContainer p-0">
+  <nav class="navbar navbar-expand-lg navbar-light sticky-top p-0">
+    <a href="index.html" class="navbar-brand d-flex align-items-center px-4 px-lg-5">
+      <img class="for-web logo-img" alt="Murali Pagadala - CorporateGuru" src="assets/img/logo.png" />
+    </a>
+    <button type="button" class="navbar-toggler me-4" data-bs-toggle="collapse" data-bs-target="#navbarCollapse">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+    <div class="collapse navbar-collapse" id="navbarCollapse">
+      <div class="navbar-nav ms-auto p-4 p-lg-0">
+        <div class="nav-item dropdown">
+          <a href="#" class="nav-link dropdown-toggle" onclick="toggleCircle(this)">Life Lessons</a>
+          <div class="dropdown-menu fade-up m-0">
+            <!-- Add your dropdown items here -->
+          </div>
+          <div class="circle"></div>
+        </div>
+        <!-- Add other navbar items here -->
+      </div>
+    </div>
+  </nav>
+</section>
+
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+<script>
+  function toggleCircle(element) {
+    var circle = $(element).next('.circle');
+    circle.toggleClass('active');
+    setTimeout(function() {
+      circle.removeClass('active');
+    }, 500);
+  }
+</script>
+
 </body>
 </html>

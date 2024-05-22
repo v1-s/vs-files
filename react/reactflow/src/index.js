@@ -2,16 +2,13 @@ import React from 'react';
 import ReactDOM from 'react-dom/client';
 import './index.css';
 import App from './App';
-import 'bootstrap/dist/css/bootstrap.min.css';
-import 'bootstrap/dist/js/bootstrap.bundle.min.js'; 
 import reportWebVitals from './reportWebVitals';
+
 const root = ReactDOM.createRoot(document.getElementById('root'));
 root.render(
-// <  <div className='main-app'>
-<React.StrictMode>
+  <div className='main-app'>
     <App />
-  
-    </React.StrictMode>
+  </div>
 );
 
 // If you want to start measuring performance in your app, pass a function
