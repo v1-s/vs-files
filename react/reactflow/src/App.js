@@ -83,12 +83,14 @@
 import React from 'react';
 import './App.css';
 import Flow from './Components/workflowData';
+import HomePage from './Components/Travel/HomePage';
 
 function App() {
   return (
     <div className="App">
      
-      <h1>React Flow Workflow</h1>
+     {/* <HomePage/> */}
+     
       <Flow />
      
     </div>

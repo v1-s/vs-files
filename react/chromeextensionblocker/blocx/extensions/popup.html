@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <!-- Meta tags and title here -->
+</head>
+<body>
+  <!-- HTML content for managing blocklist -->
+  <script>
+
+document.addEventListener('DOMContentLoaded', () => {
+  const newSiteInput = document.getElementById('newSite');
+  const addSiteButton = document.getElementById('addSite');
+  const blocklistElement = document.getElementById('blocklist');
+
+  // Load blocklist from storage
+  chrome.storage.sync.get(['blocklist'], (result) => {
+    const blocklist = result.blocklist || [];
+    blocklist.forEach(site => addBlocklistItem(site));
+  });
+
+  // Add site to blocklist
+  addSiteButton.addEventListener('click', () => {
+    const newSite = newSiteInput.value.trim();
+    if (newSite) {
+      chrome.storage.sync.get(['blocklist'], (result) => {
+        const blocklist = result.blocklist || [];
+        blocklist.push(newSite);
+        chrome.storage.sync.set({ blocklist }, () => {
+          addBlocklistItem(newSite);
+          newSiteInput.value = '';
+        });
+      });
+    }
+  });
+
+  // Add item to blocklist UI
+  function addBlocklistItem(site) {
+    const li = document.createElement('li');
+    li.textContent = site;
+    const removeButton = document.createElement('button');
+    removeButton.textContent = 'Remove';
+    removeButton.addEventListener('click', () => {
+      chrome.storage.sync.get(['blocklist'], (result) => {
+        const blocklist = result.blocklist || [];
+        const updatedBlocklist = blocklist.filter(item => item !== site);
+        chrome.storage.sync.set({ blocklist: updatedBlocklist }, () => {
+          li.remove();
+        });
+      });
+    });
+    li.appendChild(removeButton);
+    blocklistElement.appendChild(li);
+  }
+});
+  </script>
+</body>
+</html>

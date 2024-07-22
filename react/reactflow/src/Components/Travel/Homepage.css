@@ -1,0 +1,58 @@
+.navbar-nav{
+    display: flex;
+    flex-direction:row !important;  
+    padding: 10px;
+    /* background-color: black; */
+}
+.nav-item{
+    padding: 10px;
+}
+.search-bar {
+    /* width: 100%; */
+    
+    margin-bottom: 1rem; /* Optional: add spacing */
+    /* margin-left: -230px !important; */
+    /* gap: 70px; */
+    margin-top: 15px;
+  }
+ 
+  .form-ctrl input{
+    height: 36px;
+    width: 500px !important;
+    border:none;
+    border-radius:5px;
+  }
+  .form-ctrl ::placeholder{
+    padding-left: 20px !important;
+  }
+  #search-term{
+    /* width: 170px; */
+    margin-left: 100px;
+  }
+  .search-bar label {
+    margin-bottom: 0.5rem; /* Optional: adjust spacing */
+  }
+
+.form-control:hover{
+    box-shadow: none !important;
+}
+.search-bar .form-control:hover {
+    box-shadow: 0 0 0 rgba(0, 0, 0, 0.2); /* Add a slight shadow on hover */
+  }
+  
+  .search-bar .form-control:focus {
+    box-shadow: 0 0 0 rgba(0, 0, 0, 0) /* Optional: Add a focus shadow */
+  }
+  
+  .search-bar .form-control:not(:focus):not(:hover) {
+    box-shadow: none; /* Remove shadow on mouse leave and no focus */
+  }
+/* ------ */
+.secNavbar{
+    margin-top: 50px !important;
+    /* display: flex; */
+    /* flex-direction: row !important; */
+    color: black;
+    z-index: 1 !important;
+}
+  
